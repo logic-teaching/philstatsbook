@@ -2,3 +2,4 @@ jupyter-book
 matplotlib
 numpy
 scipy.stats
+docutils<0.18
