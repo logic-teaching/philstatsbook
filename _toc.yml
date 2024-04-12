@@ -1,0 +1,8 @@
+# In _toc.yml
+format: jb-book
+root: intro
+chapters:
+- file: PhilstatsWeek1aTuesday
+- file: PhilstatsWeek1bThursday
+- file: PhilstatsWeek2aTuesday
+- file: PhilstatsWeek2bThursday
