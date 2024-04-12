@@ -1,8 +1,10 @@
-# In _toc.yml
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
 format: jb-book
 root: intro
 chapters:
-- file: PhilstatsWeek1aTuesday
-- file: PhilstatsWeek1bThursday
-- file: PhilstatsWeek2aTuesday
-- file: PhilstatsWeek2bThursday
+- file: Chap01
+- file: Chap02
+- file: Chap03
+- file: Chap04

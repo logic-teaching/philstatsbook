@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 2 &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap02';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3" href="Chap03.html" />
+    <link rel="prev" title="Chapter 1" href="Chap01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chap02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-set-theoretic-operations">Review of set-theoretic operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-axioms">Probability axioms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning-and-conditionals">Conditioning and conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretations-of-probability">Interpretations of probability</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2">
+<h1>Chapter 2<a class="headerlink" href="#chapter-2" title="Link to this heading">#</a></h1>
+<section id="review-of-set-theoretic-operations">
+<h2>Review of set-theoretic operations<a class="headerlink" href="#review-of-set-theoretic-operations" title="Link to this heading">#</a></h2>
+<p>Recall from last time:</p>
+<p><strong>Set-theoretic operations</strong></p>
+<p>We are usually just working with subsets of a given set <span class="math notranslate nohighlight">\(\Omega\)</span>, which is fixed by the topic at hand.</p>
+<p>There’s some operations that we need to remind ourselves of:</p>
+<ul class="simple">
+<li><p>Intersection of <span class="math notranslate nohighlight">\(A,B\)</span>, symbol <span class="math notranslate nohighlight">\(A\cap B\)</span>, definition: <span class="math notranslate nohighlight">\(A\cap B= \{x\in \Omega: x\in A \wedge x\in B\}\)</span></p></li>
+<li><p>Union of <span class="math notranslate nohighlight">\(A,B\)</span>, symbol <span class="math notranslate nohighlight">\(A\cup B\)</span>, definition: <span class="math notranslate nohighlight">\(A\cup B= \{x\in \Omega: x\in A \vee x\in B\}\)</span></p></li>
+<li><p>Difference of <span class="math notranslate nohighlight">\(A\)</span> from <span class="math notranslate nohighlight">\(B\)</span>, symbol <span class="math notranslate nohighlight">\(A\mbox{-} B\)</span>, definition: <span class="math notranslate nohighlight">\(A\mbox{-} B = \{x\in \Omega: x\in A \wedge x\notin B\}\)</span></p></li>
+<li><p>Relative complement of <span class="math notranslate nohighlight">\(A\)</span>, symbol <span class="math notranslate nohighlight">\(A^c\)</span> or <span class="math notranslate nohighlight">\(\overline{A}\)</span>, definition: <span class="math notranslate nohighlight">\(A^c = \overline{A} =\{x\in \Omega: x\notin A\}\)</span></p></li>
+</ul>
+<p>The empty set <span class="math notranslate nohighlight">\(\emptyset\)</span> is the subset of <span class="math notranslate nohighlight">\(\Omega\)</span> that has no elements.</p>
+<hr class="docutils" />
+<p><strong>Definition</strong> (subset)</p>
+<p>A set <span class="math notranslate nohighlight">\(A\)</span> is a <em>subset</em> of <span class="math notranslate nohighlight">\(B\)</span> if every element of <span class="math notranslate nohighlight">\(A\)</span> is also an element of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>We write <span class="math notranslate nohighlight">\(A\subseteq B\)</span> for <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>For instance <span class="math notranslate nohighlight">\(\{0,1,2\}\)</span> is a subset of <span class="math notranslate nohighlight">\(\{0,1,2,3,4\}\)</span> since each number in the first set is in the second set.</p>
+<p>But we do not have <span class="math notranslate nohighlight">\(\{0,1,2\}\)</span> is a subset of <span class="math notranslate nohighlight">\(\{1,2,3,4\}\)</span> since <span class="math notranslate nohighlight">\(0\)</span> is in the first set but not in the second set.</p>
+<hr class="docutils" />
+<p><strong>Definition</strong> (disjointness)</p>
+<p>Sets <span class="math notranslate nohighlight">\(A,B\)</span> are <em>disjoint</em> if <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span></p>
+<p>For instance, <span class="math notranslate nohighlight">\(\{1,2,3\}\)</span> and <span class="math notranslate nohighlight">\(\{8,9,10\}\)</span> are disjoint.</p>
+<p>Sets <span class="math notranslate nohighlight">\(A,B,C\)</span> are <em>pairwise disjoint</em> if <span class="math notranslate nohighlight">\(A,B\)</span> are disjoint and <span class="math notranslate nohighlight">\(A,C\)</span> are disjoint and <span class="math notranslate nohighlight">\(B,C\)</span> are disjoint.</p>
+<p>For instance, <span class="math notranslate nohighlight">\(\{1,2\}, \{8,9\}, \{15,16\}\)</span> are pairwise disjoint.</p>
+<p>We define pairwise disjointness for longer sequences of sets similarly.</p>
+<hr class="docutils" />
+<p><strong>Recall</strong> from last time:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Philosophy</p></th>
+<th class="head text-center"><p>Probability</p></th>
+<th class="head text-center"><p>Logic</p></th>
+<th class="head text-center"><p>Math</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\Omega\)</span></p></td>
+<td class="text-center"><p>Set of worlds</p></td>
+<td class="text-center"><p>Sample space</p></td>
+<td class="text-center"><p>Set of models</p></td>
+<td class="text-center"><p>Underlying set</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\{A: A\subseteq \Omega\}\)</span></p></td>
+<td class="text-center"><p>Set of propositions</p></td>
+<td class="text-center"><p>Event space</p></td>
+<td class="text-center"><p>Sets determined by formulas</p></td>
+<td class="text-center"><p>Powerset of underlying set</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(X:\Omega\rightarrow \mathbb{R}\)</span></p></td>
+<td class="text-center"><p>na</p></td>
+<td class="text-center"><p>Random variable</p></td>
+<td class="text-center"><p>na</p></td>
+<td class="text-center"><p>Real-valued function</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\{\omega\in \Omega: X(\omega)\in R\}\)</span></p></td>
+<td class="text-center"><p>na</p></td>
+<td class="text-center"><p>the event <span class="math notranslate nohighlight">\(X\in R\)</span></p></td>
+<td class="text-center"><p>na</p></td>
+<td class="text-center"><p>the set <span class="math notranslate nohighlight">\(X^{-1}(R)\)</span>, called the inverse image</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this last one, <span class="math notranslate nohighlight">\(R\)</span> is a subset of the reals <span class="math notranslate nohighlight">\(\mathbb{R}\)</span></p>
+<p><strong>In what follows, we use the probability terminology.</strong></p>
+</section>
+<section id="probability-axioms">
+<h2>Probability axioms<a class="headerlink" href="#probability-axioms" title="Link to this heading">#</a></h2>
+<p><strong>Definition</strong> (probability axioms)</p>
+<p>A <em>probability measure</em> <span class="math notranslate nohighlight">\(P\)</span> is a function from subsets of the space <span class="math notranslate nohighlight">\(\Omega\)</span> to real numbers  satisfying the following for all events <span class="math notranslate nohighlight">\(A,B\subseteq \Omega\)</span>:</p>
+<ul class="simple">
+<li><p>Non-negativity: <span class="math notranslate nohighlight">\(P(A)\geq 0\)</span></p></li>
+<li><p>Finite additivity: <span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)\)</span> if <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span></p></li>
+<li><p>Value of entire space: <span class="math notranslate nohighlight">\(P(\Omega)=1\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p>Again, if <span class="math notranslate nohighlight">\(\Omega\)</span> is infinite, one will in general need to restrict attention to Borel events (or some other reasonably defined class of events). And again, we ignore this issue here, not because it is unimportant but because it is a slightly different subject (measure theory and/or descriptive set theory).</p>
+<p>For rest of this section, we fix <span class="math notranslate nohighlight">\(\Omega\)</span> and only consider events (sets) which are subsets of <span class="math notranslate nohighlight">\(\Omega\)</span></p>
+<p><strong>Proposition</strong> (value of complements)</p>
+<p>For all events <span class="math notranslate nohighlight">\(A\)</span>, we have: <span class="math notranslate nohighlight">\(P(A^c)=1-P(A)\)</span></p>
+<p><em>Proof</em>:</p>
+<p>We always have <span class="math notranslate nohighlight">\(\Omega = (\Omega\mbox{-}A)\cup A\)</span> and <span class="math notranslate nohighlight">\(\Omega\mbox{-}A, A\)</span> are disjoint (Draw the picture)</p>
+<p>Then by finite additivity one has:</p>
+<p><span class="math notranslate nohighlight">\(1 = P(\Omega) = P((\Omega\mbox{-}A)\cup A) = P(\Omega\mbox{-}A)+P(A)=P(A^c)+P(A)\)</span></p>
+<p>Then subtract <span class="math notranslate nohighlight">\(P(A)\)</span> from both sides.</p>
+<p><strong>Corollary</strong> (value for emptyset)</p>
+<p>We have <span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></p>
+<p><em>Proof</em>:</p>
+<p>Since <span class="math notranslate nohighlight">\(\emptyset^c =\Omega\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(P(\emptyset^c) =1-P(\Omega)=1-1=0\)</span>.</p>
+<p><strong>Proposition</strong> (monotonicity)</p>
+<p>For all events <span class="math notranslate nohighlight">\(A,B\)</span> if <span class="math notranslate nohighlight">\(A\subseteq B\)</span> then <span class="math notranslate nohighlight">\(P(A)\leq P(B)\)</span></p>
+<p>Proof:</p>
+<p>When <span class="math notranslate nohighlight">\(A\subseteq B\)</span> we have <span class="math notranslate nohighlight">\(B=A\cup (B\mbox{-}A)\)</span> and <span class="math notranslate nohighlight">\(A,B\mbox{-}A\)</span> are disjoint. (Draw the picture)</p>
+<p>We then appeal to finite monotoncity as follows:</p>
+<p><span class="math notranslate nohighlight">\(P(B) = P(A)+P(B\mbox{-}A)\geq P(A)\)</span></p>
+<p>For the last inequality, we appeal to non-negativity.</p>
+<p><strong>Corollary</strong> (values in the interval 0 to 1)</p>
+<p>For all events <span class="math notranslate nohighlight">\(A\)</span>, we have <span class="math notranslate nohighlight">\(0\leq P(A)\leq 1\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p>We always have <span class="math notranslate nohighlight">\(A\subseteq \Omega\)</span>.</p>
+<p>Hence by monotonicity <span class="math notranslate nohighlight">\(P(A)\leq P(\Omega) =1\)</span>.</p>
+<p><strong>Proposition</strong> (finite additivity, redeux)</p>
+<p>For pairwise disjoint events <span class="math notranslate nohighlight">\(A,B,C\)</span> one has</p>
+<p><span class="math notranslate nohighlight">\(P(A\cup B\cup C) = P(A)+P(B)+P(C)\)</span></p>
+<p><em>Proof</em>:</p>
+<p>If <span class="math notranslate nohighlight">\(A,B,C\)</span> are pairwise disjoint, then <span class="math notranslate nohighlight">\(A, B\cup C\)</span> are disjoint too (draw the picture). Then by two applications of finite additivity we have</p>
+<p><span class="math notranslate nohighlight">\(P(A\cup B \cup C) = P(A)+P(B\cup C)=P(A)+P(B)+P(C)\)</span></p>
+<p><em>Note 1</em>:</p>
+<p>In this proof, we are relying on rules of sets, such as associativity of union, which says that <span class="math notranslate nohighlight">\((A\cup B)\cup C=A\cup (B\cup C)\)</span>, and so we can “drop parentheses” and just write it as <span class="math notranslate nohighlight">\(A\cup B\cup C\)</span>.</p>
+<p><em>Note 2</em>:</p>
+<p>The same proposition holds for any finite sequence of pairwise disjoint events.</p>
+<p><strong>Proposition</strong> (inclusion-exclusion)</p>
+<p>For all events <span class="math notranslate nohighlight">\(A,B\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(P(A\cup B) = P(A)+P(B)-P(A\cap B)\)</span></p>
+<p><em>Proof</em> (less detailed):</p>
+<p><span class="math notranslate nohighlight">\(P(A\cup B) = P(A\mbox{-}B) + P(B\mbox{-}A) + P(A\cap B)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20mm} = P(A)-P(A\cap B)+P(B)-P(A\cap B)+P(A\cap B)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20mm} = P(A)+P(B)-P(A\cap B)\)</span></p>
+<p><em>Proof</em> (more detailed):</p>
+<p>We have that <span class="math notranslate nohighlight">\(A\cup B = (A\mbox{-}B)\cup (B\mbox{-}A) \cup (A\cap B)\)</span> and <span class="math notranslate nohighlight">\(A\mbox{-}B, B\mbox{-}A, A\cap B\)</span> are  are pairwise disjoint (draw the picture)</p>
+<p>Hence by finite additivity we have</p>
+<p>(1) <span class="math notranslate nohighlight">\(P(A\cup B) = P(A\mbox{-}B) + P(B\mbox{-}A) + P(A\cap B)\)</span></p>
+<p>But we also have <span class="math notranslate nohighlight">\(A=(A\mbox{-}B)\cup (A\cap B)\)</span> and <span class="math notranslate nohighlight">\(B=(B\mbox{-}A)\cup (A\cap B)\)</span> and the relevant sets are disjoint (draw the picture)</p>
+<p>Hence by finite additivity and some subtraction we get:</p>
+<p>(2) <span class="math notranslate nohighlight">\(P(A)=P(A\mbox{-}B)+ P(A\cap B)\)</span></p>
+<p>(2’) <span class="math notranslate nohighlight">\(P(A\mbox{-}B)=P(A)-P(A\cap B)\)</span></p>
+<p>(3) <span class="math notranslate nohighlight">\(P(B)=P(B\mbox{-}A)+P(A\cap B)\)</span></p>
+<p>(3’) <span class="math notranslate nohighlight">\(P(B\mbox{-}A)=P(B)-P(A\cap B)\)</span></p>
+<p>We then just chain together (1), (2’), (3’) to get</p>
+<p><span class="math notranslate nohighlight">\(P(A\cup B) = P(A\mbox{-}B) + P(B\mbox{-}A) + P(A\cap B)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20mm} = P(A)-P(A\cap B)+P(B)-P(A\cap B)+P(A\cap B)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20mm} = P(A)+P(B)-P(A\cap B)\)</span></p>
+</section>
+<section id="conditioning-and-conditionals">
+<h2>Conditioning and conditionals<a class="headerlink" href="#conditioning-and-conditionals" title="Link to this heading">#</a></h2>
+<p><strong>Definition</strong> (Conditional probability)</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(P\)</span> is a probability measure and <span class="math notranslate nohighlight">\(P(E)&gt;0\)</span>. Then the <em>conditional probability</em> <span class="math notranslate nohighlight">\(P(H\mid E)\)</span> of <span class="math notranslate nohighlight">\(H\)</span> given <span class="math notranslate nohighlight">\(E\)</span> is $<span class="math notranslate nohighlight">\(P(H\mid E)=\frac{P(H\cap E)}{P(E)}\)</span>$</p>
+<p><strong>Alterate notation</strong> (Subscript notation for conditional probability)</p>
+<p>We also write: <span class="math notranslate nohighlight">\(P_E(H)=P(H|E)\)</span>.</p>
+<p><strong>Convention</strong> (Assume your interlocutor is not dividing by zero)</p>
+<p>Whenever anyone writes <span class="math notranslate nohighlight">\(P(H|E)\)</span> or <span class="math notranslate nohighlight">\(P_E(H)\)</span>, assume that they are restricting their statement to the case where <span class="math notranslate nohighlight">\(P(E)&gt;0\)</span>.</p>
+<p>This saves us from needing to write out this hypothesis over and over again.</p>
+<p><strong>Proposition</strong> (repeated conditioning)</p>
+<p><span class="math notranslate nohighlight">\(P_E(H\mid E') = P(H\mid E\cap E')\)</span></p>
+<p><em>Proof</em>:</p>
+<div class="math notranslate nohighlight">
+\[ P_E(H\mid E') =\frac{P_E(H\cap E')}{P_E(E')} = \frac{P(H\cap E'\cap E)/P(E')}{P(E\cap E')/P(E')} = \frac{P(H\cap E'\cap E)}{P(E\cap E')} = P(H\mid E\cap E')\]</div>
+<p><strong>Proposition</strong> (conditioning induces a probability measure)</p>
+<p>For all <span class="math notranslate nohighlight">\(E\)</span>, one has that <span class="math notranslate nohighlight">\(P_E\)</span> is also a probability measure.</p>
+<p><em>Proof</em>: Non-negativity: <span class="math notranslate nohighlight">\(P_E(A)=\frac{P(A\cap E)}{P(E)}\geq 0\)</span>.</p>
+<p>Finite additivity: assuming <span class="math notranslate nohighlight">\(A,B\)</span> are disjoint, we have</p>
+<p><span class="math notranslate nohighlight">\(P_E(A)+P_E(B)=\frac{P(A\cap E)}{P(E)}+\frac{P(B\cap E)}{P(E)}=\frac{P((A\cap E)\cup (B\cap E))}{P(E)}=\frac{P((A\cup B)\cap E)}{P(E)}=P_E(A\cup B)\)</span></p>
+<p>The first identity is definition, the second is <span class="math notranslate nohighlight">\(A\cap E, B\cap E\)</span> disjoint (draw picture); the third identity is distributivity; the last identity is definition.</p>
+<p>Value of the whole space: <span class="math notranslate nohighlight">\(P_E(\Omega) = \frac{P(\Omega\cap E)}{P(E)} = \frac{P(E)}{P(E)}=1\)</span> since <span class="math notranslate nohighlight">\(\Omega\cap E=\Omega\)</span>.</p>
+<p><strong>Theorem</strong> (Bayes’ theorem / formula)</p>
+<div class="math notranslate nohighlight">
+\[P(H\mid E) = \frac{P(E\mid H)\cdot P(H)}{P(E)}\]</div>
+<p><em>Proof</em>:</p>
+<p>Bayes’ formula can be verified by moving from the right-to-left, with the probabilities of the hypotheses cancelling on top and bottom:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{P(E\mid H)\cdot P(H)}{P(E)} = \frac{P(E\cap H)\cdot P(H)}{P(H)\cdot P(E)} = \frac{P(H\cap E)}{P(E)} = P(H\mid E)\]</div>
+<p><strong>Definition</strong> (Likelihood, Prior, Posterior)</p>
+<p>In the context of Bayes’ Theorem, one has names for the certain quantities:</p>
+<div class="math notranslate nohighlight">
+\[P(H\mid E) = \frac{P(E\mid H)\cdot P(H)}{P(E)}, \hspace{20mm} \mathrm{posterior\;probability}= \frac{\mathrm{likelihood} \times \mathrm{prior\;probability} }{\mathrm{probability\;of\;evidence} } \]</div>
+<p>In English: the probability of a hypothesis conditional on evidence is equal to the likelihood of the evidence given the hypothesis times the prior probability associated to the hypothesis, divided by the probability associated to the evidence.</p>
+<p>It is useful in situations where one has some sense already of which hypotheses make the evidence at hand more or less probable.</p>
+<p><strong>Proposition</strong></p>
+<p><span class="math notranslate nohighlight">\(P(H) = P(H|E)\cdot P(E)+P(H|E^c)\cdot P(E^c)\)</span></p>
+<p><em>Proof</em>:</p>
+<p>We have <span class="math notranslate nohighlight">\(H=(H\cap E)\cup (H\cap E^c)\)</span> and <span class="math notranslate nohighlight">\(H\cap E, H\cap E^c\)</span> are disjoint.</p>
+<p>Then <span class="math notranslate nohighlight">\(P(H)=P(H\cap E) +P(H\cap E^c) = P(H|E)\cdot P(E)+P(H|E^c)\cdot P(E^c)\)</span></p>
+<hr class="docutils" />
+<p><strong>Theorem</strong> (Lewis-Stalnaker trivality)</p>
+<p>Suppose that conditional probability was <em>factive</em>, in that there is a binary operation <span class="math notranslate nohighlight">\(\Rightarrow\)</span> on subsets of <span class="math notranslate nohighlight">\(\Omega\)</span> such that <span class="math notranslate nohighlight">\(P(H|E) = P(E\Rightarrow H)\)</span> for all <span class="math notranslate nohighlight">\(P,H,E\)</span> with <span class="math notranslate nohighlight">\(P(E)&gt;0\)</span>.</p>
+<p>Then conditional probability is <em>trivial</em> in that <span class="math notranslate nohighlight">\(P(H|E) = P(H)\)</span> for all <span class="math notranslate nohighlight">\(E,H\)</span> with <span class="math notranslate nohighlight">\(P(H\cap E), P(E\cap H^c)&gt;0\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p><span class="math notranslate nohighlight">\(P(H|E)=P(E\Rightarrow H) = P(E\Rightarrow H\mid H)\cdot P(H)+P(E\Rightarrow H\mid H^c)\cdot P(H^c)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P_H(E\Rightarrow H)\cdot P(H)+P_{H^c}(E\Rightarrow H)\cdot P(H^c)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P_H(H|E)\cdot P(H)+P_{H^c}(H|E)\cdot P(H^c)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P(H|E\cap H)\cdot P(H)+P(H|E\cap H^c)\cdot P(H^c)\)</span> by repeated conditioning</p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = 1\cdot P(H)+0 \cdot P(H^c)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P(H)\)</span></p>
+<p><em>Note</em>: next week we will recognize the ‘triviality’ as a kind of ‘too much independence.’</p>
+</section>
+<section id="interpretations-of-probability">
+<h2>Interpretations of probability<a class="headerlink" href="#interpretations-of-probability" title="Link to this heading">#</a></h2>
+<p><strong>Laplace and the principle of indifference</strong></p>
+<p>From the <em>Philosophy Essay on Probabilities</em> (p. 4):</p>
+<blockquote>
+<div><p>The theory of chances consists in reducing all events of the same kind to a certain number of equally possible cases, that is to say, to cases whose existence we are equally uncertain of, and in determining the number of cases favourable to the event whose probability is sought. The ratio of this number to that of all possible cases is the measure of this probability, which is thus only a fraction whose numerator is the number of favourable cases, and whose denominator is the number of all possible cases.</p>
+</div></blockquote>
+<p>It seems he is thus interested in what we would call today the <em>uniform</em> measure on a finite space.</p>
+<p>If <span class="math notranslate nohighlight">\(\Omega\)</span> has cardinality <span class="math notranslate nohighlight">\(n\)</span> and an event <span class="math notranslate nohighlight">\(A\)</span> has <span class="math notranslate nohighlight">\(m\)</span> elements, then we define <span class="math notranslate nohighlight">\(P(A)=\frac{m}{n}\)</span>.</p>
+<p>If we use <span class="math notranslate nohighlight">\(\left|\cdot\right|\)</span> for cardinality (or size), then this can be written as <span class="math notranslate nohighlight">\(P(A)=\frac{\left|A\right|}{\left|\Omega\right|}\)</span>.</p>
+<p>Virtues: connects our epistemic state to the probabilites, and gets simple cases of fair coin flips right.</p>
+<p>Vices: more often than not, we are not interested in the uniform measure.</p>
+<p><strong>von Mises and frequentism</strong></p>
+<p>Given a space <span class="math notranslate nohighlight">\(\Omega\)</span>, consider the “superspace” <span class="math notranslate nohighlight">\(\Omega^{\mathbb{N}}=\{f:\mathbb{N}\rightarrow \Omega\}\)</span>, i.e. the set of all functions from the natural numbers to <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<p>For instance if <span class="math notranslate nohighlight">\(\Omega =\{0,1\}\)</span>, then <span class="math notranslate nohighlight">\(\Omega^{\mathbb{N}}\)</span> is <em>Cantor space</em>, the space of all infinite sequences of zeros and ones. This is a good initial representation of the space of all infinite sequences of coin flips.</p>
+<p>Then for such a function <span class="math notranslate nohighlight">\(f\)</span>, define <span class="math notranslate nohighlight">\(P_f(A) = \lim_n \frac{\left|\{m\leq n: f(m)\in A\}\right|}{n}\)</span>.</p>
+<p>That is, it is the limiting relative frequency of <span class="math notranslate nohighlight">\(A\)</span>’s that appear in the sequence <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p><strong>Virtues of frequentism</strong></p>
+<p>One can derive the elementary laws of probability.</p>
+<p>For instance, if <span class="math notranslate nohighlight">\(A,B\)</span> are disjoint and the relevant limits exist, then</p>
+<p><span class="math notranslate nohighlight">\(P_f(A\cup B) = \lim_n \frac{\left|\{m\leq n: f(m)\in A\cup B \}\right|}{n}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = \lim_n \frac{\left|\{m\leq n: f(m)\in A \}\right|+\left|\{m\leq n: f(m)\in B \}\right|}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = \lim_n \frac{\left|\{m\leq n: f(m)\in A \}\right|+\lim_n \left|\{m\leq n: f(m)\in B \}\right|}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P_f(A)+P_f(B)\)</span></p>
+<p><strong>Vices of frequentism</strong></p>
+<p>One has to assume that the limits exist and von Mises postualtes this rather than explains it. Some sequences don’t have limits. Imagine a sequence that has long stretches where the frequency is <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span> followed by long stretches where the frequency is <span class="math notranslate nohighlight">\(\frac{2}{3}\)</span>, repeated ad nauseum.</p>
+<p><strong>Vices of frequentism, con’t</strong></p>
+<p>Von Mises postulated that the limiting relative frequency is not changed by passing to subsequences. (See von Mises 1957 pp. 23-25, 28-29, 65).</p>
+<p>Let <span class="math notranslate nohighlight">\(\Omega =\{0,1\}\)</span> i.e. a single flip of tails and heads. Let <span class="math notranslate nohighlight">\(\Omega' = \{00, 01, 10, 11\}\)</span>, i.e. two flips of heads and tails. Let <span class="math notranslate nohighlight">\(g(m)=f(2m)\)</span>.</p>
+<p>Then under the assumption that all the relevant limits exist one has:</p>
+<p><span class="math notranslate nohighlight">\(P_{g}(\{1\}) = \lim_n \frac{\left|\{m\leq n: f(2m)=1\}\right|}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = \lim_n \frac{\left|\{m\leq n: f(2m)=1, f(2m+1)=0\}\right|}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{20mm} + \lim_n \frac{\left|\{m\leq n: f(2m)=1, f(2m+1)=1\}\right|}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = P'_{f'}(\{10\})+ P'_{f'}(\{11\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{15mm} = \frac{1}{4}+\frac{1}{4} = \frac{1}{2}\hspace{10mm}\)</span>  (<span class="math notranslate nohighlight">\(\star\)</span>)</p>
+<p>where <span class="math notranslate nohighlight">\(f'(m) = f(2m)f(2m+1)\)</span>.</p>
+<p>The reason for (<span class="math notranslate nohighlight">\(\star\)</span>) is philosophical: if <span class="math notranslate nohighlight">\(P_f\)</span> succeeded in getting the fair measure on <span class="math notranslate nohighlight">\(\Omega\)</span>, then <span class="math notranslate nohighlight">\(P'_{f'}\)</span> should suceed in being the fair measure on <span class="math notranslate nohighlight">\(\Omega'\)</span>.</p>
+<p>See Van Lambalgen 1987 pp. 36-37.</p>
+<p><strong>Subjective Bayesianism</strong></p>
+<p>De Finetti described his own view as <em>subjectivism</em>, but it is now usually called just <em>Bayesianism</em> or perhaps sometimes <em>subjective Bayesianism</em>.</p>
+<p>The basic idea is that probabilities are just degrees of confidence or degrees of belief: they are reflective of the subjective evaluations of agents.</p>
+<p>Different subjective Bayesians will differ in terms of how they understand the “reflectiveness”, and can range the gamut from pyschologically real states of agents to the best way to understand from an external point of view the bevahior of an agent.</p>
+<p><strong>de Finietti vs. von Mises</strong></p>
+<p>Both von Mises and de Finetti were primarily concerned to give a scientifically acceptable account of probability.</p>
+<p>Von Mises is often counted as a member of the Vienna circle.</p>
+<p>Similarly, de Finetti speaks of his motivation as stemming from a view that “Every notion is only a word without meaning so long as it is not known how to verify practically any statement at all where this notion comes up …” (De Finetti 1964 p. 148).</p>
+<p>For von Mises, probability was appropriately scientific because “the relative frequency of the repetition is the ‘measure’ of probability, just as the length of a column of mercury is the ‘measure’ of temperature” (Von Moses 1957 p. vi).</p>
+<p>For de Finetti, probability was operationalized in terms of human belief.</p>
+<p><strong>Virtues of subjective Bayesianism</strong></p>
+<p>There are arguments from betting behavior (Dutch books) that one’s degrees of belief satisfy the probability axioms, if one acts in an appropriately rational manner.</p>
+<p>Similarly, in the finite case, there are arguments from accuracy, to the effect that any violations of the laws of probability would make one’s credences less close to the truth than they otherwise could be.</p>
+<p>These are really subjects for another course.</p>
+<p><strong>Vices of subjective Bayesianism</strong></p>
+<p>It is harder to see how one is going to get relative frequences to emerge out of this (if one thought that was a good thing). But Bayesians have some things to say about this (exchangeability)</p>
+<p>The Bayesian updating procedure has a hard time with the problem of “old evidence”: namely the problem of how to account for how a theory’s ability to explain an old already-updated-upon piece of evidence lends credence to the theory.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chap01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chap03.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-set-theoretic-operations">Review of set-theoretic operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-axioms">Probability axioms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditioning-and-conditionals">Conditioning and conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretations-of-probability">Interpretations of probability</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
