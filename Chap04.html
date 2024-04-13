@@ -1,0 +1,1269 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 4 &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap04';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Chapter 3" href="Chap03.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chap04.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-expectation">Rules for expectation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-expectation-redeux">Definition (expectation, redeux)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vivification">The vivification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-of-bernoulli">Example (expectation of Bernoulli)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-the-vivification">Returning to the vivification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-alternate-characterization-of-expectation">Proposition (alternate characterization of expectation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration">Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-rules-for-expectation">Proposition (rules for expectation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-the-vivification-again">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-1">Proof of rule 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-2">Proof of rule 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-3">Proof of rule 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-4">Proof of rule 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-5">Proof of rule 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-of-binomial">Example (expectation of Binomial)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-expectation-of-some-binomials">Computing the expectation of some binomials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independence">Independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-independence-of-events">Definition (independence of events)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-when-evidence-and-hypothesis-independent-the-posterior-and-prior-are-same">Proposition (when evidence and hypothesis independent, the posterior and prior are same)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-random-variables">Independence of random variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-effect-of-independence-on-expectation">Proposition (effect of independence on expectation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-variance">Rules for variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-variance">Definition (variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-standard-deviation">Definition (standard deviation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-simple-formula-for-variance">Proposition (simple formula for variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-multiplication-and-addition-of-reals-affects-variance">Proposition (how multiplication and addition of reals affects variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-variance-of-bernoulli">Example (variance of Bernoulli)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-variance-and-independence">Proposition (Variance and independence)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-root-n-rule">Proposition (Root n rule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-variance-of-binomial">Example (Variance of Binomial)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Returning to the vivification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-normal-distribution">Definition (normal distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-normal-distribution">Visualizing the normal distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-normal-distribution">Computing the normal distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">Pareto distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-pareto-distribution">Definition (Pareto distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-praeto-distribution">Visualizing a Praeto distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-praeto-distribution">Computing a Praeto distribution</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4">
+<h1>Chapter 4<a class="headerlink" href="#chapter-4" title="Link to this heading">#</a></h1>
+<section id="rules-for-expectation">
+<h2>Rules for expectation<a class="headerlink" href="#rules-for-expectation" title="Link to this heading">#</a></h2>
+<section id="definition-expectation-redeux">
+<h3>Definition (expectation, redeux)<a class="headerlink" href="#definition-expectation-redeux" title="Link to this heading">#</a></h3>
+<p>Recall the following definition from last time, where today we restrict to the finite case:</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> takes finitely many values, then we define its <em>expectation</em> to be</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E} X = \sum_x x\cdot f_X(x) = \sum_x x\cdot P(X=x)\]</div>
+<p>The summation is over whatever the values are that the random variable takes.</p>
+<p>The expectation is also designated as <span class="math notranslate nohighlight">\(\mu\)</span>, the Greek letter ‘m’, which is a mnemonic for ‘mean’ or ‘average.’</p>
+</section>
+<section id="the-vivification">
+<h3>The vivification<a class="headerlink" href="#the-vivification" title="Link to this heading">#</a></h3>
+<p>We need some simple examples which can make these notions and rules vivid to us.</p>
+<p>Suppose that the worlds in <span class="math notranslate nohighlight">\(\Omega\)</span> represent your possible futures.</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(X,Y\)</span> are two random variables such that:</p>
+<ul class="simple">
+<li><p>if you choose to act in an <span class="math notranslate nohighlight">\(X\)</span>-like way now, then <span class="math notranslate nohighlight">\(X(\omega)\)</span> represents your earnings in <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
+<li><p>if you choose to act in a <span class="math notranslate nohighlight">\(Y\)</span>-like way now, then <span class="math notranslate nohighlight">\(Y(\omega)\)</span> represents your earnings in <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
+</ul>
+<p>You decide on a policy of choosing the random variable which has the larger expectation.</p>
+<p>Hence you will be in the market for some simple rules to calculate expectations, since you want to actually get to the numbers to be able to compare them.</p>
+</section>
+<section id="example-expectation-of-bernoulli">
+<h3>Example (expectation of Bernoulli)<a class="headerlink" href="#example-expectation-of-bernoulli" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X\sim \mathrm{Bern}(p)\)</span>. Then <span class="math notranslate nohighlight">\(\mathbb{E}X = p\)</span>.</p>
+<p>Proof: by definition (from last time), a random variable <span class="math notranslate nohighlight">\(X\)</span> of this kind only two values:</p>
+<ul class="simple">
+<li><p>value 1, with probability <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>value 0, with probability <span class="math notranslate nohighlight">\(1-p\)</span>.</p></li>
+</ul>
+<p>Hence we have</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E} X =\sum_x x\cdot P(X=x) =  1\cdot P(X=1) +0\cdot P(X=0)=  1\cdot p + 0 \cdot (1-p) = p\]</div>
+<p>This was mentioned last time but we prove it now.</p>
+</section>
+<section id="returning-to-the-vivification">
+<h3>Returning to the vivification<a class="headerlink" href="#returning-to-the-vivification" title="Link to this heading">#</a></h3>
+<p>Suppose you are choosing between</p>
+<p><span class="math notranslate nohighlight">\(X\sim \mathrm{Bern}(.7)\)</span> and <span class="math notranslate nohighlight">\(Y\sim \mathrm{Bern}(.9)\)</span>.</p>
+<p>By previous, one has <span class="math notranslate nohighlight">\(\mathbb{E}X = .7\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}Y = .9\)</span>.</p>
+<p>Hence, you would choose <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>(This example is less than great since the numbers are tiny; we will revisit it in a few minutes)</p>
+<p>The following alternate expressions is occasionally useful for developing the theory (although less than useful in practice):</p>
+</section>
+<section id="proposition-alternate-characterization-of-expectation">
+<h3>Proposition (alternate characterization of expectation)<a class="headerlink" href="#proposition-alternate-characterization-of-expectation" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(\Omega =\{\omega_1, \ldots, \omega_n\}\)</span>, where we enumerate these without repetition. Then</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}X = \sum_{i=1}^n X(\omega_i) \cdot P(\{\omega_i\})\)</span>.</p>
+<p>In this expression <span class="math notranslate nohighlight">\(\{\omega_i\}\)</span> refers to the event of “being equal to <span class="math notranslate nohighlight">\(\omega_i\)</span>.” That is, it is a singleton set or event.</p>
+<p>If you get this illustration, you’ll see the proof of the proposition:</p>
+</section>
+<section id="illustration">
+<h3>Illustration<a class="headerlink" href="#illustration" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(\Omega = \{\omega_1, \omega_2, \omega_3\}\)</span> and <span class="math notranslate nohighlight">\(X(\omega_1)=5\)</span> and <span class="math notranslate nohighlight">\(X(\omega_2)=6\)</span> and <span class="math notranslate nohighlight">\(X(\omega_3)=5\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(P(X=5) = P(\{\omega_1, \omega_3\})\)</span> and <span class="math notranslate nohighlight">\(P(X=6) = P(\{\omega_2\})\)</span>. Hence one has</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}X = 5\cdot P(X=5)+6\cdot P(X=6)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = 5\cdot P(\{\omega_1, \omega_3 \})+6\cdot P(\{\omega_2\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = 5\cdot \big( P(\{\omega_1\})+\cdot P(\{\omega_3\})\big)+ 6\cdot P(\{\omega_2\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = 5\cdot P(\{\omega_1\})+5 \cdot P(\{\omega_3\})+ 6\cdot P(\{\omega_2\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = 5\cdot P(\{\omega_1\})+6\cdot P(\{\omega_2\})+5 \cdot P(\{\omega_3\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = X(\omega_1) \cdot P(\{\omega_1\}+X(\omega_2) \cdot P(\{\omega_2\}+X(\omega_3) \cdot P(\{\omega_3\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = \sum_{i=1}^3 X(\omega_i) \cdot P(\{\omega_i\})\)</span></p>
+<p>Most everything abstract that one wants to do with expectations follow from the following rules:</p>
+</section>
+<section id="proposition-rules-for-expectation">
+<h3>Proposition (rules for expectation)<a class="headerlink" href="#proposition-rules-for-expectation" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(X,Y\)</span> are random variables and <span class="math notranslate nohighlight">\(c\)</span> is a real number. Then:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[X+Y] = \mathbb{E}X+\mathbb{E}Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[c\cdot X] = c\cdot \mathbb{E}X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{E} c = c\)</span> (in writing <span class="math notranslate nohighlight">\(\mathbb{E} c\)</span> are thinking of <span class="math notranslate nohighlight">\(c\)</span> as the constant function which always outputs <span class="math notranslate nohighlight">\(c\)</span>).</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(X\geq 0\)</span> everywhere, then <span class="math notranslate nohighlight">\(\mathbb{E}X\geq 0\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(X\geq Y\)</span> everywhere, then <span class="math notranslate nohighlight">\(\mathbb{E}X\geq \mathbb{E}Y\)</span>.</p></li>
+</ol>
+</section>
+<section id="returning-to-the-vivification-again">
+<h3>Returning to the vivification again<a class="headerlink" href="#returning-to-the-vivification-again" title="Link to this heading">#</a></h3>
+<p>Suppose you are choosing between <span class="math notranslate nohighlight">\(X=100\cdot X'\)</span> and <span class="math notranslate nohighlight">\(Y=100\cdot Y'\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(X'\sim \mathrm{Bern}(.7)\)</span> and <span class="math notranslate nohighlight">\(Y'\sim \mathrm{Bern}(.9)\)</span>.</p>
+<p>By previous, one has <span class="math notranslate nohighlight">\(\mathbb{E}X = 100\cdot .7=70\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}Y = 100\cdot .9=90\)</span>.</p>
+<p>Hence, you would choose <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</section>
+<section id="proof-of-rule-1">
+<h3>Proof of rule 1<a class="headerlink" href="#proof-of-rule-1" title="Link to this heading">#</a></h3>
+<p>Prove: <span class="math notranslate nohighlight">\(\mathbb{E}[X+Y] = \mathbb{E}X+\mathbb{E}Y\)</span></p>
+<p><em>Proof</em>: Let <span class="math notranslate nohighlight">\(Z=X+Y\)</span> and use the alternate characterization</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X+Y]=\mathbb{E}[Z] =\sum_{i=1}^n Z(\omega_i) \cdot P(\{\omega_i\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{10mm} = \sum_{i=1}^n (X(\omega_i)+Y(\omega_i)) \cdot P(\{\omega_i\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{10mm} = \sum_{i=1}^n X(\omega_i) \cdot P(\{\omega_i\}) + \sum_{i=1}^n Y(\omega_i) \cdot P(\{\omega_i\})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{10mm} = \mathbb{E}[X]+\mathbb{E}[Y]\)</span></p>
+</section>
+<section id="proof-of-rule-2">
+<h3>Proof of rule 2<a class="headerlink" href="#proof-of-rule-2" title="Link to this heading">#</a></h3>
+<p>Prove: <span class="math notranslate nohighlight">\(\mathbb{E}[c\cdot X] = c\cdot \mathbb{E}X\)</span></p>
+<p><em>Proof</em>: use the alternate characterization</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[c\cdot X]=\sum_{i=1}^n c\cdot X(\omega_i) \cdot P(\{\omega_i\})= c\cdot \sum_{i=1}^n X(\omega_i) \cdot P(\{\omega_i\})= c\cdot \mathbb{E}[X]\)</span>.</p>
+</section>
+<section id="proof-of-rule-3">
+<h3>Proof of rule 3<a class="headerlink" href="#proof-of-rule-3" title="Link to this heading">#</a></h3>
+<p>Prove: <span class="math notranslate nohighlight">\(\mathbb{E} c = c\)</span></p>
+<p><em>Proof</em>: use the alternate characterization as follows: <span class="math notranslate nohighlight">\(\mathbb{E} c = \sum_{i=1}^n c \cdot P(\{\omega_i\}) = c\cdot \sum_{i=1}^n P(\{\omega_i\}) = c \cdot P(\Omega)=c\)</span></p>
+</section>
+<section id="proof-of-rule-4">
+<h3>Proof of rule 4<a class="headerlink" href="#proof-of-rule-4" title="Link to this heading">#</a></h3>
+<p>Prove: if <span class="math notranslate nohighlight">\(X\geq 0\)</span> everywhere, then <span class="math notranslate nohighlight">\(\mathbb{E}X\geq 0\)</span>.</p>
+<p><em>Proof</em>: this is obvious from any characterization since it is a sum of non-negative numbers.</p>
+</section>
+<section id="proof-of-rule-5">
+<h3>Proof of rule 5<a class="headerlink" href="#proof-of-rule-5" title="Link to this heading">#</a></h3>
+<p>Prove: if <span class="math notranslate nohighlight">\(X\geq Y\)</span> everywhere, then <span class="math notranslate nohighlight">\(\mathbb{E}X\geq \mathbb{E}Y\)</span>.</p>
+<p><em>Proof</em>: use rules 1,4 and the fact that <span class="math notranslate nohighlight">\(X-Y\geq 0\)</span> eveywhere to conclude that <span class="math notranslate nohighlight">\(\mathbb{E}X = \mathbb{E}[X-Y+Y] = \mathbb{E}[X-Y]+\mathbb{E}[Y]\geq \mathbb{E}[Y]\)</span>.</p>
+</section>
+<section id="example-expectation-of-binomial">
+<h3>Example (expectation of Binomial)<a class="headerlink" href="#example-expectation-of-binomial" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(X\sim \mathrm{Binom}(n,p)\)</span> Then <span class="math notranslate nohighlight">\(\mathbb{E}X = n\cdot p\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p>Since <span class="math notranslate nohighlight">\(X\)</span> is just the number of successes (1’s) in <span class="math notranslate nohighlight">\(n\)</span>-many independent Bernoulli trials <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>, we have</p>
+<p>that <span class="math notranslate nohighlight">\(X=\sum_{i=1}^n X_i\)</span>. Then we have <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \mathbb{E}[\sum_{i=1}^n X_i] = \sum_{i=1}^n \mathbb{E}[X_i] = \sum_{i=1}^n p = n\cdot p\)</span>.</p>
+</section>
+<section id="id1">
+<h3>Returning to the vivification again<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Suppose you are choosing between</p>
+<p><span class="math notranslate nohighlight">\(X\sim  \mathrm{Binom}(3,.5)\)</span> and <span class="math notranslate nohighlight">\(Y\sim \mathrm{Binom}(2,.7)\)</span>.</p>
+<p>E.g. <span class="math notranslate nohighlight">\(X\sim\)</span> “three trials with fair chances” vs. <span class="math notranslate nohighlight">\(Y\sim\)</span> “two trials with more favorable chances.”</p>
+<p>By previous, one has <span class="math notranslate nohighlight">\(\mathbb{E}X = 1.5\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}Y = 1.4\)</span>.</p>
+<p>Hence, you would choose <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>(To make the numbers bigger, multiply each by a big constant).</p>
+</section>
+<section id="computing-the-expectation-of-some-binomials">
+<h3>Computing the expectation of some binomials<a class="headerlink" href="#computing-the-expectation-of-some-binomials" title="Link to this heading">#</a></h3>
+<p>Given <span class="math notranslate nohighlight">\(X\sim Binom(n,p)\)</span> and <span class="math notranslate nohighlight">\(Y\sim Binom(m,q)\)</span>, consider <span class="math notranslate nohighlight">\(Z_1\sim Binom((n+m)/2,(p+q)/w)\)</span> and <span class="math notranslate nohighlight">\(Z_2 = (X+Y)/2\)</span>.</p>
+<p>One can choose <span class="math notranslate nohighlight">\(X,Y\)</span> so that <span class="math notranslate nohighlight">\(Z_1\)</span> has smaller expectation than <span class="math notranslate nohighlight">\(Z_2\)</span>, such as in the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># computing expectation of X~Binom(n,p), Y~Binom(m,q), </span>
+<span class="c1"># and Z_1~Binom((n+m)/2,(p+q)/w), Z_2 = (X+Y)/2</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">90</span>   <span class="c1"># set value of n, number of trials for X </span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">.4</span> <span class="c1"># set value of p, probability of trial for X</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># set value of m, number of trials for Y </span>
+<span class="n">q</span> <span class="o">=</span> <span class="mf">.6</span> <span class="c1"># set value of q, probability of trial for Y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">q</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EX=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span> 
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EY=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EZ_1=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EZ_2=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">((</span><span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EX=36.00
+EY=600.00
+EZ_1=272.50
+EZ_2=318.00
+</pre></div>
+</div>
+</div>
+</div>
+<p>One can also get the other outcome, where <span class="math notranslate nohighlight">\(Z_1\)</span> has larger expectation than <span class="math notranslate nohighlight">\(Z_2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># computing expectation of X~Binom(n,p), Y~Binom(m,q), </span>
+<span class="c1"># and Z_1~Binom((n+m)/2,(p+q)/w), Z_2 = (X+Y)/2</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2000</span>   <span class="c1"># set value of n, number of trials for X </span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">.4</span> <span class="c1"># set value of p, probability of trial for X</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># set value of m, number of trials for Y </span>
+<span class="n">q</span> <span class="o">=</span> <span class="mf">.6</span> <span class="c1"># set value of q, probability of trial for Y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">q</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EX=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span> 
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EY=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EZ_1=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EZ_2=</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">((</span><span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">binom</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EX=800.00
+EY=600.00
+EZ_1=750.00
+EZ_2=700.00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="independence">
+<h2>Independence<a class="headerlink" href="#independence" title="Link to this heading">#</a></h2>
+<section id="definition-independence-of-events">
+<h3>Definition (independence of events)<a class="headerlink" href="#definition-independence-of-events" title="Link to this heading">#</a></h3>
+<p>Two events <span class="math notranslate nohighlight">\(H,H^{\prime}\)</span> are <em>independent</em> if</p>
+<p><span class="math notranslate nohighlight">\(P(H\cap H^{\prime}) = P(H)\cdot P(H^{\prime})\)</span></p>
+</section>
+<section id="proposition-when-evidence-and-hypothesis-independent-the-posterior-and-prior-are-same">
+<h3>Proposition (when evidence and hypothesis independent, the posterior and prior are same)<a class="headerlink" href="#proposition-when-evidence-and-hypothesis-independent-the-posterior-and-prior-are-same" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(H,E\)</span> independent of one another, then <span class="math notranslate nohighlight">\(P(H|E)=P(H)\)</span></p>
+<p><em>Proof</em></p>
+<p>One has <span class="math notranslate nohighlight">\(P(H|E)=\frac{P(H\cap E)}{P(E)} = \frac{P(H)\cdot P(E)}{P(E)}=P(H)\)</span>.</p>
+</section>
+<section id="independence-of-random-variables">
+<h3>Independence of random variables<a class="headerlink" href="#independence-of-random-variables" title="Link to this heading">#</a></h3>
+<p>Two random variables <span class="math notranslate nohighlight">\(X,Y\)</span> are <em>independent</em> of one another if for all values <span class="math notranslate nohighlight">\(x,y\)</span> one has</p>
+<div class="math notranslate nohighlight">
+\[P(X=x \wedge Y=y) = P(X=x)\cdot P(Y=y)\]</div>
+<p>This implies that for all subsets of reals <span class="math notranslate nohighlight">\(A,B\)</span> one has</p>
+<div class="math notranslate nohighlight">
+\[P(X\in A \wedge Y\in B) = P(X\in A)\cdot P(Y\in B)\]</div>
+<p>For, just write out <span class="math notranslate nohighlight">\(A,B\)</span> in terms of the worlds and apply the definition.</p>
+<p>Three random variables <span class="math notranslate nohighlight">\(X,Y,Z\)</span> are <em>independent</em> of one another if for all values <span class="math notranslate nohighlight">\(x,y,z\)</span> one has</p>
+<div class="math notranslate nohighlight">
+\[P(X=x \wedge Y=y \wedge Z=z) = P(X=x)\cdot P(Y=y)\cdot P(Z=z)\]</div>
+<p>Similarly for longer lists.</p>
+<p>Infinite lists <span class="math notranslate nohighlight">\(X_1, \ldots, X_n, \ldots\)</span> of random variables are independent of one another if for all <span class="math notranslate nohighlight">\(n\geq 1\)</span> one has that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> are independent of one another.</p>
+</section>
+<section id="proposition-effect-of-independence-on-expectation">
+<h3>Proposition (effect of independence on expectation)<a class="headerlink" href="#proposition-effect-of-independence-on-expectation" title="Link to this heading">#</a></h3>
+<p>If random variables <span class="math notranslate nohighlight">\(X,Y\)</span> are independent of one another, then $<span class="math notranslate nohighlight">\(\mathbb{E}[X\cdot Y] = \mathbb{E}[X]\cdot \mathbb{E}[Y]\)</span>$</p>
+<p><em>Proof:</em></p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X]\cdot \mathbb{E}[Y] = (\sum_{i=1}^m x_i \cdot P(X=x_i))\cdot (\sum_{j=1}^n y_j \cdot P(Y=y_j))\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} =\sum_{i=1}^m \sum_{j=1}^n x_i \cdot y_j \cdot P(X=x_i)\cdot P(Y=y_j)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} =\sum_{i=1}^m \sum_{j=1}^n x_i \cdot y_j \cdot P(X=x_i \wedge Y=y_j)\)</span> by independence</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} =\sum_{k=1}^{\ell} z_k \cdot P(X\cdot Y=z_k)\)</span></p>
+<p>For the last step, given <span class="math notranslate nohighlight">\(k\)</span>, one collects together all the pairs <span class="math notranslate nohighlight">\((i,j)\)</span> with <span class="math notranslate nohighlight">\(x_i\cdot y_j=z_k\)</span>. The associated event is the union of the events <span class="math notranslate nohighlight">\(X=x_i\wedge Y=y_j\)</span> over these pairs, which is equal to the event <span class="math notranslate nohighlight">\(X\cdot Y = z_k\)</span>.</p>
+</section>
+</section>
+<section id="rules-for-variance">
+<h2>Rules for variance<a class="headerlink" href="#rules-for-variance" title="Link to this heading">#</a></h2>
+<p>Recall from last time:</p>
+<section id="definition-variance">
+<h3>Definition (variance)<a class="headerlink" href="#definition-variance" title="Link to this heading">#</a></h3>
+<p>We define the <em>variance</em> of <span class="math notranslate nohighlight">\(X\)</span> to be the following</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(X) = \mathbb{E}[(X-\mu)^2]\]</div>
+<p>where recall that <span class="math notranslate nohighlight">\(\mu\)</span> is just another expression for <span class="math notranslate nohighlight">\(\mathbb{E}X\)</span>.</p>
+<p>Intutively, variance is saying how much one expects the value to differ from its expectation.</p>
+<p>The variance is also abbreviated as <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
+<p>The ‘square’ is coming from the formula for distance in Euclidean space, namely <span class="math notranslate nohighlight">\(d(x,y) = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}\)</span></p>
+</section>
+<section id="definition-standard-deviation">
+<h3>Definition (standard deviation)<a class="headerlink" href="#definition-standard-deviation" title="Link to this heading">#</a></h3>
+<p>We define the <em>standard deviation</em> of <span class="math notranslate nohighlight">\(X\)</span> to be the following:</p>
+<div class="math notranslate nohighlight">
+\[{sd}(X) = \sqrt{\mathrm{Var}(X)}\]</div>
+<p>We also use <span class="math notranslate nohighlight">\(\sigma\)</span> as an abbreviation for the standard deviation.</p>
+<p>Hence, you will see some authors write <span class="math notranslate nohighlight">\(\sigma(X)\)</span> for the standard deviation of <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</section>
+<section id="id2">
+<h3>Returning to the vivification again<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Earlier, your policy was to choose the random variable which has the larger expectation.</p>
+<p>But shouldn’t you care about variance as well?</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has large variance and <span class="math notranslate nohighlight">\(Y\)</span> has small variance, then <span class="math notranslate nohighlight">\(X\)</span> can vary a lot from its expectation, while <span class="math notranslate nohighlight">\(Y\)</span> can vary just a little from its expectation.</p>
+<p>Ditto for standard deviation.</p>
+</section>
+<section id="proposition-simple-formula-for-variance">
+<h3>Proposition (simple formula for variance)<a class="headerlink" href="#proposition-simple-formula-for-variance" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E} X)^2\]</div>
+<p><em>Proof</em>:</p>
+<p>From algebra <span class="math notranslate nohighlight">\((X-\mu)^2 = (X-\mu)\cdot (X-\mu) = X^2 - 2\mu \cdot X +\mu^2\)</span>.</p>
+<p>Then using the rules we have</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(X) =  \mathbb{E}[X^2] -2\mu \mathbb{E}X +\mu^2 =\mathbb{E}[X^2] -2\mu^2 +\mu^2 =\mathbb{E}[X^2] - (\mathbb{E} X)^2\]</div>
+</section>
+<section id="proposition-how-multiplication-and-addition-of-reals-affects-variance">
+<h3>Proposition (how multiplication and addition of reals affects variance)<a class="headerlink" href="#proposition-how-multiplication-and-addition-of-reals-affects-variance" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(cX+d) = c^2 \mathrm{Var}(X)\]</div>
+<p><em>Proof</em>:</p>
+<p>We give the proof when <span class="math notranslate nohighlight">\(d=0\)</span> (the general case is not that much harder):</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(cX)= \mathbb{E}[c^2 X^2]-c^2 (\mathbb{E} X)^2 = c^2 (\mathbb{E}[X^2]-(\mathbb{E} X)^2) = c^2 \cdot \mathrm{Var}(X)\]</div>
+</section>
+<section id="example-variance-of-bernoulli">
+<h3>Example (variance of Bernoulli)<a class="headerlink" href="#example-variance-of-bernoulli" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X\sim \mathrm{Bern}(p)\)</span>. Then <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = p(1-p)\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p>by definition (from last time), a random variable <span class="math notranslate nohighlight">\(X\)</span> of this kind only two values:</p>
+<ul class="simple">
+<li><p>value 1, with probability <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>value 0, with probability <span class="math notranslate nohighlight">\(1-p\)</span>.</p></li>
+</ul>
+<p>Since <span class="math notranslate nohighlight">\(1^2 = 1\)</span> and <span class="math notranslate nohighlight">\(0^2 =0\)</span>, for this random variable we have <span class="math notranslate nohighlight">\(X^2 =X\)</span>.</p>
+<p>Hence we have</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E} X)^2 = \mathbb{E}[X] - (\mathbb{E} X)^2=p-p^2 = p(1-p)\]</div>
+</section>
+<section id="id3">
+<h3>Returning to the vivification again<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Suppose you are choosing between</p>
+<p><span class="math notranslate nohighlight">\(X\sim \mathrm{Bern}(.7)\)</span> and <span class="math notranslate nohighlight">\(Y\sim \mathrm{Bern}(.9)\)</span>.</p>
+<p>By earlier, one has <span class="math notranslate nohighlight">\(\mathbb{E}X = .7\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}Y = .9\)</span>.</p>
+<p>By previous, one has <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = .21\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Var}(Y) = .09\)</span></p>
+<p>Hence, <span class="math notranslate nohighlight">\(Y\)</span> has higher payoff, and there is a lower level of risk to it.</p>
+</section>
+<section id="proposition-variance-and-independence">
+<h3>Proposition (Variance and independence)<a class="headerlink" href="#proposition-variance-and-independence" title="Link to this heading">#</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\(X,Y\)</span> are independent. Then <span class="math notranslate nohighlight">\(\mathrm{Var}(X+Y) = \mathrm{Var}(X)+\mathrm{Var}(Y)\)</span></p>
+<p><em>Proof</em></p>
+<p>From algebra <span class="math notranslate nohighlight">\((X+Y)^2 = X^2 + 2XY+Y^2\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mu=\mathbb{E}[X]\)</span> and <span class="math notranslate nohighlight">\(\nu = \mathbb{E}[Y]\)</span>.</p>
+<p>Then from independence we have  <span class="math notranslate nohighlight">\(\mathbb{E}(X+Y)^2 = \mathbb{E}X^2 + 2\mu \nu +\mathbb{E}[Y^2]\)</span></p>
+<p>From algebra <span class="math notranslate nohighlight">\((\mathbb{E}(X+Y))^2 = (\mu+\nu)^2 = \mu^2+2\mu\nu+\nu^2\)</span>.</p>
+<p>Hence <span class="math notranslate nohighlight">\(\mathrm{Var}(X+Y) =  \mathbb{E}X^2 -\mu^2 + \mathbb{E}[Y^2]-\nu^2 = \mathrm{Var}(X)+\mathrm{Var}(Y)\)</span>.</p>
+</section>
+<section id="proposition-root-n-rule">
+<h3>Proposition (Root n rule)<a class="headerlink" href="#proposition-root-n-rule" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> are independent each with standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> and variation <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\overline{X} = \frac{X_1+\cdots +X_n}{n}\)</span></p>
+<p>Then the standard deviation of <span class="math notranslate nohighlight">\(\overline{X}\)</span> is <span class="math notranslate nohighlight">\(\frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p><em>Proof</em></p>
+<p>One has</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{Var}(\overline{X}) = \sum_{i=1}^n \mathrm{Var}(\frac{X_i}{n})\)</span> by independence</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = \sum_{i=1}  \cdot \mathrm{Var}(X_i)\)</span> by earlier proposition</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = \frac{1}{n^2} \sum_{i=1}  \mathrm{Var}(X_i)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} = \frac{1}{n^2} \cdot n \cdot \sigma^2 = \frac{\sigma^2}{n}\)</span>.</p>
+</section>
+<section id="example-variance-of-binomial">
+<h3>Example (Variance of Binomial)<a class="headerlink" href="#example-variance-of-binomial" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X\sim \mathrm{Binom}(n,p)\)</span>. Then <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = n \cdot p (1-p)\)</span></p>
+<p><em>Proof</em></p>
+<p>Suppose that e.g. <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(X=Y+Z\)</span>, where <span class="math notranslate nohighlight">\(Y,Z\sim \mathrm{Bern}(p)\)</span>.</p>
+<p>Then one has <span class="math notranslate nohighlight">\(\mathrm{Var}(X)=\mathrm{Var}(Y+Z) = \mathrm{Var}(Y)+\mathrm{Var}(Z) = p(1-p)+p(1-p)=2\cdot p(1-p)\)</span></p>
+</section>
+<section id="id4">
+<h3>Returning to the vivification<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Suppose you are choosing between</p>
+<p><span class="math notranslate nohighlight">\(X\sim  \mathrm{Binom}(3,.5)\)</span> and <span class="math notranslate nohighlight">\(Y\sim \mathrm{Binom}(2,.7)\)</span>.</p>
+<p>By earlier work, one has <span class="math notranslate nohighlight">\(\mathbb{E}X = 1.5\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}Y = 1.4\)</span>.</p>
+<p>By previous example, one has <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = .75\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Var}(Y) = .42\)</span></p>
+<p>So <span class="math notranslate nohighlight">\(Y\)</span> has something to recommend to it: being a little less risky in a certain sense.</p>
+</section>
+</section>
+<section id="normal-distribution">
+<h2>Normal distribution<a class="headerlink" href="#normal-distribution" title="Link to this heading">#</a></h2>
+<section id="definition-normal-distribution">
+<h3>Definition (normal distribution)<a class="headerlink" href="#definition-normal-distribution" title="Link to this heading">#</a></h3>
+<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> has normal distribution <span class="math notranslate nohighlight">\(X\sim N(\mu,\sigma^2)\)</span> if it has</p>
+<ul class="simple">
+<li><p>Expectation: <span class="math notranslate nohighlight">\(\mu\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\sigma^2\)</span></p></li>
+<li><p>pdf: <span class="math notranslate nohighlight">\(f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}\)</span></p></li>
+<li><p>cdf: <span class="math notranslate nohighlight">\(F(x) = \int_{-\infty}^x f(x) dx\)</span> (i.e. the area under the curve, for which there is no easy formula)</p></li>
+<li><p>ccdf: <span class="math notranslate nohighlight">\(\overline{F}(x) = 1-F(x)\)</span> (for which there is no easy formula)</p></li>
+</ul>
+<p>The cdf of <span class="math notranslate nohighlight">\(N(0,1)\)</span> is often written as <span class="math notranslate nohighlight">\(\Phi(x)\)</span></p>
+<p>These random variables take as many values as there are real numbers.</p>
+<p>Hence the pdf no longer answers the question “what exactly is the probability of a certain outcome.”</p>
+<p>But the cdf still answers the question “what is the probability of having an outcome less than or equal to a given number.”</p>
+<p>And using the cdf one can answer questions “what is the probability that we are within a certain range of values.”</p>
+</section>
+<section id="visualizing-the-normal-distribution">
+<h3>Visualizing the normal distribution<a class="headerlink" href="#visualizing-the-normal-distribution" title="Link to this heading">#</a></h3>
+<p>The normal is the familiar bell-shaped curve. Visually, <span class="math notranslate nohighlight">\(\mu\)</span> is where the center of the bell is, and larger values of <span class="math notranslate nohighlight">\(\sigma^2\)</span> make the bell a little shorter and spread out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## visualizing X~N(mu_1,var_1), Y~N(mu_2,var_2), Z~N(mu_3,var_3)</span>
+<span class="c1">## pdf, cdf, ccdf</span>
+
+<span class="n">mu_1</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># set expectation of X</span>
+<span class="n">var_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># set variance of X</span>
+
+<span class="n">mu_2</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># set expectation of Y</span>
+<span class="n">var_2</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#  set variance of Y</span>
+
+<span class="n">mu_3</span> <span class="o">=</span>  <span class="mi">1</span>  <span class="c1"># set expectation of Z</span>
+<span class="n">var_3</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># set variance of Y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code for visualizing the normal distribution</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>     <span class="c1"># load binomial distribution</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">var_1</span><span class="p">)</span> <span class="c1"># pdf for X</span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">var_1</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+<span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">var_2</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">var_2</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">var_3</span><span class="p">)</span> <span class="c1"># pdf for Z</span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">var_3</span><span class="p">)</span> <span class="c1"># cdf for Z</span>
+<span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Zcdf</span>               <span class="c1"># ccdf for Z</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;X~N(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">), Y~N(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">), Z~N(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu_1</span><span class="p">,</span><span class="n">var_1</span><span class="p">,</span><span class="n">mu_2</span><span class="p">,</span><span class="n">var_2</span><span class="p">,</span><span class="n">mu_3</span><span class="p">,</span><span class="n">var_3</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+ <span class="c1"># Plot the PDF on the first subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CDF on the second subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CCDF on the third subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Yccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/fd6b5b1e809b48fc0a2c7bbc7df2e29f0a00eec20174e8a7b40ffcae7a914b92.png" src="_images/fd6b5b1e809b48fc0a2c7bbc7df2e29f0a00eec20174e8a7b40ffcae7a914b92.png" />
+</div>
+</div>
+</section>
+<section id="computing-the-normal-distribution">
+<h3>Computing the normal distribution<a class="headerlink" href="#computing-the-normal-distribution" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## computing X ~ Norm(mu,var)</span>
+<span class="c1">## P(c&lt;X≤d), P(X≤d), P(X&gt;c)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># set value of expectation</span>
+
+<span class="n">var</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># set value of variance</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># set lower bound of interval you are interested in</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="mf">2.2</span> <span class="c1"># set upper bound of interval you are interested in</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(c&lt;X≤d)</span>
+
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(X≤d)</span>
+
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(X&gt;c)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Assuming:&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X~N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">var</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lower bound c=</span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;upper bound d=</span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We then obtain:&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(c&lt;X≤d)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdfvalue</span><span class="p">)</span>
+     
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(X≤d)=Φ(d)=F(d)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdfvalue</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(X&gt;c)=1-Φ(c)=F̅(c)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ccdfvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assuming:
+X~N(3.0, 5.0)
+lower bound c=2.0
+upper bound d=2.2
+We then obtain:
+P(c&lt;X≤d)=0.016
+P(X≤d)=Φ(d)=F(d)=0.436
+P(X&gt;c)=1-Φ(c)=F̅(c)=0.579
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pareto-distribution">
+<h2>Pareto distribution<a class="headerlink" href="#pareto-distribution" title="Link to this heading">#</a></h2>
+<section id="definition-pareto-distribution">
+<h3>Definition (Pareto distribution)<a class="headerlink" href="#definition-pareto-distribution" title="Link to this heading">#</a></h3>
+<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> has <em>Praeto distribution</em> with shape <span class="math notranslate nohighlight">\(b\)</span> and scale <span class="math notranslate nohighlight">\(\alpha\)</span> if <span class="math notranslate nohighlight">\(X\sim \mathrm{Pareto}(b, \alpha)\)</span> if <span class="math notranslate nohighlight">\(b&gt;0\)</span> and <span class="math notranslate nohighlight">\(\alpha&gt;2\)</span> and it has</p>
+<ul class="simple">
+<li><p>Expectation: <span class="math notranslate nohighlight">\(\alpha\cdot \frac{b}{\alpha-1}\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\frac{\alpha}{\alpha-2}\cdot \frac{b}{\alpha-1}\)</span></p></li>
+<li><p>pdf: <span class="math notranslate nohighlight">\(f(x) = \frac{\alpha \cdot b^{\alpha}}{x^{\alpha+1}}\)</span> if <span class="math notranslate nohighlight">\(x\geq b\)</span>, otherwise <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p></li>
+<li><p>cdf: <span class="math notranslate nohighlight">\(F(x) =1-(\frac{b}{x})^{\alpha}\)</span>  if <span class="math notranslate nohighlight">\(x\geq b\)</span>, otherwise <span class="math notranslate nohighlight">\(F(x)=1\)</span>.</p></li>
+<li><p>ccdf: <span class="math notranslate nohighlight">\(\overline{F}(x) = (\frac{b}{x})^{\alpha}\)</span></p></li>
+</ul>
+<p>The Praeto distribution is often used to model wealth distributions, where a small group has a large portion of wealth.</p>
+<p>It is an example of a <em>power-law</em> distribution.</p>
+</section>
+<section id="visualizing-a-praeto-distribution">
+<h3>Visualizing a Praeto distribution<a class="headerlink" href="#visualizing-a-praeto-distribution" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualizing X~Praeto(b_1,alpha_1), Y~Praeto(b_2,alpha_2), Z~Praeto(b_3,alpha_3) </span>
+
+<span class="n">b_1</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># shape parameter of X</span>
+<span class="n">alpha_1</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># scale parameter of X</span>
+
+<span class="n">b_2</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># shape parameter of Y</span>
+<span class="n">alpha_2</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># scale parameter of Y</span>
+
+<span class="n">b_3</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># shape parameter of Z</span>
+<span class="n">alpha_3</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># scale parameter of Z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code for visualizing the Pareto distribution</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pareto</span>     <span class="c1"># load binomial distribution</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_1</span><span class="p">,</span> <span class="n">alpha_1</span><span class="p">)</span> <span class="c1"># pdf for X</span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_1</span><span class="p">,</span> <span class="n">alpha_1</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+<span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_2</span><span class="p">,</span> <span class="n">alpha_2</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_2</span><span class="p">,</span> <span class="n">alpha_2</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_3</span><span class="p">,</span> <span class="n">alpha_3</span><span class="p">)</span> <span class="c1"># pdf for Z</span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">b_3</span><span class="p">,</span> <span class="n">alpha_3</span><span class="p">)</span> <span class="c1"># cdf for Z</span>
+<span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Zcdf</span>               <span class="c1"># ccdf for Z</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;X~Pareto(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">), Y~Pareto(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">), Z~Pareto(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">b_1</span><span class="p">,</span><span class="n">alpha_1</span><span class="p">,</span><span class="n">b_2</span><span class="p">,</span><span class="n">alpha_2</span><span class="p">,</span><span class="n">b_3</span><span class="p">,</span><span class="n">alpha_3</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+ <span class="c1"># Plot the PDF on the first subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CDF on the second subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CCDF on the third subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Yccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/b601e2282bcd15d44fb3493ffb0870de22401c1a70fcc4efd6e05d420cb5c38c.png" src="_images/b601e2282bcd15d44fb3493ffb0870de22401c1a70fcc4efd6e05d420cb5c38c.png" />
+</div>
+</div>
+</section>
+<section id="computing-a-praeto-distribution">
+<h3>Computing a Praeto distribution<a class="headerlink" href="#computing-a-praeto-distribution" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## computing X ~ Pareto(b,alpha)</span>
+<span class="c1">## P(c&lt;X≤d), P(X≤d), P(X&gt;c)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># set value of shape parameter</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># set value of scale parameter</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># set lower bound of interval you are interested in</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># set upper bound of interval you are interested in</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pareto</span>
+
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="c1"># P(c&lt;X≤d)</span>
+
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="c1"># P(X≤d)</span>
+
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="c1"># P(X&gt;c)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Assuming:&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X~Pareto(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">alpha</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lower bound c=</span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;upper bound d=</span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We then obtain:&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(c&lt;X≤d)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdfvalue</span><span class="p">)</span>
+     
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(X≤d)=F(d)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdfvalue</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(X&gt;c)=F̅(c)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ccdfvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assuming:
+X~Pareto(3.0, 5.0)
+lower bound c=6.0
+upper bound d=7.0
+We then obtain:
+P(c&lt;X≤d)=0.149
+P(X≤d)=F(d)=0.788
+P(X&gt;c)=F̅(c)=0.274
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chap03.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 3</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-expectation">Rules for expectation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-expectation-redeux">Definition (expectation, redeux)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-vivification">The vivification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-of-bernoulli">Example (expectation of Bernoulli)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-the-vivification">Returning to the vivification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-alternate-characterization-of-expectation">Proposition (alternate characterization of expectation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration">Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-rules-for-expectation">Proposition (rules for expectation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-to-the-vivification-again">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-1">Proof of rule 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-2">Proof of rule 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-3">Proof of rule 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-4">Proof of rule 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-rule-5">Proof of rule 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-of-binomial">Example (expectation of Binomial)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-expectation-of-some-binomials">Computing the expectation of some binomials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independence">Independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-independence-of-events">Definition (independence of events)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-when-evidence-and-hypothesis-independent-the-posterior-and-prior-are-same">Proposition (when evidence and hypothesis independent, the posterior and prior are same)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-random-variables">Independence of random variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-effect-of-independence-on-expectation">Proposition (effect of independence on expectation)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-variance">Rules for variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-variance">Definition (variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-standard-deviation">Definition (standard deviation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-simple-formula-for-variance">Proposition (simple formula for variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-multiplication-and-addition-of-reals-affects-variance">Proposition (how multiplication and addition of reals affects variance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-variance-of-bernoulli">Example (variance of Bernoulli)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returning to the vivification again</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-variance-and-independence">Proposition (Variance and independence)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-root-n-rule">Proposition (Root n rule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-variance-of-binomial">Example (Variance of Binomial)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Returning to the vivification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-normal-distribution">Definition (normal distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-normal-distribution">Visualizing the normal distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-normal-distribution">Computing the normal distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pareto-distribution">Pareto distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-pareto-distribution">Definition (Pareto distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-a-praeto-distribution">Visualizing a Praeto distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-praeto-distribution">Computing a Praeto distribution</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
