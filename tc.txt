@@ -1,0 +1,11 @@
+terminal commands for juptyerbook
+
+# update book, be sure you are in Github-Mac . . . use if need be: cd ..
+
+jupyter-book build philstatsbook/
+
+# update web version of book
+
+cd philstatsbook
+
+ghp-import -n -p -f _build/html
