@@ -183,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
     </div>
@@ -336,17 +337,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-cdfs">Definition (cdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-cdfs">Main idea (cdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-ccdfs">Definition (ccdfs)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-ccdfs">Main idea (ccdfs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-cdfs-and-ccdfs-relate">Proposition (how cdfs and ccdfs relate)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-discrete-pdfs">Motivating discrete pdfs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-ccdfs">Main idea (ccdfs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-cdfs-and-ccdfs-relate">Proposition (how cdfs and ccdfs relate)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-discrete-pdfs">Motivating discrete pdfs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-discrete-pdfs">Definition (discrete pdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-pdf">Main idea (pdf)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-expectation">Definition (expectation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-is-generalization-of-average">Example (expectation is generalization of average)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-moral-expectation-is-generalization-of-average">Example (moral: expectation is generalization of average)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expected-utility">Example (expected utility)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-expectation">Main idea (expectation)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-variance">Definition (variance)</a></li>
@@ -359,15 +356,23 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial">Binomial</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-binomial-distribution">Definition (Binomial distribution)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-procedures">Example (procedures)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-x-binom-n-p">Visualizing X~Binom(n,p)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-x-binom-n-p">Computing X ~ Binom(n,p)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-binomial-distributions">Visualizing Binomial distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-binomial-distributions">Computing Binomial distributions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson">Poisson</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-poisson-distribution">Motivation (Poisson distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-poisson-distribution">Definition (Poisson distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-poisson-distributions">Visualizing Poisson distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-with-poisson-distributions">Computing with Poisson distributions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-discrete">Uniform discrete</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-discrete">Uniform discrete</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-uniform-discrete">Definition (uniform discrete)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-uniform-discrete-distributions">Visualizing uniform discrete distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-with-uniform-discrete-distributions">Computing with uniform discrete distributions</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -397,7 +402,7 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(X:\Omega\rightarrow \mathbb{R}\)</span> is a measurement we are taking of the people under consideration, e.g. age or height.</p></li>
 <li><p><span class="math notranslate nohighlight">\(P\)</span> records the frequency of the properties among the people under consideration (if you are a frequentist); or our beliefs about how probable properties among the people under consideration are (if you are a Bayesian)</p></li>
 </ul>
-<p>For concreteness, one can take:</p>
+<p>Likewies, for concreteness, one can take:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Omega\)</span> is the set of cities under consideration e.g. in the study</p></li>
 <li><p><span class="math notranslate nohighlight">\(\{A: A\subseteq \Omega\}\)</span> are the properties of the cities under consideration e.g. big/small, rich/poor, etc.</p></li>
@@ -441,8 +446,9 @@ document.write(`
 <p>The ccdf answers the question: how probable is it that the random variable has outcome greater than a given number?</p>
 <p>E.g. how probable is it that a person has height greater than a given number?</p>
 <p>E.g. how probable is it that a city has population greater than a given number?</p>
+</section>
 <section id="proposition-how-cdfs-and-ccdfs-relate">
-<h4>Proposition (how cdfs and ccdfs relate)<a class="headerlink" href="#proposition-how-cdfs-and-ccdfs-relate" title="Link to this heading">#</a></h4>
+<h3>Proposition (how cdfs and ccdfs relate)<a class="headerlink" href="#proposition-how-cdfs-and-ccdfs-relate" title="Link to this heading">#</a></h3>
 <p>When <span class="math notranslate nohighlight">\(F_X(x)\)</span> is close to zero, <span class="math notranslate nohighlight">\(\overline{F}_X(x)\)</span> is close to one.</p>
 <p>When <span class="math notranslate nohighlight">\(F_X(x)\)</span> is close to one, <span class="math notranslate nohighlight">\(\overline{F}_X(x)\)</span> is close to zero.</p>
 <p>More generally, both these numbers are in the inteval from 0 to 1, and</p>
@@ -453,10 +459,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[F_X(x)+ \overline{F}_X(x) = P(X\leq x)+P(X&gt;x)=P(\Omega)=1\]</div>
 </section>
-</section>
-</section>
 <section id="motivating-discrete-pdfs">
-<h2>Motivating discrete pdfs<a class="headerlink" href="#motivating-discrete-pdfs" title="Link to this heading">#</a></h2>
+<h3>Motivating discrete pdfs<a class="headerlink" href="#motivating-discrete-pdfs" title="Link to this heading">#</a></h3>
 <p>Some random variables take only natural number values, e.g. population sizes (you can’t have city with 531.5 people)</p>
 <p>Suppose that <span class="math notranslate nohighlight">\(X\)</span> was one of those cases, and consider <span class="math notranslate nohighlight">\(x=2\)</span>.</p>
 <p>Then one has $<span class="math notranslate nohighlight">\(\{\omega\in \Omega: X(\omega)\leq 2\} =\{\omega\in \Omega: X(\omega)=0\}\cup \{\omega\in \Omega: X(\omega)=1\}\cup \{\omega\in \Omega: X(\omega)= 2\}\)</span>$</p>
@@ -467,6 +471,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[F_X(x) = \sum_{k\leq x} P(X=k)\]</div>
 <p>The only thing special about natural number values here is that once <span class="math notranslate nohighlight">\(x\)</span> is fixed, there are only finitely many options <span class="math notranslate nohighlight">\(\leq x\)</span>.</p>
+</section>
 <section id="definition-discrete-pdfs">
 <h3>Definition (discrete pdfs)<a class="headerlink" href="#definition-discrete-pdfs" title="Link to this heading">#</a></h3>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> takes finite or countably infinite many values, then the <em>probability density function (pdf)</em> of <span class="math notranslate nohighlight">\(X\)</span> is</p>
@@ -493,9 +498,8 @@ document.write(`
 <p>The summation is over whatever the values are that the random variable takes.</p>
 <p>The expectation is also designated as <span class="math notranslate nohighlight">\(\mu\)</span>, the Greek letter ‘m’, which is a mnemonic for ‘mean’ or ‘average.’</p>
 </section>
-<hr class="docutils" />
-<section id="example-expectation-is-generalization-of-average">
-<h3>Example (expectation is generalization of average)<a class="headerlink" href="#example-expectation-is-generalization-of-average" title="Link to this heading">#</a></h3>
+<section id="example-moral-expectation-is-generalization-of-average">
+<h3>Example (moral: expectation is generalization of average)<a class="headerlink" href="#example-moral-expectation-is-generalization-of-average" title="Link to this heading">#</a></h3>
 <p>To repeat, the quantity is:</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E} X = \sum_x x\cdot f_X(x) = \sum_x x\cdot P(X=x)\]</div>
@@ -547,7 +551,7 @@ document.write(`
 <p>One has</p>
 <ul class="simple">
 <li><p>expectation: <span class="math notranslate nohighlight">\(\mathbb{E}X = \mu = p\)</span></p></li>
-<li><p>variation: <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = \sigma^2 = p(1-p)\)</span></p></li>
+<li><p>variance: <span class="math notranslate nohighlight">\(\mathrm{Var}(X) = \sigma^2 = p(1-p)\)</span></p></li>
 <li><p>pdf: <span class="math notranslate nohighlight">\(f_X(0) =1-p\)</span>, <span class="math notranslate nohighlight">\(f_X(1)=p\)</span>, in a single formula <span class="math notranslate nohighlight">\(f_X(x)=p^x \cdot (1-p)^{1-x}\)</span></p></li>
 <li><p>cdf: <span class="math notranslate nohighlight">\(F_X(0)=1-p\)</span>, <span class="math notranslate nohighlight">\(F_X(1) = 1\)</span></p></li>
 <li><p>ccdf: <span class="math notranslate nohighlight">\(\overline{F}_X(0)=p\)</span>, <span class="math notranslate nohighlight">\(\overline{F}_X(1) = 0\)</span>.</p></li>
@@ -575,16 +579,21 @@ document.write(`
 <p>Again, we say that random variable <span class="math notranslate nohighlight">\(X\)</span> has the <em>Binomial <span class="math notranslate nohighlight">\((n,p)\)</span> distribution</em>, abbreviated <span class="math notranslate nohighlight">\(X\sim \mathrm{Binom}(n,p)\)</span>, when it records the the number of successes in <span class="math notranslate nohighlight">\(n\)</span>-many independent Bernoulli trials with probability <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>An example is: you have some procedure which has a certain probability <span class="math notranslate nohighlight">\(p\)</span> of success each time, and you want to know what the probability is that you will have, say, more than <span class="math notranslate nohighlight">\(k\)</span> many successs when you do the procedure <span class="math notranslate nohighlight">\(n\)</span> many times. The answer is given by the ccdf <span class="math notranslate nohighlight">\(\overline{F}_X(k)=P(X&gt;k)\)</span>.</p>
 </section>
-<section id="visualizing-x-binom-n-p">
-<h3>Visualizing X~Binom(n,p)<a class="headerlink" href="#visualizing-x-binom-n-p" title="Link to this heading">#</a></h3>
+<section id="visualizing-binomial-distributions">
+<h3>Visualizing Binomial distributions<a class="headerlink" href="#visualizing-binomial-distributions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## visualizing X ~ Binom(n,p)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## visualizing X ~ Binom(n,p), Y~Binom(m,q), Z~Binom(l,r)</span>
 <span class="c1">## pdf, cdf, ccdf</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># set value of n, number of trials</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># sbet value of n, number of trials for X</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">.5</span> <span class="c1"># set value of p, probability of trial for X</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="mf">.5</span> <span class="c1"># set value of p, probability of trial</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># set value of m, number of trials for Y</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mf">.3</span> <span class="c1"># set value of q, probability of trial for Y</span>
+
+<span class="n">l</span> <span class="o">=</span>  <span class="mi">200</span>  <span class="c1"># set value of l, number of trials for Z</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">.3</span> <span class="c1"># set value of r, probability of trial for Z</span>
 </pre></div>
 </div>
 </div>
@@ -600,27 +609,39 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>     <span class="c1"># load binomial distribution</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># pdf </span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># cdf</span>
-<span class="n">y3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">y2</span>               <span class="c1"># ccdf </span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># pdf for X</span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+<span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># pdf for Z</span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># cdf for Z</span>
+<span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Zcdf</span>               <span class="c1"># ccdf for Z</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;X~Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">), Y~Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">), Z~Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
  <span class="c1"># Plot the PDF on the first subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the CDF on the second subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zcdf</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the CCDF on the third subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Yccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zccdf</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
 
@@ -630,12 +651,12 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/9ae8304ecb4008ac01a3dffa46647fbd075f82082852b94641f0227ca1f6f2d5.png" src="_images/9ae8304ecb4008ac01a3dffa46647fbd075f82082852b94641f0227ca1f6f2d5.png" />
+<img alt="_images/012005c743c06778eed48b74e6da32fc3b726b854bba01874839b8a2f83b0a7d.png" src="_images/012005c743c06778eed48b74e6da32fc3b726b854bba01874839b8a2f83b0a7d.png" />
 </div>
 </div>
 </section>
-<section id="computing-x-binom-n-p">
-<h3>Computing X ~ Binom(n,p)<a class="headerlink" href="#computing-x-binom-n-p" title="Link to this heading">#</a></h3>
+<section id="computing-binomial-distributions">
+<h3>Computing Binomial distributions<a class="headerlink" href="#computing-binomial-distributions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## computing X ~ Binom(n,p)</span>
@@ -660,25 +681,37 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
 
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
 
-<span class="n">cdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
 
-<span class="n">ccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pdf </span><span class="si">% 1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assuming that&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X~Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;k=</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We then obtain&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdfvalue</span><span class="p">)</span>
      
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cdf </span><span class="si">% 1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdfvalue</span><span class="p">)</span>
       
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ccdf </span><span class="si">% 1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F̅(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ccdfvalue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pdf  0.080
-cdf  0.540
-ccdf  0.540
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assuming that
+X~Binom(100, 0.50)
+k=50
+We then obtain
+f(k)=0.080
+F(k)=0.540
+F̅(k)=0.460
 </pre></div>
 </div>
 </div>
@@ -691,36 +724,51 @@ ccdf  0.540
 <h3>Motivation (Poisson distribution)<a class="headerlink" href="#motivation-poisson-distribution" title="Link to this heading">#</a></h3>
 <p>You run a store.</p>
 <p>Experience suggests that in <span class="math notranslate nohighlight">\(n = 3600\)</span> seconds (aka one hour) you get four customers. Since <span class="math notranslate nohighlight">\(p=\frac{4}{3600}\approx .0011\)</span>, you could conceive of this with sample space <span class="math notranslate nohighlight">\(\Omega =\{1, 2, \ldots, 3600\}\)</span> with random variable <span class="math notranslate nohighlight">\(X(\omega)\)</span>= number of cumstomers you got up to second <span class="math notranslate nohighlight">\(\omega\)</span> as <span class="math notranslate nohighlight">\(X\sim \mathrm{Binom}(3600, .0011)\)</span>.</p>
-<p>Experience equally suggests that in <span class="math notranslate nohighlight">\(n = 60\)</span> minutes (aka one hour) you get four customers. Since <span class="math notranslate nohighlight">\(p=\frac{4}{60}\approx .067\)</span>, you could conceive of this with sample space <span class="math notranslate nohighlight">\(\Omega =\{1, 2, \ldots, 60\}\)</span> with random variable <span class="math notranslate nohighlight">\(X(\omega)\)</span>= number of cumstomers you got up to minute <span class="math notranslate nohighlight">\(\omega\)</span> as <span class="math notranslate nohighlight">\(X\sim \mathrm{Binom}(60, .067)\)</span>.</p>
-<p>And when you look at <span class="math notranslate nohighlight">\(\mathrm{Binom}(3600, .0011)\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Binom}(60, .067)\)</span>, they don’t seem that different.</p>
+<p>Experience equally suggests that in <span class="math notranslate nohighlight">\(n = 60\)</span> minutes (aka one hour) you get four customers. Since <span class="math notranslate nohighlight">\(p=\frac{4}{60}\approx .067\)</span>, you could conceive of this with sample space <span class="math notranslate nohighlight">\(\Omega =\{1, 2, \ldots, 60\}\)</span> with random variable <span class="math notranslate nohighlight">\(Y(\omega)\)</span>= number of cumstomers you got up to minute <span class="math notranslate nohighlight">\(\omega\)</span> as <span class="math notranslate nohighlight">\(Y\sim \mathrm{Binom}(60, .067)\)</span>.</p>
+<p>And when you look at <span class="math notranslate nohighlight">\(X\sim\mathrm{Binom}(3600, .0011)\)</span> and <span class="math notranslate nohighlight">\(Y\sim\mathrm{Binom}(60, .067)\)</span>, they don’t seem that different.</p>
 <p>It would be nice <em>not</em> to have to include the first number and just make it a function of the rate.</p>
-<div class="cell docutils container">
+<p>(This is the motivation given by <span id="id1">[<a class="reference internal" href="references.html#id4" title="Morris H DeGroot and Mark J Schervish. Probability and Statistics (4th Edition). Pearson, 4 edition, January 2011.">DeGroot and Schervish, 2011</a>]</span> pp. 287-289)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span> <span class="c1"># pdf 1 </span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span> <span class="c1"># pdf 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code for visualizing X~Binom(3600,.0011) and Y~Binom(60,.067)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>     <span class="c1"># load binomial distribution</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span> <span class="c1"># pdf of X </span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span> <span class="c1"># pdf of Y</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 2 columns</span>
     
  <span class="c1"># Plot the PDF on the first subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of Binom(3600, .011)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of X~Binom(3600, .011)&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the CDF on the second subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of Binom(60, .067)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of Y~Binom(60, .067)&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/a47ce70e92b5971b9caaf666c46e501563c72bdbb2a46d14eea673839bf844c0.png" src="_images/a47ce70e92b5971b9caaf666c46e501563c72bdbb2a46d14eea673839bf844c0.png" />
+<img alt="_images/c31a7c286b2e91f45bac47f3b423af65bc23f0d459e40675331b768fce16f28e.png" src="_images/c31a7c286b2e91f45bac47f3b423af65bc23f0d459e40675331b768fce16f28e.png" />
 </div>
 </div>
-<p><strong>Definition (Poisson distribution)</strong></p>
+</section>
+<section id="definition-poisson-distribution">
+<h3>Definition (Poisson distribution)<a class="headerlink" href="#definition-poisson-distribution" title="Link to this heading">#</a></h3>
 <p>We want a high-level compact description of when a random variable records the successes in a large number <span class="math notranslate nohighlight">\(n \)</span> of Bernoulli trials with small propability <span class="math notranslate nohighlight">\(p\)</span> of occuring, where all that matters is the rate <span class="math notranslate nohighlight">\(\lambda = np\)</span>.</p>
 <p>In this case, we say that <span class="math notranslate nohighlight">\(X\)</span> has the <em>Poisson <span class="math notranslate nohighlight">\(\lambda\)</span> distribution</em>, abbreviated <span class="math notranslate nohighlight">\(X\sim \mathrm{Pois}(\lambda)\)</span>.</p>
 <p>One has</p>
@@ -732,76 +780,140 @@ ccdf  0.540
 <li><p>ccdf: no easy formula</p></li>
 </ul>
 <p>The pdf, cdf, and ccdf are best visualized in next slides.</p>
+</section>
+<section id="visualizing-poisson-distributions">
+<h3>Visualizing Poisson distributions<a class="headerlink" href="#visualizing-poisson-distributions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Poisvisual</span><span class="p">(</span><span class="n">λ</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
-    <span class="n">y1</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># pdf </span>
-    <span class="n">y2</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># cdf</span>
-    <span class="n">y3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">y2</span>               <span class="c1"># ccdf </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing X~Pois(λ_1), Y~Pois(λ_2), Z~Pois(λ_3)</span>
+<span class="c1"># pdf, cdf, ccdf</span>
 
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
-    
-     <span class="c1"># Plot the PDF on the first subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="n">λ_1</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># set rate of X</span>
 
-    <span class="c1"># Plot the CDF on the second subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+<span class="n">λ_2</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># set rate of Y</span>
 
-    <span class="c1"># Plot the CCDF on the third subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">λ_3</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># set rate of Z</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">Poisvisual</span><span class="p">,</span> <span class="n">λ</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">.1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code for visualizing X~Pois(λ_1), Y~Pois(λ_2), Z~Pois(λ_3)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>     <span class="c1"># load poisson distribution</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_1</span><span class="p">)</span> <span class="c1"># pdf of X </span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_1</span><span class="p">)</span> <span class="c1"># cdf of X</span>
+<span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf of X</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_2</span><span class="p">)</span> <span class="c1"># pdf of Y </span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_2</span><span class="p">)</span> <span class="c1"># cdf of Y</span>
+<span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf of Y</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_3</span><span class="p">)</span> <span class="c1"># pdf of Z</span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">λ_3</span><span class="p">)</span> <span class="c1"># cdf of Z</span>
+<span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Zcdf</span>               <span class="c1"># ccdf of Z</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;X~Pois(</span><span class="si">%1.2f</span><span class="s1">), Y~Pois(</span><span class="si">%1.2f</span><span class="s1">), Z~Pois(</span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">λ_1</span><span class="p">,</span> <span class="n">λ_2</span><span class="p">,</span> <span class="n">λ_3</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF on the first subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CDF on the second subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CCDF on the third subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Yccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">interact</span><span class="p">(</span><span class="n">Poisvisual</span><span class="p">,</span> <span class="n">λ</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">.1</span><span class="p">))</span>
+<img alt="_images/8830db64cd7c6f3fc8daaa751a70ecca99ed04d8636c6b9943102ee35db3ccf0.png" src="_images/8830db64cd7c6f3fc8daaa751a70ecca99ed04d8636c6b9943102ee35db3ccf0.png" />
+</div>
+</div>
+</section>
+<section id="computing-with-poisson-distributions">
+<h3>Computing with Poisson distributions<a class="headerlink" href="#computing-with-poisson-distributions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computing X~Pois(λ)</span>
+<span class="c1"># pdf, cdf, ccdf</span>
 
-<span class="ne">NameError</span>: name &#39;interact&#39; is not defined
+<span class="n">λ</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># set rate</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># set number of successes</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python functions for Pois(λ)</span>
+<span class="c1"># pdf, cdf, ccdf</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
 
-<span class="n">λ</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># set rate</span>
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
 
-<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># set value of number of successes</span>
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
 
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
 
-<span class="n">cdf</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assuming that&#39;</span><span class="p">)</span>
 
-<span class="n">ccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X~Pois(</span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">λ</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cdf</span><span class="p">,</span> <span class="n">ccdf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;k=</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We then obtain&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdfvalue</span><span class="p">)</span>
+     
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdfvalue</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F̅(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ccdfvalue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018132788707821854 0.9863047314016171 0.013695268598382881
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assuming that
+X~Pois(3.00)
+k=2
+We then obtain
+f(k)=0.224
+F(k)=0.423
+F̅(k)=0.577
 </pre></div>
 </div>
 </div>
@@ -810,7 +922,8 @@ ccdf  0.540
 </section>
 <section id="uniform-discrete">
 <h2>Uniform discrete<a class="headerlink" href="#uniform-discrete" title="Link to this heading">#</a></h2>
-<p><strong>Definition (uniform discrete)</strong></p>
+<section id="definition-uniform-discrete">
+<h3>Definition (uniform discrete)<a class="headerlink" href="#definition-uniform-discrete" title="Link to this heading">#</a></h3>
 <p>We want a high-level compact description of when a random variable is recording outcomes in a finite set of real numbers, each one of which is equally probable.</p>
 <p>We may assume that the finite set has <span class="math notranslate nohighlight">\(n\)</span> elements and has the form <span class="math notranslate nohighlight">\([a,b] = \{a, a+1, \ldots, b\}\)</span>, where <span class="math notranslate nohighlight">\(b=a+n-1\)</span>.</p>
 <p>We say random variable <span class="math notranslate nohighlight">\(X\)</span> has the <em>Uniform distribution</em> in the set <span class="math notranslate nohighlight">\([a,b]\)</span>, abbreviated <span class="math notranslate nohighlight">\(X\sim \mathrm{U}\{a,b\}\)</span> if for each <span class="math notranslate nohighlight">\(k\)</span> in the set one has</p>
@@ -824,77 +937,153 @@ ccdf  0.540
 <li><p>cdf: <span class="math notranslate nohighlight">\(F_X(k) = \frac{k-a+1}{n}\)</span></p></li>
 <li><p>ccdf: <span class="math notranslate nohighlight">\(\overline{F}_X(k)=\frac{b-k}{n}\)</span>.</p></li>
 </ul>
+</section>
+<section id="visualizing-uniform-discrete-distributions">
+<h3>Visualizing uniform discrete distributions<a class="headerlink" href="#visualizing-uniform-discrete-distributions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># U{a,a+n-1}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing X~U{a_1,b_1}, Y~U{a_2,b_2}, Z~U{a_3,b_3},  </span>
+<span class="c1"># pdf, cdf, ccdf</span>
 
-<span class="k">def</span> <span class="nf">Uniformvisual</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
-    <span class="n">y1</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># pdf, </span>
-                       <span class="c1"># it is a+n since python programs {a, a+1, . . . , b} in terms of a and b+1</span>
-    <span class="n">y2</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># cdf</span>
-    <span class="n">y3</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">y2</span>               <span class="c1"># ccdf </span>
+<span class="n">a_1</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># set lower bound a_1 for X</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># set upper bound b_1 for X</span>
+<span class="n">n_1</span> <span class="o">=</span> <span class="n">b_1</span><span class="o">-</span><span class="n">a_1</span><span class="o">+</span><span class="mi">1</span>   <span class="c1"># number of values for X</span>
 
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
-    
-     <span class="c1"># Plot the PDF on the first subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="n">a_2</span> <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># set lower bound a_2 for Y</span>
+<span class="n">b_2</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># set upper bound b_2 for Y</span>
+<span class="n">n_2</span> <span class="o">=</span> <span class="n">b_2</span><span class="o">-</span><span class="n">a_2</span><span class="o">+</span><span class="mi">1</span>   <span class="c1"># number of values for Y</span>
 
-    <span class="c1"># Plot the CDF on the second subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Plot the CCDF on the second subplot</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">a_3</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># set lower bound a_3 for Z</span>
+<span class="n">b_3</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># set upper bound b_3 for Z</span>
+<span class="n">n_3</span> <span class="o">=</span> <span class="n">b_3</span><span class="o">-</span><span class="n">a_3</span><span class="o">+</span><span class="mi">1</span>   <span class="c1"># number of values for X</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">Uniformvisual</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">.1</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code for visualizing X~U{a_1,b_1}, Y~U{a_2,b_2}, Z~U{a_3,b_3},  </span>
+<span class="c1"># pdf, cdf, ccdf</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">randint</span>     <span class="c1"># load poisson distribution</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">a_1</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">a_3</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">b_1</span><span class="p">,</span> <span class="n">b_2</span><span class="p">,</span> <span class="n">b_3</span><span class="p">))</span> <span class="c1"># values for x-axis</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_1</span><span class="p">,</span> <span class="n">a_1</span><span class="o">+</span><span class="n">n_1</span><span class="p">)</span> <span class="c1"># pdf for X </span>
+                    <span class="c1"># it is a_1+n_1 since python programs {a_1, a_1+1, . . . , b_1} in terms of a_1 and b_1+1</span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_1</span><span class="p">,</span> <span class="n">a_1</span><span class="o">+</span><span class="n">n_1</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+<span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">a_2</span><span class="o">+</span><span class="n">n_2</span><span class="p">)</span> <span class="c1"># pdf for Y </span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">a_2</span><span class="o">+</span><span class="n">n_2</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_3</span><span class="p">,</span> <span class="n">a_3</span><span class="o">+</span><span class="n">n_3</span><span class="p">)</span> <span class="c1"># pdf for Y </span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a_3</span><span class="p">,</span> <span class="n">a_3</span><span class="o">+</span><span class="n">n_3</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;X~U{</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">}, Y~U{</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">}, Z~U{</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a_1</span><span class="p">,</span> <span class="n">b_1</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">b_2</span><span class="p">,</span> <span class="n">a_3</span><span class="p">,</span> <span class="n">b_3</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF on the first subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CDF on the second subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zcdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;cdf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the CCDF on the third subplot</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Yccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Zccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ccdf&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "53f6a7eaf848424cb2ca6a7be84582c4", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.Uniformvisual(a, n)&gt;
+<img alt="_images/a4e7c2edb345de4b819ae0a9532e22b0c25943fbe4e83ff4100512be8f0382ca.png" src="_images/a4e7c2edb345de4b819ae0a9532e22b0c25943fbe4e83ff4100512be8f0382ca.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="computing-with-uniform-discrete-distributions">
+<h3>Computing with uniform discrete distributions<a class="headerlink" href="#computing-with-uniform-discrete-distributions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># lower bound of X~U{a,b}</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">11</span> <span class="c1"># upper bound of X~U{a,b}</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># number of values for X~U{a,b}</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># set outcome you are interested in</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python functions for U{a,a+n-1}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python functions computing X~U{a,a+n-1}</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">randint</span>
 
-<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># set value of a </span>
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># set value of n</span>
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
 
-<span class="n">k</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># set value of outcome you are interested in</span>
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
 
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># P(X=k)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Assuming that&#39;</span><span class="p">)</span>
 
-<span class="n">cdf</span> <span class="o">=</span> <span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># P(X≤k)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X~U{</span><span class="si">%i</span><span class="s1">, </span><span class="si">%i</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
 
-<span class="n">ccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">randint</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="c1"># P(X&gt;k)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;k=</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cdf</span><span class="p">,</span> <span class="n">ccdf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We then obtain&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pdfvalue</span><span class="p">)</span>
+     
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cdfvalue</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F̅(k)=</span><span class="si">%1.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ccdfvalue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1 0.2 0.8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Assuming that
+X~U{3, 11}
+k=6
+We then obtain
+f(k)=0.111
+F(k)=0.444
+F̅(k)=0.556
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -967,17 +1156,13 @@ ccdf  0.540
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-cdfs">Definition (cdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-cdfs">Main idea (cdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-ccdfs">Definition (ccdfs)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-ccdfs">Main idea (ccdfs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-cdfs-and-ccdfs-relate">Proposition (how cdfs and ccdfs relate)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-discrete-pdfs">Motivating discrete pdfs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-ccdfs">Main idea (ccdfs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition-how-cdfs-and-ccdfs-relate">Proposition (how cdfs and ccdfs relate)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-discrete-pdfs">Motivating discrete pdfs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-discrete-pdfs">Definition (discrete pdfs)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-pdf">Main idea (pdf)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-expectation">Definition (expectation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expectation-is-generalization-of-average">Example (expectation is generalization of average)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-moral-expectation-is-generalization-of-average">Example (moral: expectation is generalization of average)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-expected-utility">Example (expected utility)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-idea-expectation">Main idea (expectation)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-variance">Definition (variance)</a></li>
@@ -990,15 +1175,23 @@ ccdf  0.540
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial">Binomial</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-binomial-distribution">Definition (Binomial distribution)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-procedures">Example (procedures)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-x-binom-n-p">Visualizing X~Binom(n,p)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-x-binom-n-p">Computing X ~ Binom(n,p)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-binomial-distributions">Visualizing Binomial distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-binomial-distributions">Computing Binomial distributions</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson">Poisson</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-poisson-distribution">Motivation (Poisson distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-poisson-distribution">Definition (Poisson distribution)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-poisson-distributions">Visualizing Poisson distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-with-poisson-distributions">Computing with Poisson distributions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-discrete">Uniform discrete</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-discrete">Uniform discrete</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-uniform-discrete">Definition (uniform discrete)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-uniform-discrete-distributions">Visualizing uniform discrete distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-with-uniform-discrete-distributions">Computing with uniform discrete distributions</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

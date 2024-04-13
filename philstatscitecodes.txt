@@ -16,6 +16,11 @@
 `Sprenger2011-si`
 `Sprenger2016-xc`
 `Williamson2010-dq`
+`Stalnaker1987-fw`
+`Dale1995-zf`
+`Von_Mises1957-rk`
+`De_Finetti1964-rr`
+
 
 Chapters 1-2: sets and events; review and interpretations of probability. Reference: {cite}`Galavotti2014-th`.
 

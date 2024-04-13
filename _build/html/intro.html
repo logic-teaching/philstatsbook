@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
     </div>
@@ -307,7 +308,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -323,6 +326,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-goals">Aims and goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequistes">Prerequistes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-python">Examples and python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -334,20 +349,43 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="philstats">
 <h1>Philstats<a class="headerlink" href="#philstats" title="Link to this heading">#</a></h1>
-<p>This is an overview of philosophy of statistics, originally written for <a class="reference external" href="https://bruinlearn.ucla.edu/courses/186475">Phlios 133C in Spring 2024</a>.</p>
-<p>The main goal is to set out and evaluate the philosophical ideas of founding figures of Neyman-Pearson, Fisher, Savage, and Jeffreys, and their modern proponents in philosophy and statistics like Mayo and Howson-Urbach and Royall.</p>
-<p>But we begin with an overview and review of relevant bits of probability and statistics and interpretations of probability. And we close by discussing various topics such as causality and simplicity and factor analysis.</p>
-<p>We are going to use the historical development to orientate the discussion.</p>
-<p>This course does not presuppose any prior familiarity with statistics.</p>
-<p>In terms of prior knowledge, this is structured so that its topic is to statistics roughly what medical ethics is to medicine</p>
-<p>Everyone should be able to get a lot out of it, due in part to the ubiquity of statistics in our everyday lives.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<section id="aims-and-goals">
+<h2>Aims and goals<a class="headerlink" href="#aims-and-goals" title="Link to this heading">#</a></h2>
+<p>This is an overview of philosophy of statistics. The main goal is to set out and evaluate the philosophical ideas of founding figures of Neyman-Pearson, Fisher, Savage, and Jeffreys, and their modern proponents in philosophy and statistics like Mayo and Howson-Urbach and Royall. But we begin with an overview and review of relevant bits of probability and statistics and interpretations of probability. And we close by discussing various topics such as causality and simplicity and factor analysis.</p>
+</section>
+<section id="prerequistes">
+<h2>Prerequistes<a class="headerlink" href="#prerequistes" title="Link to this heading">#</a></h2>
+<p>We are going to use the historical development to orientate the discussion.  This course does not presuppose any prior familiarity with statistics. In terms of prior knowledge, this is structured so that its topic is to statistics roughly what medical ethics is to medicine. Everyone should be able to get a lot out of it, due in part to the ubiquity of statistics in our everyday lives.</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>Thanks to the wonderful students in <a class="reference external" href="https://bruinlearn.ucla.edu/courses/186475">UCLA’s Phlios 133C in Spring 2024</a> for their feedback on this material. This material owes a lot to that of my former colleague <a class="reference external" href="https://sites.socsci.uci.edu/~johnsonk/CLASSES/ScientificInference/ScientificInference.html">Kent Johnson’s course</a>. I also learned a lot from <a class="reference external" href="https://uk.linkedin.com/in/cosmo-grant">Cosmo Grant’s</a> philosophy of statistics courses which he ran while he was a post-doc at UCLA a couple of years ago.</p>
+</section>
+<section id="examples-and-python">
+<h2>Examples and python<a class="headerlink" href="#examples-and-python" title="Link to this heading">#</a></h2>
+<p>Philosophy works best when there are good examples at play to motivate a position or to assess a position. And it is all the better when it is easy for everyone with just a little bit of time and creativity to come up with the examples. In statistics, the recent popularity of python (and R) has made coming up with worked out examples easier than ever. Hence, there are many bits of python code scattered throughout the text, mostly to illustrate key ideas with nice graphics, but also to provide an easy way to work out specific examples. You can just copy and paste the code into your favorite implementation of Python and run it. There are lots of easy ways to run python these days, including the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.programiz.com/python-programming/online-compiler/">Programiz</a> (no set-up required; but don’t use this if you want/need to easily save)</p></li>
+<li><p><a class="reference external" href="https://jupyter.idre.ucla.edu/hub/login?next=%2Fhub%2F">UCLA Jupyterhub</a> (virtually no set-up required; but requires UCLA sign on; your institution probably has Juptyerhub)</p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/anaconda-navigator">Anaconda Navigator</a> (requires about an hour to set up; for use on desktop machines; just watch some youtube videos if you need help getting started)</p></li>
 </ul>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<p>The rough plan is as follows, where each Chapter corresponds to a lecture:</p>
+<p>Chapters 1-2: sets and events; review and interpretations of probability. Reference: <span id="id1">[<a class="reference internal" href="references.html#id22" title="Maria Carla Galavotti. Probability. In Martin Curd and Stathis Psillos, editors, The Routledge Companion to Philosophy of Science, pages 458–468. second edition, 2014.">Galavotti, 2014</a>]</span>.</p>
+<p>Chapters 3-4: cdfs and pfs, visually and otherwise; independence and what happens in the limit.</p>
+<p>Chapter 5-6: estimation and the bootstrap. Reference: <span id="id2">[<a class="reference internal" href="references.html#id13" title="Jan Sprenger. Science without (parametric) models: the case of bootstrap resampling. Synthese, 180(1):65–76, May 2011.">Sprenger, 2011</a>]</span>, <span id="id3">[<a class="reference internal" href="references.html#id24" title="Bradley Efron and Carl Morris. Stein's paradox in statistics. Sci. Am., 236(5):119–127, 1977.">Efron and Morris, 1977</a>]</span></p>
+<p>Chapter 7-8: Neyman-Pearson and Mayo. References: <span id="id4">[<a class="reference internal" href="references.html#id16" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id17" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span></p>
+<p>Chapters 9-10: Bayesianism. References: <span id="id6">[<a class="reference internal" href="references.html#id16" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id7">[<a class="reference internal" href="references.html#id17" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span>, <span id="id8">[<a class="reference internal" href="references.html#id15" title="Leonard J Savage. The Foundations of Statistics. Dover, 1972.">Savage, 1972</a>]</span></p>
+<p>Chapters 11-12: Likelihood and Fisher. References: <span id="id9">[<a class="reference internal" href="references.html#id11" title="Richard Royall. Statistical Evidence: A Likelihood Paradigm. Routledge, November 2017.">Royall, 2017</a>]</span>, <span id="id10">[<a class="reference internal" href="references.html#id23" title="Ronald A Fisher. Statistical Methods, Experimental Design, and Scientific Inference. Oxford University Press, 1990.">Fisher, 1990</a>]</span></p>
+<p>Chapters 13-14: Objective Bayes. References: <span id="id11">[<a class="reference internal" href="references.html#id21" title="Harold Jeffreys. The Theory of Probability. Oxford, 1948.">Jeffreys, 1948</a>]</span>, <span id="id12">[<a class="reference internal" href="references.html#id10" title="Jon Williamson. In Defence of Objective Bayesianism. Oxford University Press, May 2010.">Williamson, 2010</a>]</span></p>
+<p>Chapters 15-16: Causal inference. References:  <span id="id13">[<a class="reference internal" href="references.html#id19" title="Christopher Hitchcock. The intransitivity of causation revealed in equations and graphs. J. Philos., 98(6):273–299, 2001.">Hitchcock, 2001</a>]</span>
+<span id="id14">[<a class="reference internal" href="references.html#id18" title="Christopher Hitchcock. Causal modelling. In The Oxford Handbook of Causation, pages 299–314. 2009.">Hitchcock, 2009</a>]</span></p>
+<p>Chapters 17-18: Model selection. References: <span id="id15">[<a class="reference internal" href="references.html#id14" title="Elliott Sober. Ockham's Razors. Cambridge University Press, July 2015.">Sober, 2015</a>]</span></p>
+<p>Chapters 19-20 : Factor analysis. References: <span id="id16">[<a class="reference internal" href="references.html#id20" title="Kent Johnson. Realism and uncertainty of unobservable common causes in factor analysis. Nous, 50(2):329–355, June 2016.">Johnson, 2016</a>]</span></p>
+</section>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -397,7 +435,24 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-goals">Aims and goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequistes">Prerequistes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-python">Examples and python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
