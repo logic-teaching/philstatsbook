@@ -18,7 +18,7 @@ Philosophy works best when there are good examples at play to motivate a positio
 
 - [Programiz](https://www.programiz.com/python-programming/online-compiler/) (no set-up required; but don't use this if you want/need to easily save)
 - [UCLA Jupyterhub](https://jupyter.idre.ucla.edu/hub/login?next=%2Fhub%2F) (virtually no set-up required; but requires UCLA sign on; your institution probably has Juptyerhub)
-- [Anaconda Navigator](https://www.anaconda.com/anaconda-navigator) (requires about an hour to set up; for use on desktop machines; just watch some youtube videos if you need help getting started)
+- [Anaconda Navigator](https://www.anaconda.com/anaconda-navigator) (requires about an hour to set up; for use on desktop machines; just watch some youtube videos if you need help getting started). Ancaconda also has come out with [a web based platform](https://www.anaconda.com/), but I have less experience with this.
 
 ## Outline
 
