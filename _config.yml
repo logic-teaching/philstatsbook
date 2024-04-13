@@ -26,4 +26,4 @@ sphinx:
     bibtex_reference_style: author_year
     
 launch_buttons:
-  binderhub_url: "https://mybinder.org/v2/gh/logic-teaching/philstatsbook/HEAD"  
+  binderhub_url: "https://mybinder.org"  
