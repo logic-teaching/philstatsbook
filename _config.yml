@@ -24,3 +24,6 @@ bibtex_bibfiles:
 sphinx:
   config:
     bibtex_reference_style: author_year
+    
+launch_buttons:
+  binderhub_url: "https://mybinder.org/v2/gh/logic-teaching/philstatsbook/HEAD"  # The URL for your BinderHub (e.g., https://mybinder.org)
