@@ -18,7 +18,7 @@ Philosophy works best when there are good examples at play to motivate a positio
 
 To manipulate the python code one can
 
-- click on the <i class="fa fa-rocket" aria-hidden="true"></i> icons at the top center-right of each chapter page, which will launch the page in a [binder](https://mybinder.org) which does not require you to insall anything on your machine (but you won't be able to save anything)
+- click on the <i class="fa fa-rocket" aria-hidden="true"></i> icons at the top center-right of each chapter page, which will launch the page in a [binder](https://mybinder.org) which does not require you to install anything on your machine (but you won't be able to save anything)
 
 Or one can just copy and paste the code into your favorite Python interpreter and run it. There are lots of easy ways to run python these days, including the following:
 
