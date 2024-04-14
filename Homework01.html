@@ -363,23 +363,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Homework 1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9">Problem 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10">Problem 10</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9">Problem 9</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10">Problem 10</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -390,7 +386,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="homework-1">
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-1">
 <h1>Homework 1<a class="headerlink" href="#homework-1" title="Link to this heading">#</a></h1>
 <p>This is due Wednesday April 24 by 11:59pm, for full credit. It can be turned in Thursday April 25 by 11:59pm for a 10% reduction.</p>
 <p>You can work with 1-2 other students on it, you just have to indicate who else you worked with, and everyone has to write their own solutions.</p>
@@ -521,13 +517,12 @@ document.write(`
 <p><em>Hint 2</em>: think about what kinds of values they each take (e.g. random avariables with distribution Binom(n,p) take values in 0, …, n, while poisson takes values in 0,1,2,…; and normal and power law take real numbers values; in this case, then think about whether it should be bell shaped or should have a heavy tail).</p>
 <p><em>Note</em>: There are obviously a whole host of different probability distributions, but we just need to have a rough and ready sense of a few constrasts between the basic ones.</p>
 </section>
-</section>
 <section id="problem-7">
-<h1>Problem 7<a class="headerlink" href="#problem-7" title="Link to this heading">#</a></h1>
+<h2>Problem 7<a class="headerlink" href="#problem-7" title="Link to this heading">#</a></h2>
 <p>We mentioned that <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap03.html#example-moral-expectation-is-generalization-of-average">expectation is average in the uniform case</a>.</p>
 <p>Find a finite sample space <span class="math notranslate nohighlight">\(\Omega=\{\omega_1, \ldots, \omega_n\}\)</span> with <span class="math notranslate nohighlight">\(n\geq 3\)</span> and a probability measure <span class="math notranslate nohighlight">\(P\)</span> and a random variable <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(\mathbb{E}X\)</span> is not equal to the average <span class="math notranslate nohighlight">\(\frac{X(\omega_1)+\cdots+X(\omega_n)}{n}\)</span></p>
 <section id="problem-8">
-<h2>Problem 8<a class="headerlink" href="#problem-8" title="Link to this heading">#</a></h2>
+<h3>Problem 8<a class="headerlink" href="#problem-8" title="Link to this heading">#</a></h3>
 <p>Often the probability of interest is <span class="math notranslate nohighlight">\(P(c&lt; X\leq c)\)</span> for numbers <span class="math notranslate nohighlight">\(c&lt;d\)</span>.</p>
 <p>This problem has two parts.</p>
 <p>First, use finite additivity (or <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap02.html#proposition-inclusion-exclusion">inclusion-exclusion</a>) to show that</p>
@@ -547,18 +542,19 @@ document.write(`
 </section>
 </section>
 <section id="problem-9">
-<h1>Problem 9<a class="headerlink" href="#problem-9" title="Link to this heading">#</a></h1>
+<h2>Problem 9<a class="headerlink" href="#problem-9" title="Link to this heading">#</a></h2>
 <p>Much of what we will do later in this course concerns infinite sequences of independent random variables <span class="math notranslate nohighlight">\(X_1, X_2, X_3, \ldots\)</span> where these represent taking a given measurement (e.g. height) of a long list of samples (e.g. people).</p>
 <p>But I think that it is still safe to say that this notion occurs rarely in philosophy outside of philosophy of statistics.</p>
 <p>But many philosophers are sympathetic to certain strains of <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap02.html#subjective-bayesianism">subjective Bayesianism</a> and think that when we are gathering evidence <span class="math notranslate nohighlight">\(E_1, E_2, \ldots\)</span> we are <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap02.html#conditioning-and-conditionals">conditioning</a> and updating our degrees of beliefs to <span class="math notranslate nohighlight">\(P_{E_1}, P_{E_1\cap E_2}, P_{E_1\cap E_2\cap E_3}, \ldots\)</span>.</p>
 <p>Use <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#proposition-when-evidence-and-hypothesis-independent-the-posterior-and-prior-are-same">this proposition</a> to try to write a 3-4 sentence English explanation- for such a philosopher- of what it means to be working with an infinite sequences of independent random variables <span class="math notranslate nohighlight">\(X_1, X_2, X_3, \ldots\)</span>.</p>
 </section>
 <section id="problem-10">
-<h1>Problem 10<a class="headerlink" href="#problem-10" title="Link to this heading">#</a></h1>
+<h2>Problem 10<a class="headerlink" href="#problem-10" title="Link to this heading">#</a></h2>
 <p>Suppose that <span class="math notranslate nohighlight">\(X\)</span> has expectation <span class="math notranslate nohighlight">\(5\)</span> and variance <span class="math notranslate nohighlight">\(3\)</span>, and suppose that <span class="math notranslate nohighlight">\(Y\)</span> has expectation <span class="math notranslate nohighlight">\(-2\)</span> and variance <span class="math notranslate nohighlight">\(4\)</span>.</p>
 <p>Suppose that <span class="math notranslate nohighlight">\(X,Y\)</span> are independent. Let <span class="math notranslate nohighlight">\(Z=2\cdot X-3\cdot Y+7\)</span>.</p>
 <p>Use the <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#proposition-rules-for-expectation">rules for expectation</a> and the rules for variance (<a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#proposition-how-multiplication-and-addition-of-reals-affects-variance">this one</a> and <a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#proposition-variance-and-independence">this one</a>) to find the expectation and variance of <span class="math notranslate nohighlight">\(Z\)</span>.</p>
 <p>Show your work.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -625,23 +621,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Homework 1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9">Problem 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10">Problem 10</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9">Problem 9</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10">Problem 10</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
