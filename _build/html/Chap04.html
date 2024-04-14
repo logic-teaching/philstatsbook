@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap04';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="References" href="references.html" />
+    <link rel="next" title="Homework 1" href="Homework01.html" />
     <link rel="prev" title="Chapter 3" href="Chap03.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -238,7 +239,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Chap04.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/logic-teaching/philstatsbook/main?urlpath=lab/tree/Chap04.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -857,15 +858,21 @@ EZ_2=700.00
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>     <span class="c1"># load binomial distribution</span>
 
+<span class="n">sd_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_1</span><span class="p">)</span> <span class="c1"># standard deviation of X</span>
+<span class="n">sd_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_2</span><span class="p">)</span> <span class="c1"># standard deviation of Y</span>
+<span class="n">sd_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_3</span><span class="p">)</span> <span class="c1"># standard deviation of Z</span>
+
+<span class="c1"># in what follows, note that scipy.stats&#39;s normal distribution uses standard deviation, not variance</span>
+
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
-<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">var_1</span><span class="p">)</span> <span class="c1"># pdf for X</span>
-<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">var_1</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+<span class="n">Xpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">sd_1</span><span class="p">)</span> <span class="c1"># pdf for X</span>
+<span class="n">Xcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">sd_1</span><span class="p">)</span> <span class="c1"># cdf for X</span>
 <span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
-<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">var_2</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
-<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">var_2</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+<span class="n">Ypdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">sd_2</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
+<span class="n">Ycdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">sd_2</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
 <span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
-<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">var_3</span><span class="p">)</span> <span class="c1"># pdf for Z</span>
-<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">var_3</span><span class="p">)</span> <span class="c1"># cdf for Z</span>
+<span class="n">Zpdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">sd_3</span><span class="p">)</span> <span class="c1"># pdf for Z</span>
+<span class="n">Zcdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mu_3</span><span class="p">,</span> <span class="n">sd_3</span><span class="p">)</span> <span class="c1"># cdf for Z</span>
 <span class="n">Zccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Zcdf</span>               <span class="c1"># ccdf for Z</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
@@ -899,7 +906,7 @@ EZ_2=700.00
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/fd6b5b1e809b48fc0a2c7bbc7df2e29f0a00eec20174e8a7b40ffcae7a914b92.png" src="_images/fd6b5b1e809b48fc0a2c7bbc7df2e29f0a00eec20174e8a7b40ffcae7a914b92.png" />
+<img alt="_images/a31f55d8081f0f9402d69a1c0e2cba41960b67a2432416ceb9f54a4693bc4b0a.png" src="_images/a31f55d8081f0f9402d69a1c0e2cba41960b67a2432416ceb9f54a4693bc4b0a.png" />
 </div>
 </div>
 </section>
@@ -931,11 +938,16 @@ EZ_2=700.00
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 
-<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(c&lt;X≤d)</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="c1"># standard deviation of X</span>
 
-<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(X≤d)</span>
+<span class="c1"># in what follows, note that scipy.stats&#39;s normal distribution uses standard deviation, not variance</span>
 
-<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="c1"># P(X&gt;c)</span>
+
+<span class="n">pdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span> <span class="c1"># P(c&lt;X≤d)</span>
+
+<span class="n">cdfvalue</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span> <span class="c1"># P(X≤d)</span>
+
+<span class="n">ccdfvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span> <span class="c1"># P(X&gt;c)</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Assuming:&#39;</span><span class="p">)</span>
 
@@ -962,9 +974,9 @@ X~N(3.0, 5.0)
 lower bound c=2.0
 upper bound d=2.2
 We then obtain:
-P(c&lt;X≤d)=0.016
-P(X≤d)=Φ(d)=F(d)=0.436
-P(X&gt;c)=1-Φ(c)=F̅(c)=0.579
+P(c&lt;X≤d)=0.033
+P(X≤d)=Φ(d)=F(d)=0.360
+P(X&gt;c)=1-Φ(c)=F̅(c)=0.673
 </pre></div>
 </div>
 </div>
@@ -1173,11 +1185,11 @@ P(X&gt;c)=F̅(c)=0.274
       </div>
     </a>
     <a class="right-next"
-       href="references.html"
+       href="Homework01.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Homework 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

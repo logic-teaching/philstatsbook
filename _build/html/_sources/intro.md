@@ -14,7 +14,13 @@ Thanks to the wonderful students in [UCLA's Phlios 133C in Spring 2024](https://
 
 ## Examples and python
 
-Philosophy works best when there are good examples at play to motivate a position or to assess a position. And it is all the better when it is easy for everyone, with just a little bit of time and creativity, to come up with the examples. In statistics, the recent popularity of python (and R) has made coming up with worked out examples easier than ever. Hence, there are many bits of python code scattered throughout the text, mostly to illustrate key ideas with nice graphics, but also to provide an easy way to work out specific examples. You can just copy and paste the code into your favorite Python interpreter and run it. There are lots of easy ways to run python these days, including the following:
+Philosophy works best when there are good examples at play to motivate a position or to assess a position. And it is all the better when it is easy for everyone, with just a little bit of time and creativity, to come up with the examples. In statistics, the recent popularity of python (and R) has made coming up with worked out examples easier than ever. Hence, there are many bits of python code scattered throughout the text, mostly to illustrate key ideas with nice graphics, but also to provide an easy way to work out specific examples. 
+
+To manipulate the python code one can
+
+- click on the <i class="fa fa-rocket" aria-hidden="true"></i> icons at the top center-right of each chapter page, which will launch the page in a [binder](https://mybinder.org) which does not require you to install anything on your machine (but you won't be able to save anything)
+
+Or one can just copy and paste the code into your favorite Python interpreter and run it. There are lots of easy ways to run python these days, including the following:
 
 - [Programiz](https://www.programiz.com/python-programming/online-compiler/) (no set-up required; but don't use this if you want/need to easily save)
 - [UCLA Jupyterhub](https://jupyter.idre.ucla.edu/hub/login?next=%2Fhub%2F) (virtually no set-up required; but requires UCLA sign on; your institution probably has Juptyerhub)
