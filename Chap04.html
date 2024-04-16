@@ -416,6 +416,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-praeto-distribution">Computing a Praeto distribution</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-traditional-of-probability-distributions">Summary of traditional of probability distributions</a></li>
 </ul>
             </nav>
         </div>
@@ -1144,6 +1145,58 @@ P(X&gt;c)=F̅(c)=0.274
 </div>
 </section>
 </section>
+<section id="summary-of-traditional-of-probability-distributions">
+<h2>Summary of traditional of probability distributions<a class="headerlink" href="#summary-of-traditional-of-probability-distributions" title="Link to this heading">#</a></h2>
+<p>Here is a table which summarizes:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Expectation <span class="math notranslate nohighlight">\(\mu\)</span></p></th>
+<th class="head"><p>Variance <span class="math notranslate nohighlight">\(\sigma^2\)</span></p></th>
+<th class="head"><p>random variable takes which values</p></th>
+<th class="head"><p>canonical example of such a random variable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap03.html#bernoulli">Bernoulli</a> <span class="math notranslate nohighlight">\(\mathrm{Bern}(p)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p\cdot (1-p)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0\)</span> (failure), <span class="math notranslate nohighlight">\(1\)</span> (success)</p></td>
+<td><p>success or failure of flipping coin with bias <span class="math notranslate nohighlight">\(p\)</span> towards heads</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap03.html#binomial">Binomial</a> <span class="math notranslate nohighlight">\(\mathrm{Binom}(n,p)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\cdot p\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\cdot p\cdot (p-1)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,\ldots, n\)</span></p></td>
+<td><p>number of successes of flipping coin with bias <span class="math notranslate nohighlight">\(p\)</span> towards heads <span class="math notranslate nohighlight">\(n\)</span>-many times</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap03.html#poisson">Poisson</a> <span class="math notranslate nohighlight">\(\mathrm{Pois}(\lambda)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0,1,2,3,\ldots\)</span></p></td>
+<td><p>number of arrivals in store in an hour</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniform discrete <span class="math notranslate nohighlight">\(U\{a,b\}\)</span>, where <span class="math notranslate nohighlight">\(n=b-a+1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( \frac{a+b}{n}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{n^2-1}{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(a, \ldots, b\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span> equally probable outcomes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#normal-distribution">Normal</a> <span class="math notranslate nohighlight">\(N(\mu,\sigma^2)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mu\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sigma^2\)</span></p></td>
+<td><p>any real number</p></td>
+<td><p>heights of people in large group</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://logic-teaching.github.io/philstatsbook/Chap04.html#pareto-distribution">Praeto</a> <span class="math notranslate nohighlight">\(\mathrm{Praeto}(b,\alpha)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha\cdot \frac{b}{\alpha-1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\alpha}{\alpha-2}\cdot \frac{b}{\alpha-1}\)</span></p></td>
+<td><p>any real number</p></td>
+<td><p>income distributions</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1262,6 +1315,7 @@ P(X&gt;c)=F̅(c)=0.274
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-a-praeto-distribution">Computing a Praeto distribution</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-traditional-of-probability-distributions">Summary of traditional of probability distributions</a></li>
 </ul>
   </nav></div>
 
