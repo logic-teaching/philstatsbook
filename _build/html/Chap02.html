@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap05.html">Chapter 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -563,7 +564,7 @@ document.write(`
 <h3>Laplace and the principle of indifference<a class="headerlink" href="#laplace-and-the-principle-of-indifference" title="Link to this heading">#</a></h3>
 <p>From the <em>Philosophy Essay on Probabilities</em> of 1825:</p>
 <blockquote>
-<div><p>The theory of chances consists in reducing all events of the same kind to a certain number of equally possible cases, that is to say, to cases whose existence we are equally uncertain of, and in determining the number of cases favourable to the event whose probability is sought. The ratio of this number to that of all possible cases is the measure of this probability, which is thus only a fraction whose numerator is the number of favourable cases, and whose denominator is the number of all possible cases (<span id="id1">[<a class="reference internal" href="references.html#id8" title="Andrew I Dale and Pierre-Simon Laplace. Pierre-Simon Laplace Philosophical Essay on Probabilities. Springer, 1995.">Dale and Laplace, 1995</a>]</span> p. 4)</p>
+<div><p>The theory of chances consists in reducing all events of the same kind to a certain number of equally possible cases, that is to say, to cases whose existence we are equally uncertain of, and in determining the number of cases favourable to the event whose probability is sought. The ratio of this number to that of all possible cases is the measure of this probability, which is thus only a fraction whose numerator is the number of favourable cases, and whose denominator is the number of all possible cases (<span id="id1">[<a class="reference internal" href="references.html#id10" title="Andrew I Dale and Pierre-Simon Laplace. Pierre-Simon Laplace Philosophical Essay on Probabilities. Springer, 1995.">Dale and Laplace, 1995</a>]</span> p. 4)</p>
 </div></blockquote>
 <p>It seems he is thus interested in what we would call today the <em>uniform</em> measure on a finite space.</p>
 <p>If <span class="math notranslate nohighlight">\(\Omega\)</span> has cardinality <span class="math notranslate nohighlight">\(n\)</span> and an event <span class="math notranslate nohighlight">\(A\)</span> has <span class="math notranslate nohighlight">\(m\)</span> elements, then we define <span class="math notranslate nohighlight">\(P(A)=\frac{m}{n}\)</span>.</p>
@@ -573,7 +574,7 @@ document.write(`
 </section>
 <section id="von-mises-and-frequentism">
 <h3>von Mises and frequentism<a class="headerlink" href="#von-mises-and-frequentism" title="Link to this heading">#</a></h3>
-<p>The canonical expression of this is in von Mises’ <em>Probability, Statistics, and Truth</em> <span id="id2">[<a class="reference internal" href="references.html#id7" title="Richard von Mises. Probability, Statistics and Truth. Macmillan, New York, 1957.">von Mises, 1957</a>]</span>, originally published in 1928. The idea is that given an infinite sequence of observations, the probability of an event can be defined to the limiting relative frequence of the number of times it occured in the sequence.</p>
+<p>The canonical expression of this is in von Mises’ <em>Probability, Statistics, and Truth</em> <span id="id2">[<a class="reference internal" href="references.html#id9" title="Richard von Mises. Probability, Statistics and Truth. Macmillan, New York, 1957.">von Mises, 1957</a>]</span>, originally published in 1928. The idea is that given an infinite sequence of observations, the probability of an event can be defined to the limiting relative frequence of the number of times it occured in the sequence.</p>
 <p>Formally, given a space <span class="math notranslate nohighlight">\(\Omega\)</span>, consider the “superspace” <span class="math notranslate nohighlight">\(\Omega^{\mathbb{N}}=\{f:\mathbb{N}\rightarrow \Omega\}\)</span>, i.e. the set of all functions from the natural numbers to <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 <p>For instance if <span class="math notranslate nohighlight">\(\Omega =\{0,1\}\)</span>, then <span class="math notranslate nohighlight">\(\Omega^{\mathbb{N}}\)</span> is <em>Cantor space</em>, the space of all infinite sequences of zeros and ones. This is a good initial representation of the space of all infinite sequences of coin flips.</p>
 <p>Then for such a function <span class="math notranslate nohighlight">\(f\)</span>, define <span class="math notranslate nohighlight">\(P_f(A) = \lim_n \frac{\left|\{m\leq n: f(m)\in A\}\right|}{n}\)</span>.</p>
@@ -597,14 +598,14 @@ document.write(`
 <p>De Finetti described his own view as <em>subjectivism</em>, but it is now usually called just <em>Bayesianism</em> or perhaps sometimes <em>subjective Bayesianism</em>.</p>
 <p>The basic idea is that probabilities are just degrees of confidence or degrees of belief: they are reflective of the subjective evaluations of agents.</p>
 <p>Different subjective Bayesians will differ in terms of how they understand the “reflectiveness”, and can range the gamut from pyschologically real states of agents to the best way to understand from an external point of view the bevahior of an agent.</p>
-<p>De Finetti describes these views in his <span id="id3">[<a class="reference internal" href="references.html#id6" title="Bruno De Finetti. Foresight: its logical laws, its subjective sources. Studies in subjective probability, 1964:94–158, 1964.">De Finetti, 1964</a>]</span>, originally published in 1937.</p>
+<p>De Finetti describes these views in his <span id="id3">[<a class="reference internal" href="references.html#id8" title="Bruno De Finetti. Foresight: its logical laws, its subjective sources. Studies in subjective probability, 1964:94–158, 1964.">De Finetti, 1964</a>]</span>, originally published in 1937.</p>
 </section>
 <section id="de-finetti-vs-von-mises">
 <h3>de Finetti vs von Mises<a class="headerlink" href="#de-finetti-vs-von-mises" title="Link to this heading">#</a></h3>
 <p>Both von Mises and de Finetti were primarily concerned to give a scientifically acceptable account of probability.</p>
 <p>Von Mises is often counted as a member of the Vienna circle.</p>
-<p>Similarly, de Finetti speaks of his motivation as stemming from a view that “Every notion is only a word without meaning so long as it is not known how to verify practically any statement at all where this notion comes up …” (<span id="id4">[<a class="reference internal" href="references.html#id6" title="Bruno De Finetti. Foresight: its logical laws, its subjective sources. Studies in subjective probability, 1964:94–158, 1964.">De Finetti, 1964</a>]</span> p. 148).</p>
-<p>For von Mises, probability was appropriately scientific because “the relative frequency of the repetition is the ‘measure’ of probability, just as the length of a column of mercury is the ‘measure’ of temperature” (<span id="id5">[<a class="reference internal" href="references.html#id7" title="Richard von Mises. Probability, Statistics and Truth. Macmillan, New York, 1957.">von Mises, 1957</a>]</span> p. vi).</p>
+<p>Similarly, de Finetti speaks of his motivation as stemming from a view that “Every notion is only a word without meaning so long as it is not known how to verify practically any statement at all where this notion comes up …” (<span id="id4">[<a class="reference internal" href="references.html#id8" title="Bruno De Finetti. Foresight: its logical laws, its subjective sources. Studies in subjective probability, 1964:94–158, 1964.">De Finetti, 1964</a>]</span> p. 148).</p>
+<p>For von Mises, probability was appropriately scientific because “the relative frequency of the repetition is the ‘measure’ of probability, just as the length of a column of mercury is the ‘measure’ of temperature” (<span id="id5">[<a class="reference internal" href="references.html#id9" title="Richard von Mises. Probability, Statistics and Truth. Macmillan, New York, 1957.">von Mises, 1957</a>]</span> p. vi).</p>
 <p>For de Finetti, probability was operationalized in terms of human belief.</p>
 </section>
 <section id="virtues-of-subjective-bayesianism">
@@ -616,7 +617,7 @@ document.write(`
 <section id="vices-of-subjective-bayesianism">
 <h3>Vices of subjective Bayesianism<a class="headerlink" href="#vices-of-subjective-bayesianism" title="Link to this heading">#</a></h3>
 <p>It is harder to see how one is going to get relative frequences to emerge out of this (if one thought that was a good thing). But Bayesians have some things to say about this (exchangeability)</p>
-<p>The Bayesian updating procedure has a hard time with the problem of “old evidence”: namely the problem of how to account for how a theory’s ability to explain an old already-updated-upon piece of evidence lends credence to the theory (<span id="id6">[<a class="reference internal" href="references.html#id5" title="Clark N Glymour. Theory and Evidence. Princeton University Press, 1980.">Glymour, 1980</a>]</span>)</p>
+<p>The Bayesian updating procedure has a hard time with the problem of “old evidence”: namely the problem of how to account for how a theory’s ability to explain an old already-updated-upon piece of evidence lends credence to the theory (<span id="id6">[<a class="reference internal" href="references.html#id7" title="Clark N Glymour. Theory and Evidence. Princeton University Press, 1980.">Glymour, 1980</a>]</span>)</p>
 </section>
 </section>
 </section>
