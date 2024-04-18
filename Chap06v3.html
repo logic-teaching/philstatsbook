@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -538,7 +538,7 @@ Average Squared: 116.6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/53beaed0b358ac51f34e5598ef53260283bbd9f6cf3ef1b83ed9000e847739d6.png" src="_images/53beaed0b358ac51f34e5598ef53260283bbd9f6cf3ef1b83ed9000e847739d6.png" />
+<img alt="_images/09a406e0baab548a6b538a721407ecfc32fdec46fc734b84e57609e769c5c4fb.png" src="_images/09a406e0baab548a6b538a721407ecfc32fdec46fc734b84e57609e769c5c4fb.png" />
 </div>
 </div>
 </section>
@@ -742,7 +742,7 @@ Average Squared: 116.6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/749cb7ac0f2824c5fa0c5b253ce343f6f05440321f16817d62a220e009ac2970.png" src="_images/749cb7ac0f2824c5fa0c5b253ce343f6f05440321f16817d62a220e009ac2970.png" />
+<img alt="_images/49e53c8e0e96e4861f38a20ea60cfa3c69693cac2bb9d95dc900ca4a1af90f3e.png" src="_images/49e53c8e0e96e4861f38a20ea60cfa3c69693cac2bb9d95dc900ca4a1af90f3e.png" />
 </div>
 </div>
 <p>Compare this to the theoretical one:</p>
@@ -774,7 +774,7 @@ Average Squared: 116.6
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original:&#39;</span><span class="p">,</span> <span class="n">my_data</span><span class="p">,</span> <span class="s1">&#39;Median: </span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">my_pre_data</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original:&#39;</span><span class="p">,</span> <span class="n">my_data</span><span class="p">,</span> <span class="s1">&#39;Median: </span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">my_data</span><span class="p">))</span>
 
 <span class="n">theta_hat_stars</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list to store the results</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>   <span class="c1"># loop over the number of replications</span>
@@ -792,14 +792,19 @@ Average Squared: 116.6
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: [19, 17, 5, 20, 14, 7, 3, 12, 6, 1, 8, 15, 16, 13, 10] Median: 12.0
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original:&#39;</span><span class="p">,</span> <span class="n">my_data</span><span class="p">,</span> <span class="s1">&#39;Median: </span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">my_pre_data</span><span class="p">))</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">theta_hat_stars</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list to store the results</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>   <span class="c1"># loop over the number of replications</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">resample</span> <span class="o">=</span> <span class="n">choices</span><span class="p">(</span><span class="n">my_data_list</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">my_data</span><span class="p">))</span> <span class="c1"># resample the data</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resample:&#39;</span><span class="p">,</span> <span class="n">resample</span><span class="p">,</span> <span class="s1">&#39;Median: </span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">resample</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">theta_hat_star</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">resample</span><span class="p">)</span> <span class="c1"># compute the statistic</span>
 
-<span class="ne">NameError</span>: name &#39;my_pre_data&#39; is not defined
+<span class="ne">NameError</span>: name &#39;my_data_list&#39; is not defined
 </pre></div>
 </div>
 </div>
