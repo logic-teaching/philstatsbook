@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap05';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="References" href="references.html" />
+    <link rel="next" title="Chapter 6" href="Chap06v3.html" />
     <link rel="prev" title="Homework 1" href="Homework01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap06v3.html">Chapter 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -404,8 +405,8 @@ document.write(`
 <p>The pdf, cdf, and ccdf say how probable, in the sense of <span class="math notranslate nohighlight">\(P\)</span>, it is for the random variable <span class="math notranslate nohighlight">\(X\)</span> to take certain values.</p>
 <ul class="simple">
 <li><p>The <em>pdf</em> is the function <span class="math notranslate nohighlight">\(f(x)=P(X=x)\)</span>, which answers the question “how probable is it for <span class="math notranslate nohighlight">\(X\)</span> to have outcome <span class="math notranslate nohighlight">\(x\)</span>?”</p></li>
-<li><p>The <em>cdf</em> is the function <span class="math notranslate nohighlight">\(F(x)=P(X\leq x)\)</span>, which answers the question “how probability is it for <span class="math notranslate nohighlight">\(X\)</span> to have outcome <span class="math notranslate nohighlight">\(\leq x\)</span>”?</p></li>
-<li><p>The <em>ccdf</em> is the function <span class="math notranslate nohighlight">\(\overline{F}(x)=P(X&gt; x)\)</span>, which answers the question “how probability is it for <span class="math notranslate nohighlight">\(X\)</span> to have outcome <span class="math notranslate nohighlight">\(&gt; x\)</span>”?</p></li>
+<li><p>The <em>cdf</em> is the function <span class="math notranslate nohighlight">\(F(x)=P(X\leq x)\)</span>, which answers the question “how probable is it for <span class="math notranslate nohighlight">\(X\)</span> to have outcome <span class="math notranslate nohighlight">\(\leq x\)</span>”?</p></li>
+<li><p>The <em>ccdf</em> is the function <span class="math notranslate nohighlight">\(\overline{F}(x)=P(X&gt; x)\)</span>, which answers the question “how probable is it for <span class="math notranslate nohighlight">\(X\)</span> to have outcome <span class="math notranslate nohighlight">\(&gt; x\)</span>”?</p></li>
 </ul>
 <p>Again, there are subtleties with the pdf when the sample space is infinite; but we are going to put those to the side.</p>
 </section>
@@ -428,7 +429,7 @@ document.write(`
 <p>There are theoretically a ton of different probability distributions to choose from. But practically speaking, one just restricts attention to a few families of them, which are parameterized by a few simple numbers.</p>
 <p>For instance:</p>
 <ul class="simple">
-<li><p>Bernoulli <span class="math notranslate nohighlight">\(\mathrm{Bern}(n,p)\)</span> is parameterized by the number of trials <span class="math notranslate nohighlight">\(n\)</span> and the probability of success <span class="math notranslate nohighlight">\(p\)</span> on each trial.</p></li>
+<li><p>Binomial <span class="math notranslate nohighlight">\(\mathrm{Binom}(n,p)\)</span> is parameterized by the number of trials <span class="math notranslate nohighlight">\(n\)</span> and the probability of success <span class="math notranslate nohighlight">\(p\)</span> on each trial.</p></li>
 <li><p>Poisson <span class="math notranslate nohighlight">\(\mathrm{Pois}(\lambda)\)</span> is parameterized by the the rate <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
 </ul>
 <p>The various numbers like <span class="math notranslate nohighlight">\(n,p\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are called <em>the parameters</em>. In <em>parametric statistical inference</em> one just decides on a family ahead of time and then tries to use the data to figure out which parameter is at issue.</p>
@@ -436,7 +437,7 @@ document.write(`
 <p>The set <span class="math notranslate nohighlight">\(\Theta\)</span> is called <em>the parameter space</em>.</p>
 <p>For instance:</p>
 <ul class="simple">
-<li><p>In one case we might be concerned with <span class="math notranslate nohighlight">\(\{\mathrm{Bern}(n,p): 5\leq n\leq 10, .4\leq p\leq .6\}\)</span>. In this case, the parameter space is <span class="math notranslate nohighlight">\(\Theta = \{5,\ldots, 10\}\times [.4, ,.6]\)</span>, where <span class="math notranslate nohighlight">\([.4,.6]\)</span> is just all the real numbers inbetween and including .4 and .6</p></li>
+<li><p>In one case we might be concerned with <span class="math notranslate nohighlight">\(\{\mathrm{Binomial}(n,p): 5\leq n\leq 10, .4\leq p\leq .6\}\)</span>. In this case, the parameter space is <span class="math notranslate nohighlight">\(\Theta = \{5,\ldots, 10\}\times [.4, ,.6]\)</span>, where <span class="math notranslate nohighlight">\([.4,.6]\)</span> is just all the real numbers inbetween and including .4 and .6</p></li>
 <li><p>In another case we might be concerned with <span class="math notranslate nohighlight">\(\{\mathrm{Pois}(\lambda): 3\leq \lambda\leq 10\}\)</span>. In this case, the parameter space is <span class="math notranslate nohighlight">\(\Theta = [3,10]\)</span>, where <span class="math notranslate nohighlight">\([3,10]\)</span> is all the real numbers inbetween and including 3 and 10.</p></li>
 </ul>
 </section>
@@ -458,7 +459,7 @@ document.write(`
 <p>Our job is to look at the data and to try to figure out the true parameter.</p>
 <p>Wasserman writes:</p>
 <blockquote>
-<div><p>Many inferential problems can be identified as being one of three types: estimation, confidence sets, and hypothesis testing (<span id="id2">[<a class="reference internal" href="references.html#id3" title="Larry Wasserman. All of Statistics: A Concise Course in Statistical Inference. Springer Science &amp; Business Media, December 2013.">Wasserman, 2013</a>]</span> p. 90)</p>
+<div><p>Many inferential problems can be identified as being one of three types: estimation, confidence sets, and hypothesis testing (<span id="id2">[<a class="reference internal" href="references.html#id7" title="Larry Wasserman. All of Statistics: A Concise Course in Statistical Inference. Springer Science &amp; Business Media, December 2013.">Wasserman, 2013</a>]</span> p. 90)</p>
 </div></blockquote>
 <p>Most philosophical discussion concerns hypothesis testing.</p>
 <p>In this chapter and the next we say a little about estimation.</p>
@@ -470,9 +471,9 @@ document.write(`
 \[\overline{X}_n(\omega) = \frac{1}{n} \sum_{i=1}^n X_i(\omega) = \frac{X_1(\omega)+\cdots +X_n(\omega)}{n}\]</div>
 <p>If <span class="math notranslate nohighlight">\(n\)</span> is clear from context, we may write <span class="math notranslate nohighlight">\(\overline{X}\)</span> instead of <span class="math notranslate nohighlight">\(\overline{X}_n\)</span>.</p>
 <p>Hence, note the notational convention: an overline usually denotes an average.</p>
-<p>Stigler <span id="id3">[<a class="reference internal" href="references.html#id2" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> notes that the naturalness of this is a little puzzling, for two reasons:</p>
+<p>Stigler <span id="id3">[<a class="reference internal" href="references.html#id6" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> notes that the naturalness of this is a little puzzling, for two reasons:</p>
 <ul class="simple">
-<li><p>On first principles: it is apriori not obvious how “you can actually gain information by throwing information away” and indeed this was a “truly revolutionary” idea (<span id="id4">[<a class="reference internal" href="references.html#id2" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> pp. 3-4).</p></li>
+<li><p>On first principles: it is apriori not obvious how “you can actually gain information by throwing information away” and indeed this was a “truly revolutionary” idea (<span id="id4">[<a class="reference internal" href="references.html#id6" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> pp. 3-4).</p></li>
 <li><p>On the basis of the historical record: “In antiquity, and in the Middle Ages, when reaching for a summary of diverse data, people chose an individual example” and not an average (pp. 32-33).</p></li>
 </ul>
 <p>Let us use some simple ideas developed last time to try to dispel these puzzles.</p>
@@ -572,11 +573,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="references.html"
+       href="Chap06v3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Chapter 6</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
