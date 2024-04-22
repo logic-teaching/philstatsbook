@@ -17,3 +17,8 @@ terminal commands for coherent pdf
 cPDF -pad-every 1 yourpdf.pdf -o yourpdfwithblanks.pdf
 
 cPDF -pad-every 1 Philstats-Homework-01-1x1.pdf -o Philstats-Homework-01-2x1-temp.pdf
+
+
+binder 
+
+https://mybinder.org/
