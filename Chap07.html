@@ -372,9 +372,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-setup">The setup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-inferring-whether-a-coin-is-fair">Example 1 inferring whether a coin is fair</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered">Example 2 inferring where the normal with known variance is centered</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-error">Two types of error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-paradigmatic-examples">Two paradigmatic examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-inferring-whether-a-coin-is-fair">Example 1 inferring whether a coin is fair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered">Example 2 inferring where the normal with known variance is centered</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-error">Two types of error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-revisited">Example 1 revisited</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-revisited">Example 2 revisited</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-hypothesis-testing">Mayo on hypothesis testing</a></li>
 </ul>
             </nav>
         </div>
@@ -388,7 +396,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-7">
 <h1>Chapter 7<a class="headerlink" href="#chapter-7" title="Link to this heading">#</a></h1>
-<p>[Still under construction]</p>
 <section id="review">
 <h2>Review<a class="headerlink" href="#review" title="Link to this heading">#</a></h2>
 <section id="the-task-of-statistical-inference-redeux">
@@ -405,14 +412,16 @@ document.write(`
 <h3>The setup<a class="headerlink" href="#the-setup" title="Link to this heading">#</a></h3>
 <p>We are taking measurements in the form of independent random variables <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>.</p>
 <p>We want to know what their common probability distribution is. This is recorded in the pdf, cdf, of ccdf. For simplicity, let’s choose the cdf.</p>
-<p>We agree ahead of time that the probability distribution comes from a family <span class="math notranslate nohighlight">\(\{F_{\theta}: \theta\in \Theta\}\)</span>, where <span class="math notranslate nohighlight">\(\Theta\)</span> is the parameter space and as one varies the parameter <span class="math notranslate nohighlight">\(\theta\)</span> one gets different options for the probability distribution.</p>
+<p>We agree ahead of time that the probability distribution comes from a family <span class="math notranslate nohighlight">\(\{F_{\theta}: \theta\in \Theta\}\)</span>, where <span class="math notranslate nohighlight">\(\Theta\)</span> is the parameter space and as one varies the parameter <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(\Theta\)</span> one gets different options for the probability distribution.</p>
 <p>In the actual world <span class="math notranslate nohighlight">\(\omega\)</span>, we observe data in the form <span class="math notranslate nohighlight">\(X_1(\omega), \ldots, X_n(\omega)\)</span>. This will be a length <span class="math notranslate nohighlight">\(n\)</span> sequence of real numbers.</p>
 <p>We develop methods for inferring from this data towards what the value of the parameter <span class="math notranslate nohighlight">\(\theta\)</span> is which is generating our data.</p>
 <p>Whether we are right or wrong and in what way will be quantified by what happens with this inference method across all the worlds.</p>
 </section>
 </section>
+<section id="two-paradigmatic-examples">
+<h2>Two paradigmatic examples<a class="headerlink" href="#two-paradigmatic-examples" title="Link to this heading">#</a></h2>
 <section id="example-1-inferring-whether-a-coin-is-fair">
-<h2>Example 1 inferring whether a coin is fair<a class="headerlink" href="#example-1-inferring-whether-a-coin-is-fair" title="Link to this heading">#</a></h2>
+<h3>Example 1 inferring whether a coin is fair<a class="headerlink" href="#example-1-inferring-whether-a-coin-is-fair" title="Link to this heading">#</a></h3>
 <p>We are repeatedly and independently flipping a coin <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>.</p>
 <p>We want to know the value of <span class="math notranslate nohighlight">\(p\)</span> such that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\sim \mathrm{Bern}(p)\)</span>.</p>
 <p>We formulate two hypotheses:</p>
@@ -422,15 +431,16 @@ document.write(`
 </ul>
 <p>We choose a comparatively large value <span class="math notranslate nohighlight">\(0\leq c&lt;n\)</span>, and we adopt the following test:</p>
 <ul class="simple">
-<li><p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(S_n\geq c\)</span>.</p></li>
+<li><p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_n\geq c\)</span>.</p></li>
 </ul>
 <p>where <span class="math notranslate nohighlight">\(T_n = \sum_{i=1}^n X_i\)</span> is the sum of the number of heads.</p>
-<p>If <span class="math notranslate nohighlight">\(c\)</span> is large, then if the null hypothesis is true then the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> has small probability and so</p>
+<p>If <span class="math notranslate nohighlight">\(c\)</span> is large and the null hypothesis is true, then the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> has small probability and so in employing our test</p>
 <blockquote>
 <div><p>we insure that, in the long run of experience, we shall not be too often wrong (<span id="id1">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291)</p>
 </div></blockquote>
+<p>In other words:</p>
 <blockquote>
-<div><p>if we behave according to such a rule [the test], then in the long run we shall reject <span class="math notranslate nohighlight">\(H_0\)</span> when it is true not more, say than once in a hundred times   (<span id="id2">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291)</p>
+<div><p>if we behave according to such a rule [the test], then in the long run we shall reject <span class="math notranslate nohighlight">\(H_0\)</span> when it is true not more, say than once in a hundred times   (<span id="id2">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291; notation <span class="math notranslate nohighlight">\(H\)</span> changed to <span class="math notranslate nohighlight">\(H_0\)</span> to match preceding.)</p>
 </div></blockquote>
 <p>In our example, we can indeed quantify how probable the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> is, assuming the null hypothesis is true: it is just given by plugging <span class="math notranslate nohighlight">\(c\)</span> into the pdf + ccdf of <span class="math notranslate nohighlight">\(\mathrm{Binom}(n,\frac{1}{2})\)</span> (it is the sum since the pdf handles equality and the ccdf handles strict greater than).</p>
 <p>Below is a simple visual representation, where the key fact is that in the graph to the right we see that as we make <span class="math notranslate nohighlight">\(c\)</span> bigger, the event becomes rarer and rarer. The red line marks 5% (and so 5 out of a hundred rather than 1 out of a hundred), and so the value of c at which the blue line crosses the red line is the value of c such that the probability of the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> falls under 5%, assuming the null hypothesis is true.</p>
@@ -485,7 +495,7 @@ document.write(`
 </div>
 </section>
 <section id="example-2-inferring-where-the-normal-with-known-variance-is-centered">
-<h2>Example 2 inferring where the normal with known variance is centered<a class="headerlink" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered" title="Link to this heading">#</a></h2>
+<h3>Example 2 inferring where the normal with known variance is centered<a class="headerlink" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered" title="Link to this heading">#</a></h3>
 <p>We are repeatedly and independently measure <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> which we assume to be normally distributed with common unknown mean and known variance. For the sake of concreteness, suppose that the variance is 9.</p>
 <p>We want to know the value of <span class="math notranslate nohighlight">\(\mu\)</span> such that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\sim N(\mu,9)\)</span>.</p>
 <p>That is, we imagine we already know that the variance is 9, but we want to know where the center of the bell shape is.</p>
@@ -499,14 +509,15 @@ document.write(`
 <li><p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_n \geq c\)</span>.</p></li>
 </ul>
 <p>where <span class="math notranslate nohighlight">\(T_n =\left|\overline{X}_n - 4\right|\)</span> and <span class="math notranslate nohighlight">\(\overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\)</span> is the average</p>
-<p>If <span class="math notranslate nohighlight">\(c\)</span> is large, then if the null hypothesis is true then the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> has small probability and so</p>
+<p>If <span class="math notranslate nohighlight">\(c\)</span> is large and the null hypothesis is true, then the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> has small probability and so in employing our test</p>
 <blockquote>
 <div><p>we insure that, in the long run of experience, we shall not be too often wrong (<span id="id3">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291)</p>
 </div></blockquote>
+<p>In other words:</p>
 <blockquote>
-<div><p>if we behave according to such a rule [the test], then in the long run we shall reject <span class="math notranslate nohighlight">\(H_0\)</span> when it is true not more, say than once in a hundred times   (<span id="id4">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291)</p>
+<div><p>if we behave according to such a rule [the test], then in the long run we shall reject <span class="math notranslate nohighlight">\(H_0\)</span> when it is true not more, say than once in a hundred times   (<span id="id4">[<a class="reference internal" href="references.html#id2" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291; notation <span class="math notranslate nohighlight">\(H\)</span> changed to <span class="math notranslate nohighlight">\(H_0\)</span> to match preceding.)</p>
 </div></blockquote>
-<p>In our example, we can again quantify how rare the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> is, assuming the null hypothesis is true. It is the disjoint union of the events <span class="math notranslate nohighlight">\(\overline{X}_n\geq 4+c\)</span> and <span class="math notranslate nohighlight">\(\overline{X}_n\leq 4-c\)</span>. And it turns out that <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> is also normal with <span class="math notranslate nohighlight">\(\overline{X}_n\sim N(4,\frac{9}{n})\)</span>.</p>
+<p>In our example, we can again quantify how rare the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> is, assuming the null hypothesis is true. It is the union of the events <span class="math notranslate nohighlight">\(\overline{X}_n\geq 4+c\)</span> and <span class="math notranslate nohighlight">\(\overline{X}_n\leq 4-c\)</span>. And it turns out that <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> is also normal with <span class="math notranslate nohighlight">\(\overline{X}_n\sim N(4,\frac{9}{n})\)</span>.</p>
 <p>Below is a simple visual representation, where the key thing is that in diagram to right as we make c bigger and bigger the probability gets smaller and smaller. The red line marks 5% (and so 5 out of a hundred rather than 1 out of a hundred), and so the value of c at which the blue line crosses the red line is the value of c such that the probability of the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> falls under 5%, assuming the null hypothesis is true.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,11 +598,12 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 <section id="two-types-of-error">
 <h2>Two types of error<a class="headerlink" href="#two-types-of-error" title="Link to this heading">#</a></h2>
 <p>We can distinguish two ways in which our tests can go wrong:</p>
 <ul class="simple">
-<li><p>Type I error: the null hypothesis is true but our test rejects it. This would be when we observe <span class="math notranslate nohighlight">\(T_n(\omega)\geq c\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world, and where in applying our test we were mistaken in taking this rare event to be a sign that the null hypothesis is false.</p></li>
+<li><p>Type I error: the null hypothesis is true but our test rejects it. This would be when we observe <span class="math notranslate nohighlight">\(T_n(\omega)\geq c\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world, and where the application of our rule leads us to mistakenly conclude that the null hypothesis is false.</p></li>
 <li><p>Type II error: the null hypothesis is false but our test fails to reject it. This would be when we observe <span class="math notranslate nohighlight">\(T_n(\omega)&lt;c\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world, and so our test does not rule out the null hypothesis even though it is false.</p></li>
 </ul>
 <p>There are two probabilities associated to these errors:</p>
@@ -601,6 +613,9 @@ document.write(`
 </ul>
 <p>In the examples above, the null hypothesis was a single probability distribution, and so one can attach a specific value to the first kind of probability, once one has fixed <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(c\)</span>. The diagrams to the right in the above examples were graphing the probability of the Type I Error as a function of <span class="math notranslate nohighlight">\(c\)</span> (assuming the choice of <span class="math notranslate nohighlight">\(n\)</span> is fixed).</p>
 <p>We can go back through the two examples and graph the probability of the Type II error for some specific alternatives.</p>
+<p>As the examples show, it is hard to get both the probability of both the Type I and Type II error low. The traditional choice is to first try to keep the probability of the Type I error below some low number, like .05, and then do the best one can about the Type II error.</p>
+<section id="example-1-revisited">
+<h3>Example 1 revisited<a class="headerlink" href="#example-1-revisited" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># parameters of the binomial distribution</span>
@@ -628,7 +643,7 @@ document.write(`
 <span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
 
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> null&#39;</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> alternative&#39;</span> <span class="o">%</span> <span class="n">q</span><span class="p">)</span>
@@ -636,18 +651,13 @@ document.write(`
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of T_</span><span class="si">%i</span><span class="s1">~ </span><span class="se">\n</span><span class="s1"> Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">) vs. Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n1</span><span class="p">,</span><span class="n">p</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="o">+</span><span class="n">Xccdf</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="o">+</span><span class="n">Xccdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type I&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type II&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of Type I error </span><span class="se">\n</span><span class="s1"> as function of c&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of </span><span class="se">\n</span><span class="s1"> Type I vs. II error </span><span class="se">\n</span><span class="s1"> as function of c&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;.05&#39;</span><span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of Type II error </span><span class="se">\n</span><span class="s1"> as function of c </span><span class="se">\n</span><span class="s1"> (for alternative hypothesis </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">q</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;.05&#39;</span><span class="p">)</span>
-
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -655,9 +665,12 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/8ba2f3144004c43755eff6615beefe41750fb295c4d7f39f07ae067333fe7d2b.png" src="_images/8ba2f3144004c43755eff6615beefe41750fb295c4d7f39f07ae067333fe7d2b.png" />
+<img alt="_images/99e68e8a5f620debedcd48bdbb534a77aef4110d48cc972ce9fb5dd7dab85f18.png" src="_images/99e68e8a5f620debedcd48bdbb534a77aef4110d48cc972ce9fb5dd7dab85f18.png" />
 </div>
 </div>
+</section>
+<section id="example-2-revisited">
+<h3>Example 2 revisited<a class="headerlink" href="#example-2-revisited" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of independent observations</span>
@@ -676,7 +689,12 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># variance of the average</span>
 
@@ -689,8 +707,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>     <span class="c1"># load normal distribution</span>
 
@@ -705,41 +729,64 @@ document.write(`
 <span class="n">savg</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mu0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigmaavg</span><span class="p">)</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mu0</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigmaavg</span><span class="p">)</span>
 
 <span class="c1"># Create a figure with two subplots side by side</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># Plot the normal distribution on the left subplot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yavg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> null&#39;</span> <span class="o">%</span> <span class="n">mu0</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">zavg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> alternative&#39;</span> <span class="o">%</span> <span class="n">mu</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yavg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f</span><span class="s1"> null&#39;</span> <span class="o">%</span> <span class="n">mu0</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">zavg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f</span><span class="s1"> alternative&#39;</span> <span class="o">%</span> <span class="n">mu</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span> 
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> 
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tavg</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tavg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type I&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mu0</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">savg</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;C1&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mu</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">savg</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type II&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mu</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="c1"># Plot the histogram on the right subplot</span>
 <span class="c1"># axs[1].hist(data, bins=30, density=True, alpha=0.6, color=&#39;g&#39;)</span>
 
 <span class="c1"># Set titles</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of X̅_{</span><span class="si">%i</span><span class="s1">}~ </span><span class="se">\n</span><span class="s1"> N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.3f</span><span class="s1">) vs. N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.3f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">mu0</span><span class="p">,</span> <span class="n">varavg</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">varavg</span><span class="p">))</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Probability of Type I error </span><span class="se">\n</span><span class="s1"> as function of c&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of X̅_{</span><span class="si">%i</span><span class="s1">}~ </span><span class="se">\n</span><span class="s1"> N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">) vs. N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.1f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">mu0</span><span class="p">,</span> <span class="n">varavg</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">varavg</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of </span><span class="se">\n</span><span class="s1"> Type I vs. II error </span><span class="se">\n</span><span class="s1"> as function of c&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;.05&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Probability of Type II error </span><span class="se">\n</span><span class="s1"> as function of c </span><span class="se">\n</span><span class="s1"> for alternative hypothesis </span><span class="si">%1.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;.05&#39;</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="_images/e90fa76dba5d3eae2072af26b3ce7f6bc80b802f8f226bbfcfa4e9029bfbbff8.png" src="_images/e90fa76dba5d3eae2072af26b3ce7f6bc80b802f8f226bbfcfa4e9029bfbbff8.png" />
+<img alt="_images/867c62f120a133524a5ffe6e48ab1a7607d841c571845d2dc415ee78f3d94343.png" src="_images/867c62f120a133524a5ffe6e48ab1a7607d841c571845d2dc415ee78f3d94343.png" />
 </div>
 </div>
+</section>
+</section>
+<section id="mayo-on-hypothesis-testing">
+<h2>Mayo on hypothesis testing<a class="headerlink" href="#mayo-on-hypothesis-testing" title="Link to this heading">#</a></h2>
+<p>Among philosophers, Mayo has argued for a place for classical hypothesis testing in the philosophy of science, or maybe in “theory choice” more broadly. Her view is that:</p>
+<blockquote>
+<div><p>Evidence <span class="math notranslate nohighlight">\(e\)</span> should be taken as good grounds for <span class="math notranslate nohighlight">\(H_1\)</span> to the extent that <span class="math notranslate nohighlight">\(H_1\)</span> has passed a <em>severe</em> test with <span class="math notranslate nohighlight">\(e\)</span> (<span id="id5">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 177; changed <span class="math notranslate nohighlight">\(H\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span> to better match our discussion here).</p>
+</div></blockquote>
+<p>What does it mean for <span class="math notranslate nohighlight">\(H_1\)</span> to have passed a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span>? Mayo tells us a few pages later:</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff it passes and moreover</p>
+<blockquote>
+<div><p>there is a very low probability that test procedure <span class="math notranslate nohighlight">\(T\)</span> would yield such a passing result [for <span class="math notranslate nohighlight">\(H_1\)</span>], if <span class="math notranslate nohighlight">\(H_1\)</span> were false (<span id="id6">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 180, Severity criterion 1b; changed <span class="math notranslate nohighlight">\(H\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span> to better match our discussion here).</p>
+</div></blockquote>
+<p>To see the connection to our previous discussion:</p>
+<ul class="simple">
+<li><p>As in our previous discussion, suppose that <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> are contraries, in that one and only one can be true.</p></li>
+<li><p>Suppose that <span class="math notranslate nohighlight">\(T\)</span> yields a passing result for <span class="math notranslate nohighlight">\(H_1\)</span> iff <span class="math notranslate nohighlight">\(T\)</span> rejects <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
+</ul>
+<p>With these minor emendations, Mayo’s previous quotation reads as follows:</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by <span class="math notranslate nohighlight">\(T\)</span> with <span class="math notranslate nohighlight">\(e\)</span> and moreover</p>
+<blockquote>
+<div><p>there is a very low probability that test procedure <span class="math notranslate nohighlight">\(T\)</span> would reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(H_0\)</span> were true.</p>
+</div></blockquote>
+<p>One way to convince yourself that this reading is right is to look at her statistical example on pp. 192-193. This is just our Example 1 up above with <span class="math notranslate nohighlight">\(n=100\)</span> and <span class="math notranslate nohighlight">\(c=60\)</span>. She writes <span class="math notranslate nohighlight">\(H^{\prime}\)</span> for our <span class="math notranslate nohighlight">\(H_1\)</span>, and she writes <span class="math notranslate nohighlight">\(H_0\)</span> for our <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>Hence, we built in the passing of the test by recourse to the observed data with having a low probability of a Type I error. But it is done in a sufficiently general way that one could in principle apply it to tests which are not instrinsicaly statistical in nature.</p>
 </section>
 </section>
 
@@ -812,9 +859,17 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-setup">The setup</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-inferring-whether-a-coin-is-fair">Example 1 inferring whether a coin is fair</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered">Example 2 inferring where the normal with known variance is centered</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-error">Two types of error</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-paradigmatic-examples">Two paradigmatic examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-inferring-whether-a-coin-is-fair">Example 1 inferring whether a coin is fair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-inferring-where-the-normal-with-known-variance-is-centered">Example 2 inferring where the normal with known variance is centered</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-types-of-error">Two types of error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-revisited">Example 1 revisited</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-revisited">Example 2 revisited</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-hypothesis-testing">Mayo on hypothesis testing</a></li>
 </ul>
   </nav></div>
 
