@@ -368,7 +368,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-s-on-the-classical-view">Mayo’s on the classical view</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-s-on-the-classical-view">Mayo’s on the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#severity-and-low-type-i-error">Severity and low Type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chief-virtue-of-mayo-s-account">The chief virtue of Mayo’s account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-underdetermination">Mayo on underdetermination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-and-frequentism">Mayo and frequentism</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#howson-urbach-s-critique-of-the-classical-view">Howson-Urbach’s critique of the classical view</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-neyman-pearson-view">On the Neyman-Pearson view</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-choice-of-the-null-hypothesis">On the choice of the null hypothesis</a></li>
@@ -388,7 +394,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-8">
 <h1>Chapter 8<a class="headerlink" href="#chapter-8" title="Link to this heading">#</a></h1>
-<p>[Still under construction on Wed April 24]</p>
 <section id="mayo-s-on-the-classical-view">
 <h2>Mayo’s on the classical view<a class="headerlink" href="#mayo-s-on-the-classical-view" title="Link to this heading">#</a></h2>
 <p>Among philosophers, Mayo has argued for a place for classical hypothesis testing in the philosophy of science and in theory choice more broadly. Her view is that:</p>
@@ -396,6 +401,8 @@ document.write(`
 <div><p>Evidence <span class="math notranslate nohighlight">\(e\)</span> should be taken as good grounds for <span class="math notranslate nohighlight">\(H_1\)</span> to the extent that <span class="math notranslate nohighlight">\(H_1\)</span> has passed a <em>severe</em> test with <span class="math notranslate nohighlight">\(e\)</span> (<span id="id1">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 177; changed <span class="math notranslate nohighlight">\(H\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span> to better match our discussion here).</p>
 </div></blockquote>
 <p>Let us follow Mayo in writing the evidence as <span class="math notranslate nohighlight">\(e\)</span>, keeping in mind that in hypothesis testing it will usually have the form of observing <span class="math notranslate nohighlight">\(T_n(\omega)\geq c\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world. Further, while we have put an <span class="math notranslate nohighlight">\(n\)</span>-subscript on the test to handle the examples, let us follow Mayo in dropping the <span class="math notranslate nohighlight">\(n\)</span>-subscript and just write <span class="math notranslate nohighlight">\(T\)</span> for the test.</p>
+<section id="severity-and-low-type-i-error">
+<h3>Severity and low Type I error<a class="headerlink" href="#severity-and-low-type-i-error" title="Link to this heading">#</a></h3>
 <p>What does it mean for <span class="math notranslate nohighlight">\(H_1\)</span> to have passed a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span>? Mayo tells us a few pages later:</p>
 <p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff it passes and moreover</p>
 <blockquote>
@@ -413,7 +420,13 @@ document.write(`
 </div></blockquote>
 <p>One way to convince yourself that this reading is right is to look at her statistical example on pp. 192-193. This is just our Example 1 from last Chapter with <span class="math notranslate nohighlight">\(n=100\)</span> and <span class="math notranslate nohighlight">\(c=60\)</span>. She writes <span class="math notranslate nohighlight">\(H^{\prime}\)</span> for our <span class="math notranslate nohighlight">\(H_1\)</span>, and she like us writes <span class="math notranslate nohighlight">\(H_0\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <p>Hence, Mayo’s severe test has as one component just a low probability of a Type I error. The other component is that the evidence actually pass the test.</p>
-<p>The virtue of Mayo’s account is that it tries to identify a more general constraint on the confirmation of hypotheses that is satisfied by the tradition of classical statistics. That is, it tries to identify an overriding rationale for this tradition.</p>
+</section>
+<section id="the-chief-virtue-of-mayo-s-account">
+<h3>The chief virtue of Mayo’s account<a class="headerlink" href="#the-chief-virtue-of-mayo-s-account" title="Link to this heading">#</a></h3>
+<p>The chief virtue of Mayo’s account is that it tries to identify a more general constraint on the confirmation of hypotheses that is satisfied by the tradition of classical statistics. That is, it tries to identify an overriding rationale for this tradition which makes it fit in a broader and <em>primae facie</em> compelling account of theory choice, to wit: only choose hypotheses which have undergone and passed a severe test, one which if the hypothesis were true would have been unlikely to reject it.</p>
+</section>
+<section id="mayo-on-underdetermination">
+<h3>Mayo on underdetermination<a class="headerlink" href="#mayo-on-underdetermination" title="Link to this heading">#</a></h3>
 <p>Mayo applies this to the problem of the traditional problem of the underdetermination of hypotheses by evidence. Her perferred formulation of the challenge is the plausibility of the following:</p>
 <blockquote>
 <div><p><em>Methodological underdetermination [MUD]</em>: any evidence taken as a good test of (or good support for) hypothesis <span class="math notranslate nohighlight">\([H_0]\)</span> would (on that account of testing or support) be taken as an equally good test of (or equally good support for) some rival [<span class="math notranslate nohighlight">\(H_1\)</span>] to <span class="math notranslate nohighlight">\(H_0\)</span> (<span id="id3">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 176, changed her <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> to <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span>).</p>
@@ -427,12 +440,16 @@ document.write(`
 <blockquote>
 <div><p>viewed as a series of models, each with different questions, stretching from low-level theories of data and experiment to higher level hypotheses and theories of interest (<span id="id5">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 189, cf. p. 213)</p>
 </div></blockquote>
+</section>
+<section id="mayo-and-frequentism">
+<h3>Mayo and frequentism<a class="headerlink" href="#mayo-and-frequentism" title="Link to this heading">#</a></h3>
 <p>But Mayo is a frequentist (<span id="id6">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> pp. 181, cf. p. 121) for whom probabilities just report long-run frequencies of outcomes in many repeated experiments. She then is requiring that</p>
 <p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by <span class="math notranslate nohighlight">\(T\)</span> with evidence <span class="math notranslate nohighlight">\(e\)</span> and moreover</p>
 <blockquote>
 <div><p>if <span class="math notranslate nohighlight">\(H_0\)</span> were true, then in the long run there is a low relative frequency that <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by test <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </div></blockquote>
-<p>While this may seem natural, many worry that the long-term relative frequencies are not a good fit for the epistemic notions of evidence and theory choice which Mayo seems to want to be delivering. But this is a concern not specific to her but to the broader classical traditional.</p>
+<p>This may seem natural, since it just requires an external success notion on choice of hypotheses. However, if the external success notion is hard for us to check and be in a position to ascertain, one might worry that it is not a good fit for the epistemic notions of evidence and theory choice which Mayo seems to want to be delivering. But this is a concern not specific to her but is a concern about the broader classical tradition.</p>
+</section>
 </section>
 <section id="howson-urbach-s-critique-of-the-classical-view">
 <h2>Howson-Urbach’s critique of the classical view<a class="headerlink" href="#howson-urbach-s-critique-of-the-classical-view" title="Link to this heading">#</a></h2>
@@ -650,7 +667,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-s-on-the-classical-view">Mayo’s on the classical view</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-s-on-the-classical-view">Mayo’s on the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#severity-and-low-type-i-error">Severity and low Type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chief-virtue-of-mayo-s-account">The chief virtue of Mayo’s account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-underdetermination">Mayo on underdetermination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-and-frequentism">Mayo and frequentism</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#howson-urbach-s-critique-of-the-classical-view">Howson-Urbach’s critique of the classical view</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-neyman-pearson-view">On the Neyman-Pearson view</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-choice-of-the-null-hypothesis">On the choice of the null hypothesis</a></li>
