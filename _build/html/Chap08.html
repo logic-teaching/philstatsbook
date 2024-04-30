@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap08';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="References" href="references.html" />
+    <link rel="next" title="Chapter 9" href="Chap09.html" />
     <link rel="prev" title="Chapter 7" href="Chap07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -188,6 +188,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap06.html">Chapter 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap07.html">Chapter 7</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap09.html">Chapter 9</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -518,7 +522,7 @@ document.write(`
     <span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
 
 
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 3 columns</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 2 columns</span>
 
     <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> null&#39;</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> alternative&#39;</span> <span class="o">%</span> <span class="n">q</span><span class="p">)</span>
@@ -551,7 +555,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/84ad7e7a5872cc2a073fb8f49b9fd2556eaa3d737a5db0a2d9e849fb318e1279.png" src="_images/84ad7e7a5872cc2a073fb8f49b9fd2556eaa3d737a5db0a2d9e849fb318e1279.png" />
+<img alt="_images/1ff6dcdc3720c8a5d98c1a015b39d64a1bea3410f9eb72e94624aded37e1fee0.png" src="_images/1ff6dcdc3720c8a5d98c1a015b39d64a1bea3410f9eb72e94624aded37e1fee0.png" />
 </div>
 </div>
 <p>Howson-Urbach write, speaking of this example vivified not as counting the heads of coin flips but as counting the reds in the growing of red and white tulips:</p>
@@ -573,7 +577,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/fa7e1614dbe2205784639e5267e10139c55e06dd1b0099b187b155ec0e9bc948.png" src="_images/fa7e1614dbe2205784639e5267e10139c55e06dd1b0099b187b155ec0e9bc948.png" />
+<img alt="_images/45268b251149aa8b4c58429414327f27e387d619ee5b3a4ca7e4f61dc72a02c6.png" src="_images/45268b251149aa8b4c58429414327f27e387d619ee5b3a4ca7e4f61dc72a02c6.png" />
 </div>
 </div>
 </section>
@@ -604,7 +608,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/7a4b7baa978498d7eb36466840b01f1fe43fbd85e847bee73217a5011ad36f50.png" src="_images/7a4b7baa978498d7eb36466840b01f1fe43fbd85e847bee73217a5011ad36f50.png" />
+<img alt="_images/ab47a964590352bfef116ff623561de2dffc1fe53d9bb7066d56d5b6cbd941c7.png" src="_images/ab47a964590352bfef116ff623561de2dffc1fe53d9bb7066d56d5b6cbd941c7.png" />
 </div>
 </div>
 </section>
@@ -651,11 +655,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="references.html"
+       href="Chap09.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Chapter 9</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
