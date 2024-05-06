@@ -449,12 +449,12 @@ document.write(`
 <tr class="row-even"><td><p>prior</p></td>
 <td><p><span class="math notranslate nohighlight">\(p(\theta)\)</span></p></td>
 <td><p>prior degree of belief that <span class="math notranslate nohighlight">\(X\sim p_{\theta}\)</span></p></td>
-<td><p>initially, consult your degrees of belief; after the initial round, the prior is the previous round’s posterior</p></td>
+<td><p>initially, consult your degrees of belief, which might be recorded in frequency information which you accept; after the initial round, the prior is the previous round’s posterior</p></td>
 </tr>
 <tr class="row-odd"><td><p>likelihood</p></td>
 <td><p><span class="math notranslate nohighlight">\(p(x\mid \theta)\)</span></p></td>
 <td><p>probability that <span class="math notranslate nohighlight">\(X=x\)</span> conditional on <span class="math notranslate nohighlight">\(X\sim p_{\theta}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(p_{\theta}(x)\)</span>, i.e. input in <span class="math notranslate nohighlight">\(x\)</span> to pdf <span class="math notranslate nohighlight">\(p_{\theta}\)</span>; look at graph or consult computer or book</p></td>
+<td><p><span class="math notranslate nohighlight">\(p_{\theta}(x)\)</span>, i.e. input in <span class="math notranslate nohighlight">\(x\)</span> to pdf <span class="math notranslate nohighlight">\(p_{\theta}\)</span>; look at graph or consult computer or book; if in applied context look at “if <span class="math notranslate nohighlight">\(\theta\)</span> were … then <span class="math notranslate nohighlight">\(x\)</span> would be …” statements salient in the subject matter</p></td>
 </tr>
 <tr class="row-even"><td><p>evidence (aka marginal, aka prior predictive distribution)</p></td>
 <td><p><span class="math notranslate nohighlight">\(p(x)\)</span></p></td>
@@ -496,7 +496,7 @@ document.write(`
 </div>
 </div>
 <p><strong>Evidence</strong>: for all <span class="math notranslate nohighlight">\(x\)</span>, you diligently calculate the probability <span class="math notranslate nohighlight">\(p(x)=.25*p(x\mid \theta_0)+.25*p(x\mid \theta_1)+.25*p(x\mid \theta_2)+.25*p(x\mid \theta_4)\)</span>.</p>
-<p><strong>Posterior</strong>: you use Bayse’ Theorem to calculate <span class="math notranslate nohighlight">\(p(\theta_0 \mid x), p(\theta_1 \mid x), p(\theta_2 \mid x), p(\theta_3 \mid x)\)</span>, which is is how probable you think it is that the experts are right, after you have seen how they preformed on this first piece of data <span class="math notranslate nohighlight">\(X=x\)</span>.</p>
+<p><strong>Posterior</strong>: you use Bayes’ Theorem to calculate <span class="math notranslate nohighlight">\(p(\theta_0 \mid x), p(\theta_1 \mid x), p(\theta_2 \mid x), p(\theta_3 \mid x)\)</span>, which is is how probable you think it is that the experts are right, after you have seen how they preformed on this first piece of data <span class="math notranslate nohighlight">\(X=x\)</span>.</p>
 </section>
 </section>
 <section id="visualizing-a-one-step-application-of-bayes-theorem-the-prominence-of-the-prior">
@@ -721,17 +721,17 @@ document.write(`
 </div>
 <p>This dependence on the prior is viewed by many non-Bayesians as a deep problem. Here is Mayo:</p>
 <blockquote>
-<div><p>[The] question for the subjective Bayesian is whether scientists have prior degrees of belief in the hypotheses they investigate and whether, even if they do, it is desirable to have them figure centrally in learning from data in science. In science, it seems, we want to know what the data are saying, quite apart from the opinions we start out with (<span id="id1">[<a class="reference internal" href="references.html#id26" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 76)</p>
+<div><p>[The] question for the subjective Bayesian is whether scientists have prior degrees of belief in the hypotheses they investigate and whether, even if they do, it is desirable to have them figure centrally in learning from data in science. In science, it seems, we want to know what the data are saying, quite apart from the opinions we start out with (<span id="id1">[<a class="reference internal" href="references.html#id32" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 76)</p>
 </div></blockquote>
 <p>She is not alone in this, and even many Bayesians feel the need to response to this objection. Our graphs up above make vivid this problem by way of one specific example. To feel the force of the concern, imagine that a lot is at stake in the outcome of the decision as to what the posterior should be, and ask yourself whether it is okay for scientific (or other purposes) for there to be so much dependence on the prior.</p>
 <section id="visualizing-a-n-step-application-of-bayes-theorem-the-washing-out-of-the-priors">
 <h2>Visualizing a n-step application of Bayes’ Theorem: the washing out of the priors<a class="headerlink" href="#visualizing-a-n-step-application-of-bayes-theorem-the-washing-out-of-the-priors" title="Link to this heading">#</a></h2>
 <p>Howson and Urbach’s preferred response to this problem is the following:</p>
 <blockquote>
-<div><p>[…] scientific opinions often do converge, often indeed, very quickly, after relatively little data (<span id="id2">[<a class="reference internal" href="references.html#id27" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 238)</p>
+<div><p>[…] scientific opinions often do converge, often indeed, very quickly, after relatively little data (<span id="id2">[<a class="reference internal" href="references.html#id33" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 238)</p>
 </div></blockquote>
 <blockquote>
-<div><p>Moreover – and this is the crucial point for the explaining the objectivity of inference– the objective information contained in the sample becomes the dominant factor relatively quickly (<span id="id3">[<a class="reference internal" href="references.html#id27" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 240)</p>
+<div><p>Moreover – and this is the crucial point for the explaining the objectivity of inference– the objective information contained in the sample becomes the dominant factor relatively quickly (<span id="id3">[<a class="reference internal" href="references.html#id33" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 240)</p>
 </div></blockquote>
 <p>In the first quotation the idea is that the dependence on the prior is not a problem because agents with different priors will quickly come to agree with one another, and so the salve for the subjectivity of the prior is the intersubjectivity of posterior after a few rounds. In the second quotation, the idea is that the data observed is explanatory of this intersubjective agreement and hence is the source of the objectivity in the Bayesian approach.</p>
 <p>Howson and Urbach were writing in the period before easily accessible statistical software. They buttress their points by considering specific distributions (normals, binomials) and by assuming that the prior is also from that class and that the evidence one is sampling is independent. But there is a more general point available here that can be described by way of illustration with graphs.</p>
