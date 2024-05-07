@@ -1,0 +1,1609 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 10 &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap10';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap05.html">Chapter 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap06.html">Chapter 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap07.html">Chapter 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap08.html">Chapter 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap09.html">Chapter 9</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/logic-teaching/philstatsbook/main?urlpath=lab/tree/Chap10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chap10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 10</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-inference">A classical inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-inference-with-low-probability-of-type-i-error">A classical inference with low probability of type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recalling-a-hypothesis-test-from-the-classical-school">Recalling a hypothesis test from the classical school</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recasting-this-classical-inference-as-a-confidence-interval">Recasting this classical inference as a confidence interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kass-and-mayo-on-this-classical-inference">Kass and Mayo on this classical inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-word-on-confidence-intervals">Last word on confidence intervals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bayesian-inference">A Bayesian inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-components-of-bayes-theorem">The components of Bayes’ Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-bayes-theorem-with-uniform-prior">Visualizing Bayes’ Theorem with uniform prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-bayes-theorem-better-with-uniform-prior">Visualizing Bayes’ Theorem Better with uniform prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-visualizing-bayes-theorem-with-binomial-prior-one-sees-that-the-posterior-is-also-bell-shaped">When visualizing Bayes’ Theorem with binomial prior, one sees that the posterior is also bell-shaped</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kass-and-mayo-on-this-bayesian-inference">Kass and Mayo on this Bayesian inference</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-10">
+<h1>Chapter 10<a class="headerlink" href="#chapter-10" title="Link to this heading">#</a></h1>
+<p>Today we look at Mayo’s recent discussion <span id="id1">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> of a proposal by Kass <span id="id2">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> about how to reconcile the classical and Bayesian approaches.</p>
+<p>Kass’s suggestion is as follows:</p>
+<blockquote>
+<div><p>The commonality between frequentist and Bayesian inferences is the use of theoretical assumptions, together with a <em>subjunctive</em> statement. In both approaches a statistical model is introduced—in the Bayesian case the prior distributions become part of what I am here calling the model—and we may say that the inference is based on what <em>would</em> happen if the data <em>were</em> to be random variables distributed according to the statistical model. This modeling assumption would be reasonable if the model <em>were</em> to describe accurately the variation in the data ( <span id="id3">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> pp. 4-5)</p>
+</div></blockquote>
+<p>As we will see, Mayo rejects this both for her own way of thinking about the classical school, and she further thinks that the more austere Bayesian would reject it as well.</p>
+<p>In addition to being an important recent discussion, going through this debate will help us see better the differences between the classical and Bayesian school.</p>
+<section id="a-classical-inference">
+<h2>A classical inference<a class="headerlink" href="#a-classical-inference" title="Link to this heading">#</a></h2>
+<section id="a-classical-inference-with-low-probability-of-type-i-error">
+<h3>A classical inference with low probability of type I error<a class="headerlink" href="#a-classical-inference-with-low-probability-of-type-i-error" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span><span class="p">,</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   
+<span class="kn">import</span> <span class="nn">metakernel</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>    
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span><span class="p">,</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">IntSlider</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">LineString</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>    
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span><span class="p">,</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">IntSlider</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">LineString</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;shapely&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalvisual</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+    <span class="n">varavg</span> <span class="o">=</span> <span class="n">var</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># variance of the average</span>
+
+    <span class="c1"># standard deviation of the average</span>
+
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+    <span class="n">sigmaavg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">varavg</span><span class="p">)</span>
+
+    <span class="c1"># Create a range</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mf">.05</span><span class="p">)</span>
+
+    <span class="c1"># Create the normal distribution for the range</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">yavg</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigmaavg</span><span class="p">)</span>
+    <span class="n">tavg</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mu</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigmaavg</span><span class="p">)</span><span class="o">+</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigmaavg</span><span class="p">)</span>
+
+    <span class="c1"># Create a figure with two subplots side by side</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="c1"># Plot the normal distribution on the left subplot</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yavg</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tavg</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;.05&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># Plot the histogram on the right subplot</span>
+    <span class="c1"># axs[1].hist(data, bins=30, density=True, alpha=0.6, color=&#39;g&#39;)</span>
+
+    <span class="c1"># Set titles</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of X̅_{</span><span class="si">%i</span><span class="s1">}~N(</span><span class="si">%1.1f</span><span class="s1">, </span><span class="si">%1.3f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">varavg</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of |X̅_{</span><span class="si">%i</span><span class="s1">}-</span><span class="si">%1.1f</span><span class="s1">|≥c, </span><span class="se">\n</span><span class="s1"> as function of c, </span><span class="se">\n</span><span class="s1"> (aka probability of Type I error </span><span class="se">\n</span><span class="s1"> as function of c)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mu</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
+
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">tavg</span><span class="p">)))</span>
+    <span class="n">second_line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">l</span><span class="p">)))</span>
+    <span class="n">intersection</span> <span class="o">=</span> <span class="n">first_line</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">second_line</span><span class="p">)</span>
+
+    <span class="c1"># ... existing code ...</span>
+
+    <span class="n">intersection</span> <span class="o">=</span> <span class="n">first_line</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">second_line</span><span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">intersection</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">intersection</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="recalling-a-hypothesis-test-from-the-classical-school">
+<h3>Recalling a hypothesis test from the classical school<a class="headerlink" href="#recalling-a-hypothesis-test-from-the-classical-school" title="Link to this heading">#</a></h3>
+<p>We are repeatedly and independently measure <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> which we assume to be normally distributed with common unknown mean and known variance. For the sake of concreteness, suppose that the variance is 1.</p>
+<p>We want to know the value of <span class="math notranslate nohighlight">\(\mu\)</span> such that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\sim N(\mu,1)\)</span>.</p>
+<p>That is, we imagine we already know that the variance is 1, but we want to know where the center of the bell shape is.</p>
+<p>We formulate the hypothesis that the center is at <span class="math notranslate nohighlight">\(\mu_0\)</span>:</p>
+<ul class="simple">
+<li><p>The null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\hspace{5mm}\)</span> <span class="math notranslate nohighlight">\(\mu=\mu_0\)</span></p></li>
+<li><p>The alternative hypothesis <span class="math notranslate nohighlight">\(H_1\)</span>: <span class="math notranslate nohighlight">\(\hspace{5mm}\)</span> <span class="math notranslate nohighlight">\(\mu \neq \mu_0\)</span>.</p></li>
+</ul>
+<p>We choose a comparatively large value <span class="math notranslate nohighlight">\(c&gt;0\)</span>, and we adopt the following test:</p>
+<ul class="simple">
+<li><p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_n \geq c\)</span>.</p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(T_n =\left|\overline{X}_n - \mu_0\right|\)</span> and <span class="math notranslate nohighlight">\(\overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\)</span> is the average</p>
+<p>If <span class="math notranslate nohighlight">\(c\)</span> is large and the null hypothesis is true, then the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> has small probability and thus the Type I error is low.</p>
+<p>In the special case of normals with fixed variance and fixed <span class="math notranslate nohighlight">\(n\)</span>, the probability of the Type I error is constant across all choices of the null hypothesis, as the following examples illustrate.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">normalvisual</span><span class="p">,</span> 
+         <span class="n">mu</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">10.2</span><span class="p">),</span> 
+         <span class="n">var</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> 
+         <span class="n">n</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">49</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "048176446e9e48e5b01c9169562eb2b9", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">normalvisual</span><span class="p">,</span> 
+         <span class="n">mu</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span> 
+         <span class="n">var</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> 
+         <span class="n">n</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9ad86ddc8ba54699ba4190f02e960eba", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>For later reference, we record some values, where the value of <span class="math notranslate nohighlight">\(c\)</span> is the smallest value such that the probability of a type I error in the test “reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_n\geq c\)</span>” is <span class="math notranslate nohighlight">\(\leq .05\)</span>:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>variance</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(c\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Example 1</p></td>
+<td><p>1</p></td>
+<td><p>49</p></td>
+<td><p>.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 2</p></td>
+<td><p>1</p></td>
+<td><p>100</p></td>
+<td><p>.20</p></td>
+</tr>
+<tr class="row-even"><td><p>Example 3</p></td>
+<td><p>4</p></td>
+<td><p>100</p></td>
+<td><p>.40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 4</p></td>
+<td><p>4</p></td>
+<td><p>49</p></td>
+<td><p>.56</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recasting-this-classical-inference-as-a-confidence-interval">
+<h3>Recasting this classical inference as a confidence interval<a class="headerlink" href="#recasting-this-classical-inference-as-a-confidence-interval" title="Link to this heading">#</a></h3>
+<p>Suppose that we choose <span class="math notranslate nohighlight">\(c\)</span> optimally, right where the type I probability of the event <span class="math notranslate nohighlight">\(T_n\geq c\)</span> falls below <span class="math notranslate nohighlight">\(.05\)</span>. In the above examples, it is <span class="math notranslate nohighlight">\(c=.28\)</span>.</p>
+<p>Hence one has the probability of the event <span class="math notranslate nohighlight">\(T_n&lt;c\)</span> is above <span class="math notranslate nohighlight">\(.95\)</span>.</p>
+<p>But one has <span class="math notranslate nohighlight">\(T_n&lt;c\)</span></p>
+<p>iff <span class="math notranslate nohighlight">\(-c&lt;\mu_0-\overline{X}_n&lt;c\)</span></p>
+<p>iff <span class="math notranslate nohighlight">\(\overline{X}_n-c&lt;\mu_0&lt;\overline{X}_n+c\)</span>.</p>
+<p>Hence the probability that “ ‘<span class="math notranslate nohighlight">\(\pm\)</span> c of the average’ contains the null hypothesis” is above <span class="math notranslate nohighlight">\(.95\)</span>.</p>
+<p>And this holds regardless of what the null hypothesis is.</p>
+<p>We recopy our table, noting now that <span class="math notranslate nohighlight">\(c\)</span> is the smallest value such that the probability that <span class="math notranslate nohighlight">\(\overline{X}_n-c&lt;\mu_0&lt;\overline{X}_n+c\)</span> is above <span class="math notranslate nohighlight">\(.95\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>variance</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(c\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Example 1</p></td>
+<td><p>1</p></td>
+<td><p>49</p></td>
+<td><p>.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 2</p></td>
+<td><p>1</p></td>
+<td><p>100</p></td>
+<td><p>.20</p></td>
+</tr>
+<tr class="row-even"><td><p>Example 3</p></td>
+<td><p>4</p></td>
+<td><p>100</p></td>
+<td><p>.40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 4</p></td>
+<td><p>4</p></td>
+<td><p>49</p></td>
+<td><p>.56</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="kass-and-mayo-on-this-classical-inference">
+<h2>Kass and Mayo on this classical inference<a class="headerlink" href="#kass-and-mayo-on-this-classical-inference" title="Link to this heading">#</a></h2>
+<p>Kass <span id="id4">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the classical school would view this inference:</p>
+<blockquote>
+<div><p><em>Frequentist interpretation of the confidence interval.</em> Under the assumptions above, if we were to draw infinitely many random samples from a <span class="math notranslate nohighlight">\(N(\mu_0,1)\)</span> distribution, 95% of the corresponding confidence intervals <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would cover <span class="math notranslate nohighlight">\(\mu_0\)</span> (<span id="id5">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
+</div></blockquote>
+<p>Kass contrast this to his preferred ‘pragmatist’ approach:</p>
+<blockquote>
+<div><p><em>Frequentist interpretation of the confidence interval.</em> If we were to draw a random sample according to the assumptions above, the resulting confidence interval <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would have probability 0.95 of covering μ. Because the random sample lives in the theoretical world, this is a theoretical statement. Nonetheless, substituting <span class="math notranslate nohighlight">\(\overline{X}_{49}=10.2\)</span>, we obtain the interval <span class="math notranslate nohighlight">\((10.2-.28, 10.2+.28)\)</span>, and are able to draw useful conclusions as long as our theoretical world is aligned well with the real world that produced the data (<span id="id6">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
+</div></blockquote>
+<p>Mayo critizes Kass’ pragmatist approach and offers her own way of thinking about the confidence interval:</p>
+<blockquote>
+<div><p>Everything is left in the subjunctive conditional: if the ‘theoretical world is aligned well with the real world that produced the data’ then such and such follows. [P] Would the frequentist […] be content with this? The frequentist error statistican would not, because there’s no detachment of an inference (<span id="id7">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> pp. 426-427)</p>
+</div></blockquote>
+<p>I take it that she means that Kass’ pragmatist hasn’t given us an independent reason to think that the  theoretical world is aligned well with the real world, and that it is part of the task of statistical inference to help us towards that knowledge.</p>
+<p>Here is Mayo’s own view about how to think about the confidence intervals:</p>
+<blockquote>
+<div><p>Kass’ 0.95 interval estimate is <span class="math notranslate nohighlight">\((9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)<span class="math notranslate nohighlight">\(]. There's a good indication that \)</span>\mu_0&gt;9.92<span class="math notranslate nohighlight">\( because if \)</span>\mu<span class="math notranslate nohighlight">\( were 9.92 (or lower), we very frequently would have gotten a smaller value of \)</span>\overline{X}_n$ than we did. […] What would occur in hypothetical repetitions, under various claims about parameters, is not for future assurance in using the rule, but ot understand what caused the events on which this inference is based. If a method is incapable of reflecting changes in the data-generating source, its inferences are criticized on grounds of severity. (<span id="id8">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 429)</p>
+</div></blockquote>
+<section id="last-word-on-confidence-intervals">
+<h3>Last word on confidence intervals<a class="headerlink" href="#last-word-on-confidence-intervals" title="Link to this heading">#</a></h3>
+<p>Recall again that the classical theorist chooses the value <span class="math notranslate nohighlight">\(c\)</span> in her test so that, regardless of what the null hypothesis <span class="math notranslate nohighlight">\(\mu_0\)</span> is,</p>
+<p>the probability that “ ‘<span class="math notranslate nohighlight">\(\pm\)</span> c of the average’ contains <span class="math notranslate nohighlight">\(\mu_0\)</span>” is above <span class="math notranslate nohighlight">\(.95\)</span>.</p>
+<p>However, note that in the probability statement, <span class="math notranslate nohighlight">\(\mu_0\)</span> is fixed and not variable.</p>
+<p>The Bayesian has a way of seeing these confidence intervals as genuine statements about the probability of the parameter being in a certain interval.</p>
+</section>
+</section>
+<section id="a-bayesian-inference">
+<h2>A Bayesian inference<a class="headerlink" href="#a-bayesian-inference" title="Link to this heading">#</a></h2>
+<section id="the-components-of-bayes-theorem">
+<h3>The components of Bayes’ Theorem<a class="headerlink" href="#the-components-of-bayes-theorem" title="Link to this heading">#</a></h3>
+<p>Bayes’ Theorem takes the following form in the context of statistical inference:</p>
+<div class="math notranslate nohighlight">
+\[p(\theta \mid x) = \frac{p(x\mid \theta)\cdot p(\theta)}{p(x)}\]</div>
+<p>which as per usual you remember in the mnemonic:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{posterior} = \frac{\mathrm{likelihood}\times \mathrm{prior}}{\mathrm{evidence}}\]</div>
+<p>Here is a compact summary of the components:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>concept</p></th>
+<th class="head"><p>notation</p></th>
+<th class="head"><p>definition</p></th>
+<th class="head"><p>how to find value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prior</p></td>
+<td><p><span class="math notranslate nohighlight">\(p(\theta)\)</span></p></td>
+<td><p>prior degree of belief that <span class="math notranslate nohighlight">\(X\sim p_{\theta}\)</span></p></td>
+<td><p>initially, consult your degrees of belief, which might be recorded in frequency information which you accept; after the initial round, the prior is the previous round’s posterior</p></td>
+</tr>
+<tr class="row-odd"><td><p>likelihood</p></td>
+<td><p><span class="math notranslate nohighlight">\(p(x\mid \theta)\)</span></p></td>
+<td><p>probability that <span class="math notranslate nohighlight">\(X=x\)</span> conditional on <span class="math notranslate nohighlight">\(X\sim p_{\theta}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p_{\theta}(x)\)</span>, i.e. input in <span class="math notranslate nohighlight">\(x\)</span> to pdf <span class="math notranslate nohighlight">\(p_{\theta}\)</span>; look at graph or consult computer or book; if in applied context look at “if <span class="math notranslate nohighlight">\(\theta\)</span> were … then <span class="math notranslate nohighlight">\(x\)</span> would be …” statements salient in the subject matter</p></td>
+</tr>
+<tr class="row-even"><td><p>evidence (aka marginal, aka prior predictive distribution)</p></td>
+<td><p><span class="math notranslate nohighlight">\(p(x)\)</span></p></td>
+<td><p>probability that <span class="math notranslate nohighlight">\(X=x\)</span></p></td>
+<td><p>use formula <span class="math notranslate nohighlight">\(p(x)=\sum_{\theta\in \Theta} p(\theta)\cdot p(x\mid \theta)\)</span>; in non-trivial cases use computer</p></td>
+</tr>
+<tr class="row-odd"><td><p>posterior</p></td>
+<td><p><span class="math notranslate nohighlight">\(p(\theta \mid x)\)</span></p></td>
+<td><p>probability that <span class="math notranslate nohighlight">\(X\sim p_{\theta}\)</span> conditional on <span class="math notranslate nohighlight">\(X=x\)</span></p></td>
+<td><p>Use Bayes’ Theorem and three previous rows</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualizing-bayes-theorem-with-uniform-prior">
+<h3>Visualizing Bayes’ Theorem with uniform prior<a class="headerlink" href="#visualizing-bayes-theorem-with-uniform-prior" title="Link to this heading">#</a></h3>
+<p>Here is a familiar example of Bayes’ Theorem:</p>
+<ol class="arabic simple">
+<li><p>The parameter space is small, with each pdf in it being represented by a solid line in the graph to the top left. In this case, the pdfs are some normals.</p></li>
+<li><p>We have a uniform prior represented by the pie chart to the bottom left.</p></li>
+<li><p>Using Bayes’ Theorem we can calculate <span class="math notranslate nohighlight">\(p(\theta\mid x)\)</span> for all values of <span class="math notranslate nohighlight">\(\theta,x\)</span>: the different values of <span class="math notranslate nohighlight">\(\theta\)</span> correspond to the different solid lines on the top right, and the different values of <span class="math notranslate nohighlight">\(x\)</span> are on the bottom right.</p></li>
+<li><p>If observe a value of <span class="math notranslate nohighlight">\(x\)</span> and look at the values right above it– where the colored lines intersect the black vertical line– we get the posterior <span class="math notranslate nohighlight">\(p(\theta\mid x)\)</span>. These add up to one and we can represent them in the pie chart to the bottom left.</p></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># size_sample_space, size_parameter_space are positive integers</span>
+<span class="c1"># prior is list of length size_parameter_space of non-negative numbers that sum to 1</span>
+<span class="c1"># likelihood is a list of length size_parameter_space </span>
+<span class="c1"># where each element is a list of length size_sample_space numbers that sum to 1</span>
+
+<span class="k">def</span> <span class="nf">bayes</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span><span class="n">prior</span><span class="p">,</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">round_digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="mf">0.98</span> <span class="o">&lt;=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1.02</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sum of the prior probabilities must be equal to 1&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the prior probabilities must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the likelihood must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of each entry in the likelihood must be equal to the size of the sample space&quot;</span><span class="p">)</span>
+  
+
+    <span class="n">sample_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">))</span>
+
+    <span class="n">parameter_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">))</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;θ_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>  
+
+    <span class="n">parameter_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="n">parameter_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;likelihood p(x_j  &amp;#124; θ_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="n">evidence</span> <span class="o">=</span>  <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">evidence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">]))</span>
+
+    <span class="n">sample_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">sample_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">, evidence = </span><span class="si">{</span><span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">round_digits</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="n">posterior</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+            <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 2 row, 2 columns</span>
+
+
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">evidence</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;evidence&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>        
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="mf">.001</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;likelihood p(x | θ)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>    
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">observed_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed value&#39;</span><span class="p">)</span>       
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ  | x)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span> 
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;insert&#39;</span><span class="p">)</span>
+
+    <span class="n">sorted_prior_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span>
+    <span class="n">above_02_indices_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_prior_indices</span> <span class="k">if</span> <span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.04</span><span class="p">]</span>
+    <span class="n">labels_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">above_02_indices_prior</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">prior</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels_prior</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;prior p(θ) uniform&#39;</span><span class="p">)</span>
+
+
+
+    <span class="n">evidence_observed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)])</span>
+
+    <span class="n">posterior_observed</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span><span class="o">/</span><span class="n">evidence_observed</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">sorted_posterior_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">posterior_observed</span><span class="p">)</span>
+    <span class="n">above_02_indices_posterior</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_posterior_indices</span> <span class="k">if</span> <span class="n">posterior_observed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.04</span><span class="p">]</span>
+    <span class="n">labels_posterior</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">above_02_indices_posterior</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">posterior_observed</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels_posterior</span><span class="p">)</span>    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ| </span><span class="si">%1.2f</span><span class="s1">) non-uniform&#39;</span> <span class="o">%</span> <span class="n">observed_value</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Visualizing Bayes</span><span class="se">\&#39;</span><span class="s1"> Theorem with uniform prior&#39;</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">posterior</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_many_normals</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size_sample_space</span>
+    
+    <span class="n">l</span> <span class="o">=</span> <span class="n">size_parameter_space</span>
+    
+    <span class="n">my_prior</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">l</span>
+
+    <span class="n">my_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">.5</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
+
+    <span class="n">my_var</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">l</span>
+
+    <span class="n">my_likelihood</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>    
+
+    <span class="n">std_dev</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_min</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_max</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">my_var</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">my_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+    <span class="n">my_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+
+    <span class="n">my_sample_space_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">my_min</span><span class="p">,</span> <span class="n">my_max</span><span class="p">,</span> <span class="n">size_sample_space</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">my_likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">my_sample_space_alt</span><span class="p">,</span> <span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+    <span class="n">bayes</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">my_prior</span><span class="p">,</span><span class="n">my_likelihood</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="n">observed_value</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">bayes_many_normals</span><span class="p">,</span> 
+         <span class="n">size_sample_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> 
+         <span class="n">size_parameter_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+         <span class="n">observed_value</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a2a98c3e5d114814965e20b740a8f363", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals(size_sample_space, size_parameter_space, observed_value=None)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-bayes-theorem-better-with-uniform-prior">
+<h3>Visualizing Bayes’ Theorem Better with uniform prior<a class="headerlink" href="#visualizing-bayes-theorem-better-with-uniform-prior" title="Link to this heading">#</a></h3>
+<p>The pie charts are helpful for certain things– one can e.g. quickly look at them and see how the posterior is non-uniform.</p>
+<p>We can also represent it as a histogram, i.e. by lining up <span class="math notranslate nohighlight">\(\theta_0, \theta_1, \ldots\)</span> on <span class="math notranslate nohighlight">\(x\)</span>-axis and by plotting the values of <span class="math notranslate nohighlight">\(p(\theta_0), p(\theta_1), \ldots\)</span>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># size_sample_space, size_parameter_space are positive integers</span>
+<span class="c1"># prior is list of length size_parameter_space of non-negative numbers that sum to 1</span>
+<span class="c1"># likelihood is a list of length size_parameter_space </span>
+<span class="c1"># where each element is a list of length size_sample_space numbers that sum to 1</span>
+
+<span class="k">def</span> <span class="nf">bayes_better</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span><span class="n">prior</span><span class="p">,</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">round_digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="mf">0.98</span> <span class="o">&lt;=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1.02</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sum of the prior probabilities must be equal to 1&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the prior probabilities must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the likelihood must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of each entry in the likelihood must be equal to the size of the sample space&quot;</span><span class="p">)</span>
+  
+
+    <span class="n">sample_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">))</span>
+
+    <span class="n">parameter_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">))</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;θ_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>  
+
+    <span class="n">parameter_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="n">parameter_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;likelihood p(x_j  &amp;#124; θ_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="n">evidence</span> <span class="o">=</span>  <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">evidence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">]))</span>
+
+    <span class="n">sample_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">sample_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">, evidence = </span><span class="si">{</span><span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">round_digits</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="n">posterior</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+            <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 2 row, 2 columns</span>
+
+
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">evidence</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;evidence&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>        
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="mf">.001</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;likelihood p(x | θ)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>    
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">observed_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed value&#39;</span><span class="p">)</span>       
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ  | x)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span> 
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">sorted_prior_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span>
+    <span class="n">above_02_indices_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_prior_indices</span> <span class="k">if</span> <span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.04</span><span class="p">]</span>
+    <span class="n">labels_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">above_02_indices_prior</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">prior</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;fuchsia&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;prior p(θ) uniform&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;θ&#39;</span><span class="p">)</span>    
+
+    <span class="n">evidence_observed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)])</span>
+
+    <span class="n">posterior_observed</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span><span class="o">/</span><span class="n">evidence_observed</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">posterior_observed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;fuchsia&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ  | </span><span class="si">%1.2f</span><span class="s1">) non-uniform&#39;</span> <span class="o">%</span> <span class="n">observed_value</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;θ&#39;</span><span class="p">)</span>   
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Visualizing Bayes</span><span class="se">\&#39;</span><span class="s1"> Theorem Better with uniform prior&#39;</span><span class="p">)</span>
+
+
+
+
+    <span class="k">return</span> <span class="n">posterior</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_many_normals_better</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size_sample_space</span>
+    
+    <span class="n">l</span> <span class="o">=</span> <span class="n">size_parameter_space</span>
+    
+    <span class="n">my_prior</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">l</span>
+
+    <span class="n">my_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">.5</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
+
+    <span class="n">my_var</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">l</span>
+
+    <span class="n">my_likelihood</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>    
+
+    <span class="n">std_dev</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_min</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_max</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">my_var</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">my_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+    <span class="n">my_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+
+    <span class="n">my_sample_space_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">my_min</span><span class="p">,</span> <span class="n">my_max</span><span class="p">,</span> <span class="n">size_sample_space</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">my_likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">my_sample_space_alt</span><span class="p">,</span> <span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+    <span class="n">bayes_better</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">my_prior</span><span class="p">,</span><span class="n">my_likelihood</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="n">observed_value</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">bayes_many_normals_better</span><span class="p">,</span> 
+         <span class="n">size_sample_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> 
+         <span class="n">size_parameter_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+         <span class="n">observed_value</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6756c5a020ed41eabf57c34f54c99ad5", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better(size_sample_space, size_parameter_space, observed_value=None)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="when-visualizing-bayes-theorem-with-binomial-prior-one-sees-that-the-posterior-is-also-bell-shaped">
+<h3>When visualizing Bayes’ Theorem with binomial prior, one sees that the posterior is also bell-shaped<a class="headerlink" href="#when-visualizing-bayes-theorem-with-binomial-prior-one-sees-that-the-posterior-is-also-bell-shaped" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># size_sample_space, size_parameter_space are positive integers</span>
+<span class="c1"># prior is list of length size_parameter_space of non-negative numbers that sum to 1</span>
+<span class="c1"># likelihood is a list of length size_parameter_space </span>
+<span class="c1"># where each element is a list of length size_sample_space numbers that sum to 1</span>
+
+<span class="k">def</span> <span class="nf">bayes_better_binom</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span><span class="n">prior</span><span class="p">,</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">round_digits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="mf">0.98</span> <span class="o">&lt;=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1.02</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sum of the prior probabilities must be equal to 1&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the prior probabilities must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size_parameter_space</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of the likelihood must be equal to the size of the parameter space&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The length of each entry in the likelihood must be equal to the size of the sample space&quot;</span><span class="p">)</span>
+  
+
+    <span class="n">sample_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">))</span>
+
+    <span class="n">parameter_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">))</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;θ_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>  
+
+    <span class="n">parameter_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="n">parameter_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;likelihood p(x_j  &amp;#124; θ_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="n">evidence</span> <span class="o">=</span>  <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">evidence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">]))</span>
+
+    <span class="n">sample_space_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+        <span class="n">sample_space_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">, evidence = </span><span class="si">{</span><span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">round_digits</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="n">posterior</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">size_sample_space</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sample_space</span><span class="p">:</span>
+            <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">evidence</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 2 row, 2 columns</span>
+
+
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">evidence</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;evidence&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>        
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">max</span><span class="p">(</span><span class="n">likelihood</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="mf">.001</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;likelihood p(x | θ)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>    
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parameter_space</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_0&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size_parameter_space</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">posterior</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ_</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">observed_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">observed_value</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed value&#39;</span><span class="p">)</span>       
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ  | x)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span> 
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">sorted_prior_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">prior</span><span class="p">)</span>
+    <span class="n">above_02_indices_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_prior_indices</span> <span class="k">if</span> <span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.04</span><span class="p">]</span>
+    <span class="n">labels_prior</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">above_02_indices_prior</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">prior</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;fuchsia&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;prior Binomial(</span><span class="si">%i</span><span class="s1">,</span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">size_parameter_space</span><span class="p">,</span><span class="n">q</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;θ&#39;</span><span class="p">)</span>    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.4</span><span class="p">)</span>    
+
+    <span class="n">evidence_observed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)])</span>
+
+    <span class="n">posterior_observed</span> <span class="o">=</span> <span class="p">[</span><span class="n">prior</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">observed_value</span><span class="p">]</span><span class="o">/</span><span class="n">evidence_observed</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_parameter_space</span><span class="p">)]</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">parameter_space</span><span class="p">,</span> <span class="n">posterior_observed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;fuchsia&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ  | </span><span class="si">%1.2f</span><span class="s1">), also near bell-shaped&#39;</span> <span class="o">%</span> <span class="n">observed_value</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;θ&#39;</span><span class="p">)</span>   
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.4</span><span class="p">)</span>        
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Visualizing Bayes</span><span class="se">\&#39;</span><span class="s1"> Theorem Better with binomial prior&#39;</span><span class="p">)</span>
+
+
+
+
+    <span class="k">return</span> <span class="n">posterior</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bayes_many_normals_better_binom</span><span class="p">(</span><span class="n">size_sample_space</span><span class="p">,</span><span class="n">size_parameter_space</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">size_sample_space</span>
+    
+    <span class="n">l</span> <span class="o">=</span> <span class="n">size_parameter_space</span>
+    
+    <span class="n">my_prior</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+
+    <span class="n">my_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">.5</span><span class="o">*</span><span class="p">(</span><span class="n">l</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)]</span>
+
+    <span class="n">my_var</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">l</span>
+
+    <span class="n">my_likelihood</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>    
+
+    <span class="n">std_dev</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_min</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="n">my_max</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">l</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">my_var</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">my_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+    <span class="n">my_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">)])</span>
+
+    <span class="n">my_sample_space_alt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">my_min</span><span class="p">,</span> <span class="n">my_max</span><span class="p">,</span> <span class="n">size_sample_space</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="n">my_likelihood</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">my_sample_space_alt</span><span class="p">,</span> <span class="n">my_mean</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">std_dev</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+    <span class="n">bayes_better_binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">my_prior</span><span class="p">,</span><span class="n">my_likelihood</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">observed_value</span> <span class="o">=</span> <span class="n">observed_value</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">bayes_many_normals_better_binom</span><span class="p">,</span> 
+         <span class="n">size_sample_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> 
+         <span class="n">size_parameter_space</span><span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+         <span class="n">q</span> <span class="o">=</span> <span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">observed_value</span> <span class="o">=</span> <span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4d4750d2e4f41689798c6f970bffb45", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better_binom(size_sample_space, size_parameter_space, q, observed_value=None)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">posterior_parameters</span><span class="p">(</span><span class="n">σ2</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">X̅</span><span class="p">):</span>
+
+    <span class="n">σ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">σ2</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+
+    <span class="n">se</span> <span class="o">=</span> <span class="n">σ</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">se</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">se</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">θ̅</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">X̅</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">a</span>
+
+    <span class="n">τ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">se</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">θ̅</span><span class="p">,</span> <span class="n">τ</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">posterior_parameters</span><span class="p">,</span> 
+         <span class="n">σ2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> 
+         <span class="n">a</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> 
+         <span class="n">b2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100000000000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1000000</span><span class="p">),</span> 
+         <span class="n">n</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">49</span><span class="p">),</span> 
+         <span class="n">X̅</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">10.2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a0a3f31b2c8040f9b695d9b7b0155b15", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_parameters(σ2, a, b2, n, X̅)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">posterior_plot</span><span class="p">(</span><span class="n">σ2</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">X̅</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+
+    <span class="n">σ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">σ2</span><span class="p">)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
+
+    <span class="n">θ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="c1"># Generate points on the x axis between -10 and 10:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">σ</span><span class="p">)</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 1 columns</span>
+
+    <span class="c1"># Calculate the PDF of the normal distribution at these points:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;prior N(</span><span class="si">%1.2f</span><span class="s1">,</span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b2</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>        
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">θ̅</span><span class="p">,</span> <span class="n">τ</span> <span class="o">=</span> <span class="n">posterior_parameters</span><span class="p">(</span><span class="n">σ2</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">X̅</span><span class="p">)</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ̅</span><span class="p">,</span> <span class="n">τ</span><span class="p">)</span>
+    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">θ̅</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">θ̅</span><span class="p">)</span>  <span class="c1"># Add a vertical line at x=10</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ|X̅_</span><span class="si">%i</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Add the legend    </span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;posterior p(θ|X̅_</span><span class="si">%i</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>    
+
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">X̅</span><span class="o">-</span><span class="n">c</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">X̅</span><span class="o">+</span><span class="n">c</span>
+
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ̅</span><span class="p">,</span> <span class="n">τ</span><span class="p">)</span>
+
+    <span class="n">integral</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="n">z1</span> <span class="o">=</span> <span class="p">[</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Pr(X̅_</span><span class="si">%i</span><span class="s1">-</span><span class="si">%1.2f</span><span class="s1">&lt;θ&lt;X̅_</span><span class="si">%i</span><span class="s1">+</span><span class="si">%1.2f</span><span class="s1">) </span><span class="se">\n</span><span class="s1"> = </span><span class="si">%1.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">integral</span><span class="p">))</span>  <span class="c1"># Fill the area under the curve</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Add the legend</span>
+
+
+
+    <span class="c1"># Set titles</span>
+<span class="c1">#    axs[0].set_title(&#39;likelihood p(x|θ_1),...,p(x|θ_%i) \n θ_1,..., θ_%i ~N(%1.2f, %1.2f)&#39; % (k, k, a, b2))</span>
+<span class="c1">#    axs[1].set_title(&#39;with X̅=%1.2f, \n posterior p(θ|X̅)~N(%1.2f, %1.2f)&#39; % (X̅, θ̅, τ))</span>
+
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">posterior_plot</span><span class="p">,</span> 
+    <span class="n">σ2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">b2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">49</span><span class="p">),</span>
+    <span class="n">X̅</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mf">10.2</span><span class="p">),</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">.28</span><span class="p">),</span>    
+    <span class="n">k</span><span class="o">=</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9f4e298c5883490db523c0bd19bff054", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_plot(σ2, a, b2, n, X̅, c, k)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us build the following table, where variance and <span class="math notranslate nohighlight">\(n\)</span> are choosen, and where the variance of the prior <span class="math notranslate nohighlight">\(b^2\)</span> is really high (around 200), and then we search for the <span class="math notranslate nohighlight">\(c\)</span> which makes <span class="math notranslate nohighlight">\(Pr(\overline{X}_n-c&lt;\theta&lt;\overline{X}_n+c)=.95\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>variance (<span class="math notranslate nohighlight">\(\sigma^2\)</span>)</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(c\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Example 1</p></td>
+<td><p>1</p></td>
+<td><p>49</p></td>
+<td><p>.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 2</p></td>
+<td><p>1</p></td>
+<td><p>100</p></td>
+<td><p>.20</p></td>
+</tr>
+<tr class="row-even"><td><p>Example 3</p></td>
+<td><p>4</p></td>
+<td><p>100</p></td>
+<td><p>.40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example 4</p></td>
+<td><p>4</p></td>
+<td><p>49</p></td>
+<td><p>.56</p></td>
+</tr>
+</tbody>
+</table>
+<p>What we see is that we get the same table back as we previously had in the classical case.</p>
+</section>
+</section>
+<section id="kass-and-mayo-on-this-bayesian-inference">
+<h2>Kass and Mayo on this Bayesian inference<a class="headerlink" href="#kass-and-mayo-on-this-bayesian-inference" title="Link to this heading">#</a></h2>
+<p>Kass <span id="id9">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the classical school would view this inference:</p>
+<blockquote>
+<div><p><em>Bayesian interpretation of the posterior interval.</em> Under the assumptions above, the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I=(9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)$] is 0.95 ( <span id="id10">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4).</p>
+</div></blockquote>
+<p>He contrasts this to his pragmatist view:</p>
+<blockquote>
+<div><p><em>Pragmatic interpretation of the posterior interval</em>. If the data were a random sample for which <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}\)</span> holds, that is, [we observe that <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}=10.2\)</span> holds], and if the assumptions above were to hold, then the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I\)</span> would be 0.95. This refers to a hypothetical value <span class="math notranslate nohighlight">\(\overline{x}\)</span> of the random variable <span class="math notranslate nohighlight">\(\overline{X}_n\)</span>, and because <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> lives in the theoretical world the statement remains theoretical. Nonetheless, we are able to draw useful conclusions from the data as long as our theoretical world is aligned well with the real world that produced the data ( <span id="id11">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4)</p>
+</div></blockquote>
+<p>Mayo critizes Kass’ pragmatist approach as follows:</p>
+<blockquote>
+<div><p>I doubt that the Bayesian would be satisfied with life as a subjunctivist either. The payoff for the extra complexity of positing a prior is the ability to detach that the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in <span class="math notranslate nohighlight">\((10.2-.29, 10.2+.28)\)</span> is 0.95. [Further] We can hear some Bayesians tribe members grumbling at the very assumption that they’re modeling the ‘the real world that produced the data’ (<span id="id12">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 427).</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-inference">A classical inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-classical-inference-with-low-probability-of-type-i-error">A classical inference with low probability of type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recalling-a-hypothesis-test-from-the-classical-school">Recalling a hypothesis test from the classical school</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recasting-this-classical-inference-as-a-confidence-interval">Recasting this classical inference as a confidence interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kass-and-mayo-on-this-classical-inference">Kass and Mayo on this classical inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-word-on-confidence-intervals">Last word on confidence intervals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-bayesian-inference">A Bayesian inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-components-of-bayes-theorem">The components of Bayes’ Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-bayes-theorem-with-uniform-prior">Visualizing Bayes’ Theorem with uniform prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-bayes-theorem-better-with-uniform-prior">Visualizing Bayes’ Theorem Better with uniform prior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-visualizing-bayes-theorem-with-binomial-prior-one-sees-that-the-posterior-is-also-bell-shaped">When visualizing Bayes’ Theorem with binomial prior, one sees that the posterior is also bell-shaped</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kass-and-mayo-on-this-bayesian-inference">Kass and Mayo on this Bayesian inference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
