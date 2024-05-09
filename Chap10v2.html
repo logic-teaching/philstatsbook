@@ -194,6 +194,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap10.html">Chapter 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap11.html">Chapter 11</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -406,10 +407,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-10">
 <h1>Chapter 10<a class="headerlink" href="#chapter-10" title="Link to this heading">#</a></h1>
-<p>Today we look at Mayo’s recent discussion <span id="id1">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> of a proposal by Kass <span id="id2">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> about how to reconcile the classical and Bayesian approaches.</p>
+<p>Today we look at Mayo’s recent discussion <span id="id1">[<a class="reference internal" href="references.html#id5" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> of a proposal by Kass <span id="id2">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> about how to reconcile the classical and Bayesian approaches.</p>
 <p>Kass’s suggestion is as follows:</p>
 <blockquote>
-<div><p>The commonality between frequentist and Bayesian inferences is the use of theoretical assumptions, together with a <em>subjunctive</em> statement. In both approaches a statistical model is introduced—in the Bayesian case the prior distributions become part of what I am here calling the model—and we may say that the inference is based on what <em>would</em> happen if the data <em>were</em> to be random variables distributed according to the statistical model. This modeling assumption would be reasonable if the model <em>were</em> to describe accurately the variation in the data ( <span id="id3">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> pp. 4-5)</p>
+<div><p>The commonality between frequentist and Bayesian inferences is the use of theoretical assumptions, together with a <em>subjunctive</em> statement. In both approaches a statistical model is introduced—in the Bayesian case the prior distributions become part of what I am here calling the model—and we may say that the inference is based on what <em>would</em> happen if the data <em>were</em> to be random variables distributed according to the statistical model. This modeling assumption would be reasonable if the model <em>were</em> to describe accurately the variation in the data ( <span id="id3">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> pp. 4-5)</p>
 </div></blockquote>
 <p>As we will see, Mayo rejects this both for her own way of thinking about the classical school, and she further thinks that the more austere Bayesian would reject it as well.</p>
 <p>In addition to being an important recent discussion, going through this debate will help us see better the differences between the classical and Bayesian school.</p>
@@ -549,7 +550,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8761b945cbc245ffa474b03d5213dc75", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c8eb80d966b342299e8c774163229afe", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
 </pre></div>
 </div>
 </div>
@@ -570,7 +571,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d42c7f25a6d84ddfbe8946465542c411", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fc19bd1c20824310b56e4c2510fade9d", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.normalvisual(mu, var, n)&gt;
 </pre></div>
 </div>
 </div>
@@ -653,22 +654,22 @@ document.write(`
 </section>
 <section id="kass-and-mayo-on-this-classical-inference">
 <h2>Kass and Mayo on this classical inference<a class="headerlink" href="#kass-and-mayo-on-this-classical-inference" title="Link to this heading">#</a></h2>
-<p>Kass <span id="id4">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the classical school would view this inference:</p>
+<p>Kass <span id="id4">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the classical school would view this inference:</p>
 <blockquote>
-<div><p><em>Frequentist interpretation of the confidence interval.</em> Under the assumptions above, if we were to draw infinitely many random samples from a <span class="math notranslate nohighlight">\(N(\mu_0,1)\)</span> distribution, 95% of the corresponding confidence intervals <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would cover <span class="math notranslate nohighlight">\(\mu_0\)</span> (<span id="id5">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
+<div><p><em>Frequentist interpretation of the confidence interval.</em> Under the assumptions above, if we were to draw infinitely many random samples from a <span class="math notranslate nohighlight">\(N(\mu_0,1)\)</span> distribution, 95% of the corresponding confidence intervals <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would cover <span class="math notranslate nohighlight">\(\mu_0\)</span> (<span id="id5">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
 </div></blockquote>
 <p>Kass contrast this to his preferred ‘pragmatist’ approach:</p>
 <blockquote>
-<div><p><em>Frequentist interpretation of the confidence interval.</em> If we were to draw a random sample according to the assumptions above, the resulting confidence interval <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would have probability 0.95 of covering μ. Because the random sample lives in the theoretical world, this is a theoretical statement. Nonetheless, substituting <span class="math notranslate nohighlight">\(\overline{X}_{49}=10.2\)</span>, we obtain the interval <span class="math notranslate nohighlight">\((10.2-.28, 10.2+.28)\)</span>, and are able to draw useful conclusions as long as our theoretical world is aligned well with the real world that produced the data (<span id="id6">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
+<div><p><em>Frequentist interpretation of the confidence interval.</em> If we were to draw a random sample according to the assumptions above, the resulting confidence interval <span class="math notranslate nohighlight">\((\overline{X}_{49}-.28, \overline{X}_{49}+.28)\)</span> would have probability 0.95 of covering μ. Because the random sample lives in the theoretical world, this is a theoretical statement. Nonetheless, substituting <span class="math notranslate nohighlight">\(\overline{X}_{49}=10.2\)</span>, we obtain the interval <span class="math notranslate nohighlight">\((10.2-.28, 10.2+.28)\)</span>, and are able to draw useful conclusions as long as our theoretical world is aligned well with the real world that produced the data (<span id="id6">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4, notation changed to match preceeding discussion)</p>
 </div></blockquote>
 <p>Mayo critizes Kass’ pragmatist approach and offers her own way of thinking about the confidence interval:</p>
 <blockquote>
-<div><p>Everything is left in the subjunctive conditional: if the ‘theoretical world is aligned well with the real world that produced the data’ then such and such follows. [P] Would the frequentist […] be content with this? The frequentist error statistican would not, because there’s no detachment of an inference (<span id="id7">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> pp. 426-427)</p>
+<div><p>Everything is left in the subjunctive conditional: if the ‘theoretical world is aligned well with the real world that produced the data’ then such and such follows. [P] Would the frequentist […] be content with this? The frequentist error statistican would not, because there’s no detachment of an inference (<span id="id7">[<a class="reference internal" href="references.html#id5" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> pp. 426-427)</p>
 </div></blockquote>
 <p>I take it that she means that Kass’ pragmatist hasn’t given us an independent reason to think that the  theoretical world is aligned well with the real world, and that it is part of the task of statistical inference to help us towards that knowledge.</p>
 <p>Here is Mayo’s own view about how to think about the confidence intervals:</p>
 <blockquote>
-<div><p>Kass’ 0.95 interval estimate is <span class="math notranslate nohighlight">\((9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)<span class="math notranslate nohighlight">\(]. There's a good indication that \)</span>\mu_0&gt;9.92<span class="math notranslate nohighlight">\( because if \)</span>\mu<span class="math notranslate nohighlight">\( were 9.92 (or lower), we very frequently would have gotten a smaller value of \)</span>\overline{X}_n$ than we did. […] What would occur in hypothetical repetitions, under various claims about parameters, is not for future assurance in using the rule, but ot understand what caused the events on which this inference is based. If a method is incapable of reflecting changes in the data-generating source, its inferences are criticized on grounds of severity. (<span id="id8">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 429)</p>
+<div><p>Kass’ 0.95 interval estimate is <span class="math notranslate nohighlight">\((9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)<span class="math notranslate nohighlight">\(]. There's a good indication that \)</span>\mu_0&gt;9.92<span class="math notranslate nohighlight">\( because if \)</span>\mu<span class="math notranslate nohighlight">\( were 9.92 (or lower), we very frequently would have gotten a smaller value of \)</span>\overline{X}_n$ than we did. […] What would occur in hypothetical repetitions, under various claims about parameters, is not for future assurance in using the rule, but ot understand what caused the events on which this inference is based. If a method is incapable of reflecting changes in the data-generating source, its inferences are criticized on grounds of severity. (<span id="id8">[<a class="reference internal" href="references.html#id5" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 429)</p>
 </div></blockquote>
 <section id="last-word-on-confidence-intervals">
 <h3>Last word on confidence intervals<a class="headerlink" href="#last-word-on-confidence-intervals" title="Link to this heading">#</a></h3>
@@ -917,7 +918,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "41358eebdaac41338bcc80b4d796a255", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals(size_sample_space, size_parameter_space, observed_value=None)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a74888cb6154949813bdf7bdc6464ea", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals(size_sample_space, size_parameter_space, observed_value=None)&gt;
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1110,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "881c57418f734450909f4bb4e7147d54", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better(size_sample_space, size_parameter_space, observed_value=None)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ee40ff0ccf24a1e95a10f1dd0d539b2", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better(size_sample_space, size_parameter_space, observed_value=None)&gt;
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1303,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4101c88250be4c0984b7fb7ee8b1fa0d", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better_binom(size_sample_space, size_parameter_space, q, observed_value=None)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b8f6c8a0c1a64731a95a38aa80387518", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.bayes_many_normals_better_binom(size_sample_space, size_parameter_space, q, observed_value=None)&gt;
 </pre></div>
 </div>
 </div>
@@ -1356,7 +1357,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a78b3c381de94b7eba6ecb71e38db632", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_parameters(σ2, a, b2, n, X̅)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ed59ffcb3dd24a5f9ff0c1516ce9d733", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_parameters(σ2, a, b2, n, X̅)&gt;
 </pre></div>
 </div>
 </div>
@@ -1461,7 +1462,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7aa82e048b7a43edb954f3e8a0ae06d9", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_plot(σ2, a, b2, n, X̅, c, k)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c27a38848a744ddebe0192814844ec85", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.posterior_plot(σ2, a, b2, n, X̅, c, k)&gt;
 </pre></div>
 </div>
 </div>
@@ -1502,17 +1503,17 @@ document.write(`
 </section>
 <section id="kass-and-mayo-on-this-bayesian-inference">
 <h2>Kass and Mayo on this Bayesian inference<a class="headerlink" href="#kass-and-mayo-on-this-bayesian-inference" title="Link to this heading">#</a></h2>
-<p>Kass <span id="id9">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the classical school would view this inference:</p>
+<p>Kass <span id="id9">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> describes how the Bayesian school would view this inference:</p>
 <blockquote>
-<div><p><em>Bayesian interpretation of the posterior interval.</em> Under the assumptions above, the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I=(9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)$] is 0.95 ( <span id="id10">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4).</p>
+<div><p><em>Bayesian interpretation of the posterior interval.</em> Under the assumptions above, the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I=(9.92, 10.48)\)</span> [coming from (10.2-.28, 10.2+.28)$] is 0.95 ( <span id="id10">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4).</p>
 </div></blockquote>
 <p>He contrasts this to his pragmatist view:</p>
 <blockquote>
-<div><p><em>Pragmatic interpretation of the posterior interval</em>. If the data were a random sample for which <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}\)</span> holds, that is, [we observe that <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}=10.2\)</span> holds], and if the assumptions above were to hold, then the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I\)</span> would be 0.95. This refers to a hypothetical value <span class="math notranslate nohighlight">\(\overline{x}\)</span> of the random variable <span class="math notranslate nohighlight">\(\overline{X}_n\)</span>, and because <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> lives in the theoretical world the statement remains theoretical. Nonetheless, we are able to draw useful conclusions from the data as long as our theoretical world is aligned well with the real world that produced the data ( <span id="id11">[<a class="reference internal" href="references.html#id3" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4)</p>
+<div><p><em>Pragmatic interpretation of the posterior interval</em>. If the data were a random sample for which <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}\)</span> holds, that is, [we observe that <span class="math notranslate nohighlight">\(\overline{X}_n = \overline{x}=10.2\)</span> holds], and if the assumptions above were to hold, then the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in the interval <span class="math notranslate nohighlight">\(I\)</span> would be 0.95. This refers to a hypothetical value <span class="math notranslate nohighlight">\(\overline{x}\)</span> of the random variable <span class="math notranslate nohighlight">\(\overline{X}_n\)</span>, and because <span class="math notranslate nohighlight">\(\overline{X}_n\)</span> lives in the theoretical world the statement remains theoretical. Nonetheless, we are able to draw useful conclusions from the data as long as our theoretical world is aligned well with the real world that produced the data ( <span id="id11">[<a class="reference internal" href="references.html#id6" title="Robert E Kass. Statistical inference: the big picture. Stat. Sci., 26(1):1–9, February 2011.">Kass, 2011</a>]</span> p. 4)</p>
 </div></blockquote>
 <p>Mayo critizes Kass’ pragmatist approach as follows:</p>
 <blockquote>
-<div><p>I doubt that the Bayesian would be satisfied with life as a subjunctivist either. The payoff for the extra complexity of positing a prior is the ability to detach that the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in <span class="math notranslate nohighlight">\((10.2-.29, 10.2+.28)\)</span> is 0.95. [Further] We can hear some Bayesians tribe members grumbling at the very assumption that they’re modeling the ‘the real world that produced the data’ (<span id="id12">[<a class="reference internal" href="references.html#id2" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 427).</p>
+<div><p>I doubt that the Bayesian would be satisfied with life as a subjunctivist either. The payoff for the extra complexity of positing a prior is the ability to detach that the probability that <span class="math notranslate nohighlight">\(\theta\)</span> is in <span class="math notranslate nohighlight">\((10.2-.29, 10.2+.28)\)</span> is 0.95. [Further] We can hear some Bayesians tribe members grumbling at the very assumption that they’re modeling the ‘the real world that produced the data’ (<span id="id12">[<a class="reference internal" href="references.html#id5" title="Deborah G Mayo. Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge University Press, September 2018.">Mayo, 2018</a>]</span> p. 427).</p>
 </div></blockquote>
 </section>
 </section>
