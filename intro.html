@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -194,6 +196,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap10.html">Chapter 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chap11.html">Chapter 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap12.html">Chapter 12</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -390,17 +394,17 @@ document.write(`
 <section id="outline">
 <h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
 <p>The rough plan is as follows, where each Chapter corresponds to a lecture:</p>
-<p>Chapters 1-2: sets and events; review and interpretations of probability. Reference: <span id="id1">[<a class="reference internal" href="references.html#id43" title="Maria Carla Galavotti. Probability. In Martin Curd and Stathis Psillos, editors, The Routledge Companion to Philosophy of Science, pages 458–468. second edition, 2014.">Galavotti, 2014</a>]</span>.</p>
+<p>Chapters 1-2: sets and events; review and interpretations of probability. Reference: <span id="id1">[<a class="reference internal" href="references.html#id45" title="Maria Carla Galavotti. Probability. In Martin Curd and Stathis Psillos, editors, The Routledge Companion to Philosophy of Science, pages 458–468. second edition, 2014.">Galavotti, 2014</a>]</span>.</p>
 <p>Chapters 3-4: cdfs and pfs, visually and otherwise; independence and what happens in the limit.</p>
-<p>Chapter 5-6: estimation and the bootstrap. Reference: <span id="id2">[<a class="reference internal" href="references.html#id34" title="Jan Sprenger. Science without (parametric) models: the case of bootstrap resampling. Synthese, 180(1):65–76, May 2011.">Sprenger, 2011</a>]</span>, <span id="id3">[<a class="reference internal" href="references.html#id45" title="Bradley Efron and Carl Morris. Stein's paradox in statistics. Sci. Am., 236(5):119–127, 1977.">Efron and Morris, 1977</a>]</span></p>
-<p>Chapter 7-8: Neyman-Pearson and Mayo. References: <span id="id4">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span></p>
-<p>Chapters 9-10: Bayesianism. References: <span id="id6">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id7">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span>, <span id="id8">[<a class="reference internal" href="references.html#id36" title="Leonard J Savage. The Foundations of Statistics. Dover, 1972.">Savage, 1972</a>]</span></p>
-<p>Chapters 11-12: Likelihood and Fisher. References: <span id="id9">[<a class="reference internal" href="references.html#id32" title="Richard Royall. Statistical Evidence: A Likelihood Paradigm. Routledge, November 2017.">Royall, 2017</a>]</span>, <span id="id10">[<a class="reference internal" href="references.html#id44" title="Ronald A Fisher. Statistical Methods, Experimental Design, and Scientific Inference. Oxford University Press, 1990.">Fisher, 1990</a>]</span></p>
-<p>Chapters 13-14: Objective Bayes. References: <span id="id11">[<a class="reference internal" href="references.html#id42" title="Harold Jeffreys. The Theory of Probability. Oxford, 1948.">Jeffreys, 1948</a>]</span>, <span id="id12">[<a class="reference internal" href="references.html#id31" title="Jon Williamson. In Defence of Objective Bayesianism. Oxford University Press, May 2010.">Williamson, 2010</a>]</span></p>
-<p>Chapters 15-16: Causal inference. References:  <span id="id13">[<a class="reference internal" href="references.html#id40" title="Christopher Hitchcock. The intransitivity of causation revealed in equations and graphs. J. Philos., 98(6):273–299, 2001.">Hitchcock, 2001</a>]</span>
-<span id="id14">[<a class="reference internal" href="references.html#id39" title="Christopher Hitchcock. Causal modelling. In The Oxford Handbook of Causation, pages 299–314. 2009.">Hitchcock, 2009</a>]</span></p>
-<p>Chapters 17-18: Model selection. References: <span id="id15">[<a class="reference internal" href="references.html#id35" title="Elliott Sober. Ockham's Razors. Cambridge University Press, July 2015.">Sober, 2015</a>]</span></p>
-<p>Chapters 19-20 : Factor analysis. References: <span id="id16">[<a class="reference internal" href="references.html#id41" title="Kent Johnson. Realism and uncertainty of unobservable common causes in factor analysis. Nous, 50(2):329–355, June 2016.">Johnson, 2016</a>]</span></p>
+<p>Chapter 5-6: estimation and the bootstrap. Reference: <span id="id2">[<a class="reference internal" href="references.html#id36" title="Jan Sprenger. Science without (parametric) models: the case of bootstrap resampling. Synthese, 180(1):65–76, May 2011.">Sprenger, 2011</a>]</span>, <span id="id3">[<a class="reference internal" href="references.html#id47" title="Bradley Efron and Carl Morris. Stein's paradox in statistics. Sci. Am., 236(5):119–127, 1977.">Efron and Morris, 1977</a>]</span></p>
+<p>Chapter 7-8: Neyman-Pearson and Mayo. References: <span id="id4">[<a class="reference internal" href="references.html#id39" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id40" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span></p>
+<p>Chapters 9-10: Bayesianism. References: <span id="id6">[<a class="reference internal" href="references.html#id39" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id7">[<a class="reference internal" href="references.html#id40" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span>, <span id="id8">[<a class="reference internal" href="references.html#id38" title="Leonard J Savage. The Foundations of Statistics. Dover, 1972.">Savage, 1972</a>]</span></p>
+<p>Chapters 11-12: Likelihood and Fisher. References: <span id="id9">[<a class="reference internal" href="references.html#id34" title="Richard Royall. Statistical Evidence: A Likelihood Paradigm. Routledge, November 2017.">Royall, 2017</a>]</span>, <span id="id10">[<a class="reference internal" href="references.html#id46" title="Ronald A Fisher. Statistical Methods, Experimental Design, and Scientific Inference. Oxford University Press, 1990.">Fisher, 1990</a>]</span></p>
+<p>Chapters 13-14: Objective Bayes. References: <span id="id11">[<a class="reference internal" href="references.html#id44" title="Harold Jeffreys. The Theory of Probability. Oxford, 1948.">Jeffreys, 1948</a>]</span>, <span id="id12">[<a class="reference internal" href="references.html#id33" title="Jon Williamson. In Defence of Objective Bayesianism. Oxford University Press, May 2010.">Williamson, 2010</a>]</span></p>
+<p>Chapters 15-16: Causal inference. References:  <span id="id13">[<a class="reference internal" href="references.html#id42" title="Christopher Hitchcock. The intransitivity of causation revealed in equations and graphs. J. Philos., 98(6):273–299, 2001.">Hitchcock, 2001</a>]</span>
+<span id="id14">[<a class="reference internal" href="references.html#id41" title="Christopher Hitchcock. Causal modelling. In The Oxford Handbook of Causation, pages 299–314. 2009.">Hitchcock, 2009</a>]</span></p>
+<p>Chapters 17-18: Model selection. References: <span id="id15">[<a class="reference internal" href="references.html#id37" title="Elliott Sober. Ockham's Razors. Cambridge University Press, July 2015.">Sober, 2015</a>]</span></p>
+<p>Chapters 19-20 : Factor analysis. References: <span id="id16">[<a class="reference internal" href="references.html#id43" title="Kent Johnson. Realism and uncertainty of unobservable common causes in factor analysis. Nous, 50(2):329–355, June 2016.">Johnson, 2016</a>]</span></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
