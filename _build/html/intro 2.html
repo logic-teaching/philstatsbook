@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Philstats &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1" href="Chap01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap05.html">Chapter 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap06.html">Chapter 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap07.html">Chapter 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap08.html">Chapter 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap09.html">Chapter 9</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap10.html">Chapter 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap11.html">Chapter 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Philstats</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-goals">Aims and goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequistes">Prerequistes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-python">Examples and python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="philstats">
+<h1>Philstats<a class="headerlink" href="#philstats" title="Link to this heading">#</a></h1>
+<section id="aims-and-goals">
+<h2>Aims and goals<a class="headerlink" href="#aims-and-goals" title="Link to this heading">#</a></h2>
+<p>This is an overview of philosophy of statistics. The main goal is to set out and evaluate the philosophical ideas of founding figures of Neyman-Pearson, Fisher, Savage, and Jeffreys, and their modern proponents in philosophy and statistics like Mayo and Howson-Urbach and Royall. But we begin with an overview and review of relevant bits of probability and statistics and interpretations of probability. And we close by discussing various topics such as causality and simplicity and factor analysis.</p>
+</section>
+<section id="prerequistes">
+<h2>Prerequistes<a class="headerlink" href="#prerequistes" title="Link to this heading">#</a></h2>
+<p>This course does not presuppose any prior familiarity with statistics. In terms of prior knowledge, this is structured so that its topic is to statistics roughly what medical ethics is to medicine. Everyone should be able to get a lot out of it, due in part to the ubiquity of statistics in our everyday lives. We will use the historical development to orientate the discussion.</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>Thanks to the wonderful students in <a class="reference external" href="https://bruinlearn.ucla.edu/courses/186475">UCLA’s Phlios 133C in Spring 2024</a> for their feedback on this material. This material owes a lot to that of my former colleague <a class="reference external" href="https://sites.socsci.uci.edu/~johnsonk/CLASSES/ScientificInference/ScientificInference.html">Kent Johnson’s course</a>. I also learned a lot from <a class="reference external" href="https://uk.linkedin.com/in/cosmo-grant">Cosmo Grant’s</a> philosophy of statistics courses which he ran while he was a post-doc at UCLA a couple of years ago.</p>
+</section>
+<section id="examples-and-python">
+<h2>Examples and python<a class="headerlink" href="#examples-and-python" title="Link to this heading">#</a></h2>
+<p>Philosophy works best when there are good examples at play to motivate a position or to assess a position. And it is all the better when it is easy for everyone, with just a little bit of time and creativity, to come up with the examples. In statistics, the recent popularity of python (and R) has made coming up with worked out examples easier than ever. Hence, there are many bits of python code scattered throughout the text, mostly to illustrate key ideas with nice graphics, but also to provide an easy way to work out specific examples.</p>
+<p>To manipulate the python code one can</p>
+<ul class="simple">
+<li><p>click on the <i class="fa fa-rocket" aria-hidden="true"></i> icons at the top center-right of each chapter page, which will launch the page in a <a class="reference external" href="https://mybinder.org">binder</a> which does not require you to install anything on your machine (but you won’t be able to save anything)</p></li>
+</ul>
+<p>Or one can just copy and paste the code into your favorite Python interpreter and run it. There are lots of easy ways to run python these days, including the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.programiz.com/python-programming/online-compiler/">Programiz</a> (no set-up required; but don’t use this if you want/need to easily save)</p></li>
+<li><p><a class="reference external" href="https://jupyter.idre.ucla.edu/hub/login?next=%2Fhub%2F">UCLA Jupyterhub</a> (virtually no set-up required; but requires UCLA sign on; your institution probably has Juptyerhub)</p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/anaconda-navigator">Anaconda Navigator</a> (requires about an hour to set up; for use on desktop machines; just watch some youtube videos if you need help getting started). Anaconda also has come out with <a class="reference external" href="https://www.anaconda.com/">a web based platform</a>, but I have less experience with this.</p></li>
+</ul>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<p>The rough plan is as follows, where each Chapter corresponds to a lecture:</p>
+<p>Chapters 1-2: sets and events; review and interpretations of probability. Reference: <span id="id1">[<a class="reference internal" href="references.html#id43" title="Maria Carla Galavotti. Probability. In Martin Curd and Stathis Psillos, editors, The Routledge Companion to Philosophy of Science, pages 458–468. second edition, 2014.">Galavotti, 2014</a>]</span>.</p>
+<p>Chapters 3-4: cdfs and pfs, visually and otherwise; independence and what happens in the limit.</p>
+<p>Chapter 5-6: estimation and the bootstrap. Reference: <span id="id2">[<a class="reference internal" href="references.html#id34" title="Jan Sprenger. Science without (parametric) models: the case of bootstrap resampling. Synthese, 180(1):65–76, May 2011.">Sprenger, 2011</a>]</span>, <span id="id3">[<a class="reference internal" href="references.html#id45" title="Bradley Efron and Carl Morris. Stein's paradox in statistics. Sci. Am., 236(5):119–127, 1977.">Efron and Morris, 1977</a>]</span></p>
+<p>Chapter 7-8: Neyman-Pearson and Mayo. References: <span id="id4">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span></p>
+<p>Chapters 9-10: Bayesianism. References: <span id="id6">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span>, <span id="id7">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span>, <span id="id8">[<a class="reference internal" href="references.html#id36" title="Leonard J Savage. The Foundations of Statistics. Dover, 1972.">Savage, 1972</a>]</span></p>
+<p>Chapters 11-12: Likelihood and Fisher. References: <span id="id9">[<a class="reference internal" href="references.html#id32" title="Richard Royall. Statistical Evidence: A Likelihood Paradigm. Routledge, November 2017.">Royall, 2017</a>]</span>, <span id="id10">[<a class="reference internal" href="references.html#id44" title="Ronald A Fisher. Statistical Methods, Experimental Design, and Scientific Inference. Oxford University Press, 1990.">Fisher, 1990</a>]</span></p>
+<p>Chapters 13-14: Objective Bayes. References: <span id="id11">[<a class="reference internal" href="references.html#id42" title="Harold Jeffreys. The Theory of Probability. Oxford, 1948.">Jeffreys, 1948</a>]</span>, <span id="id12">[<a class="reference internal" href="references.html#id31" title="Jon Williamson. In Defence of Objective Bayesianism. Oxford University Press, May 2010.">Williamson, 2010</a>]</span></p>
+<p>Chapters 15-16: Causal inference. References:  <span id="id13">[<a class="reference internal" href="references.html#id40" title="Christopher Hitchcock. The intransitivity of causation revealed in equations and graphs. J. Philos., 98(6):273–299, 2001.">Hitchcock, 2001</a>]</span>
+<span id="id14">[<a class="reference internal" href="references.html#id39" title="Christopher Hitchcock. Causal modelling. In The Oxford Handbook of Causation, pages 299–314. 2009.">Hitchcock, 2009</a>]</span></p>
+<p>Chapters 17-18: Model selection. References: <span id="id15">[<a class="reference internal" href="references.html#id35" title="Elliott Sober. Ockham's Razors. Cambridge University Press, July 2015.">Sober, 2015</a>]</span></p>
+<p>Chapters 19-20 : Factor analysis. References: <span id="id16">[<a class="reference internal" href="references.html#id41" title="Kent Johnson. Realism and uncertainty of unobservable common causes in factor analysis. Nous, 50(2):329–355, June 2016.">Johnson, 2016</a>]</span></p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="Chap01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aims-and-goals">Aims and goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequistes">Prerequistes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-python">Examples and python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

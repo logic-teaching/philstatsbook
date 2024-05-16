@@ -1,0 +1,752 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 8 &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap08';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 9" href="Chap09.html" />
+    <link rel="prev" title="Chapter 7" href="Chap07.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap05.html">Chapter 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap06.html">Chapter 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap07.html">Chapter 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap09.html">Chapter 9</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap10.html">Chapter 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap11.html">Chapter 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/logic-teaching/philstatsbook/main?urlpath=lab/tree/Chap08.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chap08.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 8</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-the-classical-view">Mayo on the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#severity-and-low-type-i-error">Severity and low Type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chief-virtue-of-mayo-s-account">The chief virtue of Mayo’s account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-underdetermination">Mayo on underdetermination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-and-frequentism">Mayo and frequentism</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#howson-urbach-s-critique-of-the-classical-view">Howson-Urbach’s critique of the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-neyman-pearson-view">On the Neyman-Pearson view</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-choice-of-the-null-hypothesis">On the choice of the null hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-sample-size">On sample size</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-8">
+<h1>Chapter 8<a class="headerlink" href="#chapter-8" title="Link to this heading">#</a></h1>
+<section id="mayo-on-the-classical-view">
+<h2>Mayo on the classical view<a class="headerlink" href="#mayo-on-the-classical-view" title="Link to this heading">#</a></h2>
+<p>Among philosophers, Mayo has argued for a place for classical hypothesis testing in the philosophy of science and in theory choice more broadly. Her view is that:</p>
+<blockquote>
+<div><p>Evidence <span class="math notranslate nohighlight">\(e\)</span> should be taken as good grounds for <span class="math notranslate nohighlight">\(H_1\)</span> to the extent that <span class="math notranslate nohighlight">\(H_1\)</span> has passed a <em>severe</em> test with <span class="math notranslate nohighlight">\(e\)</span> (<span id="id1">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 177; changed <span class="math notranslate nohighlight">\(H\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span> to better match our discussion here).</p>
+</div></blockquote>
+<p>Let us follow Mayo in writing the evidence as <span class="math notranslate nohighlight">\(e\)</span>, keeping in mind that in hypothesis testing it will usually have the form of observing <span class="math notranslate nohighlight">\(T_n(\omega)\geq c\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world. Further, while we have put an <span class="math notranslate nohighlight">\(n\)</span>-subscript on the test to handle the examples, let us follow Mayo in dropping the <span class="math notranslate nohighlight">\(n\)</span>-subscript and just write <span class="math notranslate nohighlight">\(T\)</span> for the test.</p>
+<section id="severity-and-low-type-i-error">
+<h3>Severity and low Type I error<a class="headerlink" href="#severity-and-low-type-i-error" title="Link to this heading">#</a></h3>
+<p>What does it mean for <span class="math notranslate nohighlight">\(H_1\)</span> to have passed a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span>? Mayo tells us a few pages later:</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff it passes and moreover</p>
+<blockquote>
+<div><p>there is a very low probability that test procedure <span class="math notranslate nohighlight">\(T\)</span> would yield such a passing result [for <span class="math notranslate nohighlight">\(H_1\)</span>], if <span class="math notranslate nohighlight">\(H_1\)</span> were false (<span id="id2">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 180, Severity criterion 1b; changed <span class="math notranslate nohighlight">\(H\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span> to better match our discussion here).</p>
+</div></blockquote>
+<p>To see the connection to our previous discussion:</p>
+<ul class="simple">
+<li><p>As in our previous discussion, suppose that <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> are genuine contraries, in that one and only one can be true.</p></li>
+<li><p>Suppose that test <span class="math notranslate nohighlight">\(T\)</span> passes <span class="math notranslate nohighlight">\(H_1\)</span> iff test <span class="math notranslate nohighlight">\(T\)</span> rejects <span class="math notranslate nohighlight">\(H_0\)</span>.</p></li>
+</ul>
+<p>With these minor emendations, Mayo’s previous quotation reads as follows:</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by <span class="math notranslate nohighlight">\(T\)</span> with evidence <span class="math notranslate nohighlight">\(e\)</span> and moreover</p>
+<blockquote>
+<div><p>there is a very low probability that test procedure <span class="math notranslate nohighlight">\(T\)</span> would reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(H_0\)</span> were true.</p>
+</div></blockquote>
+<p>One way to convince yourself that this reading is right is to look at her statistical example on pp. 192-193. This is just our Example 1 from last Chapter with <span class="math notranslate nohighlight">\(n=100\)</span> and <span class="math notranslate nohighlight">\(c=60\)</span>. She writes <span class="math notranslate nohighlight">\(H^{\prime}\)</span> for our <span class="math notranslate nohighlight">\(H_1\)</span>, and she like us writes <span class="math notranslate nohighlight">\(H_0\)</span> for <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>Hence, Mayo’s severe test has as one component just a low probability of a Type I error. The other component is that the evidence actually pass the test.</p>
+</section>
+<section id="the-chief-virtue-of-mayo-s-account">
+<h3>The chief virtue of Mayo’s account<a class="headerlink" href="#the-chief-virtue-of-mayo-s-account" title="Link to this heading">#</a></h3>
+<p>The chief virtue of Mayo’s account is that it tries to identify a more general constraint on the confirmation of hypotheses that is satisfied by the tradition of classical statistics. That is, it tries to identify an overriding rationale for this tradition which makes it fit in a broader and <em>primae facie</em> compelling account of theory choice, to wit: only choose hypotheses which have undergone and passed a severe test, one which if the hypothesis were true would have been unlikely to reject it.</p>
+</section>
+<section id="mayo-on-underdetermination">
+<h3>Mayo on underdetermination<a class="headerlink" href="#mayo-on-underdetermination" title="Link to this heading">#</a></h3>
+<p>Mayo applies this to the problem of the traditional problem of the underdetermination of hypotheses by evidence. Her perferred formulation of the challenge is the plausibility of the following:</p>
+<blockquote>
+<div><p><em>Methodological underdetermination [MUD]</em>: any evidence taken as a good test of (or good support for) hypothesis <span class="math notranslate nohighlight">\([H_0]\)</span> would (on that account of testing or support) be taken as an equally good test of (or equally good support for) some rival [<span class="math notranslate nohighlight">\(H_1\)</span>] to <span class="math notranslate nohighlight">\(H_0\)</span> (<span id="id3">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 176, changed her <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> to <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span>).</p>
+</div></blockquote>
+<p>Other traditional views about hypotheses testing have a hard time responding to this challenge:</p>
+<ul class="simple">
+<li><p>Deductive approaches view <span class="math notranslate nohighlight">\(H_0\)</span> and its rivals <span class="math notranslate nohighlight">\(H_1\)</span> as formal theories that are confirmed by evidence <span class="math notranslate nohighlight">\(e\)</span> which is formally entailed by the theories, e.g. <span class="math notranslate nohighlight">\(H_i\vdash e\)</span>. But it is pretty easy to cook up lots of alternative ways to deduce a given result by e.g. adding on extraneous axioms.</p></li>
+<li><p>Bayesian approaches view <span class="math notranslate nohighlight">\(H_0\)</span> and its rivials <span class="math notranslate nohighlight">\(H_1\)</span> as confirming evidence <span class="math notranslate nohighlight">\(e\)</span> by making <span class="math notranslate nohighlight">\(P(H_i\mid e)-P(H_i)\)</span> a large number. But it is easy to make this happen for a large number of theories, as long as one is willing to make the sample space big enough so that it has lots of “pockets” of non-zero probability.</p></li>
+</ul>
+<p>Mayo thinks that her approach has an advantage, since on the classical statistical picture the null hypothesis <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span> partition the options. If one is asking about another rival <span class="math notranslate nohighlight">\(H_2\)</span> to <span class="math notranslate nohighlight">\(H_1\)</span>, one is really asking the “wrong question,” as far as the test at issue is concerned (<span id="id4">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 189). Moreover, what question is right and what is wrong is dictacted by its place within the hierarchy of experimental inquiry. For, experimental inquiry can be</p>
+<blockquote>
+<div><p>viewed as a series of models, each with different questions, stretching from low-level theories of data and experiment to higher level hypotheses and theories of interest (<span id="id5">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> p. 189, cf. p. 213)</p>
+</div></blockquote>
+</section>
+<section id="mayo-and-frequentism">
+<h3>Mayo and frequentism<a class="headerlink" href="#mayo-and-frequentism" title="Link to this heading">#</a></h3>
+<p>But Mayo is a frequentist (<span id="id6">[<a class="reference internal" href="references.html#id37" title="Deborah G Mayo. Error and the Growth of Experimental Knowledge. University of Chicago Press, August 1996.">Mayo, 1996</a>]</span> pp. 181, cf. p. 121) for whom probabilities just report long-run frequencies of outcomes in many repeated experiments. She then is requiring that</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span> passes a severe test <span class="math notranslate nohighlight">\(T\)</span> by means of evidence <span class="math notranslate nohighlight">\(e\)</span> iff <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by <span class="math notranslate nohighlight">\(T\)</span> with evidence <span class="math notranslate nohighlight">\(e\)</span> and moreover</p>
+<blockquote>
+<div><p>if <span class="math notranslate nohighlight">\(H_0\)</span> were true, then in the long run there is a low relative frequency that <span class="math notranslate nohighlight">\(H_0\)</span> is rejected by test <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</div></blockquote>
+<p>This may seem natural, since it just requires an external success notion on choice of hypotheses. However, if the external success notion is hard for us to check and be in a position to ascertain, one might worry that it is not a good fit for the epistemic notions of evidence and theory choice which Mayo seems to want to be delivering. But this is a concern not specific to her but is a concern about the broader classical tradition.</p>
+</section>
+</section>
+<section id="howson-urbach-s-critique-of-the-classical-view">
+<h2>Howson-Urbach’s critique of the classical view<a class="headerlink" href="#howson-urbach-s-critique-of-the-classical-view" title="Link to this heading">#</a></h2>
+<p>Howson-Urbach’s main criticism of the classical view is that they offer nothing by way of how their hypothesis tests relate to strength of evidence or inductive support, or to any other clear epistemic considerations or considerations familiar from theory choice in philosophy of science or related fields.</p>
+<p>But they also have some more local criticisms.</p>
+<section id="on-the-neyman-pearson-view">
+<h3>On the Neyman-Pearson view<a class="headerlink" href="#on-the-neyman-pearson-view" title="Link to this heading">#</a></h3>
+<p>We are again considering the following kind of test:</p>
+<p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_n\geq c\)</span>.</p>
+<p>Suppose that the probabilities of the Type I and Type II errors are low, and suppose that we observe <span class="math notranslate nohighlight">\(T_n(\omega)\geq c\)</span> in the actual world <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<p>According to Neyman-Pearson, if we act according to the test, then</p>
+<blockquote>
+<div><p>we insure that, in the long run of experience, we shall not be too often wrong (<span id="id7">[<a class="reference internal" href="references.html#id13" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291)</p>
+</div></blockquote>
+<p>In other words:</p>
+<blockquote>
+<div><p>if we behave according to such a rule [the test], then in the long run we shall reject <span class="math notranslate nohighlight">\(H_0\)</span> when it is true not more, say than once in a hundred times   (<span id="id8">[<a class="reference internal" href="references.html#id13" title="J Neyman and E S Pearson. On the problem of the most efficient tests of statistical hypotheses. Philosophical transactions of the Royal Society of London, 231(694-706):289–337, 1933.">Neyman and Pearson, 1933</a>]</span> p. 291; notation <span class="math notranslate nohighlight">\(H\)</span> changed to <span class="math notranslate nohighlight">\(H_0\)</span> to match preceding.)</p>
+</div></blockquote>
+<p>Here is the Howson-Urbach critique:</p>
+<ul class="simple">
+<li><p>If the “long run” is intended to be an appeal to frequentism, then the quotations are just recapitulations of the claims the probability of Type I error is low. It is then an “unhelpful truism.”</p></li>
+<li><p>If the “long run” is not intended as an appeal to frequentism but just as shorthand for “a great many of times,” then there’s no reason to think that the quotation is justified by the probability of Type I error being low.</p></li>
+</ul>
+<p>(This is my rendering of their argument on <span id="id9">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 151, paragraph beginning “This is a surprising …”).</p>
+</section>
+<section id="on-the-choice-of-the-null-hypothesis">
+<h3>On the choice of the null hypothesis<a class="headerlink" href="#on-the-choice-of-the-null-hypothesis" title="Link to this heading">#</a></h3>
+<p>Consider the following variation on Example 1 from the last Chapter.</p>
+<p>We are coin flipping again and our two hypotheses are</p>
+<p><span class="math notranslate nohighlight">\(H_0\)</span>: <span class="math notranslate nohighlight">\(\hspace{5mm}\)</span>   <span class="math notranslate nohighlight">\(p=.4\)</span></p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span>:  <span class="math notranslate nohighlight">\(\hspace{5mm}\)</span>  <span class="math notranslate nohighlight">\(p=.6\)</span></p>
+<p>We consider the following test:</p>
+<p>Test: reject <span class="math notranslate nohighlight">\(H_0\)</span> if <span class="math notranslate nohighlight">\(T_{100}\geq 50\)</span>.</p>
+<p>Glancing at the below graphs we see that the probability of the Type I and Type II errors is low there.</p>
+<p>Supposing that we observe  <span class="math notranslate nohighlight">\(T_{100}(\omega)\geq 50\)</span> in the actual world <span class="math notranslate nohighlight">\(\omega\)</span>, we then reject <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                <span class="c1"># load numpy package</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>   <span class="c1"># load pyplot package</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>     <span class="c1"># load binomial distribution</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Binomvisual</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n1</span><span class="p">)</span> <span class="c1"># values for x-axis</span>
+    <span class="n">Xpdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># pdf for X</span>
+    <span class="n">Xcdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># cdf for X</span>
+    <span class="n">Xccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Xcdf</span>               <span class="c1"># ccdf for X</span>
+    <span class="n">Ypdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="c1"># pdf for Y</span>
+    <span class="n">Ycdf</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="c1"># cdf for Y</span>
+    <span class="n">Yccdf</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">Ycdf</span>               <span class="c1"># ccdf for Y</span>
+
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 1 row, 2 columns</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> null&#39;</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ypdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.2f</span><span class="s1"> alternative&#39;</span> <span class="o">%</span> <span class="n">q</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;pdf of T_</span><span class="si">%i</span><span class="s1">~ </span><span class="se">\n</span><span class="s1"> Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">) vs. Binom(</span><span class="si">%i</span><span class="s1">, </span><span class="si">%1.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n1</span><span class="p">,</span><span class="n">p</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Xpdf</span><span class="o">+</span><span class="n">Xccdf</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type I&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Ycdf</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Type II&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;probability of </span><span class="se">\n</span><span class="s1"> Type I vs. II error </span><span class="se">\n</span><span class="s1"> as function of c&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>  <span class="c1"># Add x-axis label</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Binomvisual</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">.4</span><span class="p">,</span><span class="mf">.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/1ff6dcdc3720c8a5d98c1a015b39d64a1bea3410f9eb72e94624aded37e1fee0.png" src="_images/1ff6dcdc3720c8a5d98c1a015b39d64a1bea3410f9eb72e94624aded37e1fee0.png" />
+</div>
+</div>
+<p>Howson-Urbach write, speaking of this example vivified not as counting the heads of coin flips but as counting the reds in the growing of red and white tulips:</p>
+<blockquote>
+<div><p>if an experiment showed 50 red-flowering plants in a random sample of 100, then [<span class="math notranslate nohighlight">\(H_0\)</span>] ([<span class="math notranslate nohighlight">\(p=.4]\)</span> red) would be rejected at the .05 level if it were the null hypothesis, and [<span class="math notranslate nohighlight">\(H_1\)</span>] ([<span class="math notranslate nohighlight">\(p=.6\)</span>] red) would be accepted. But with [<span class="math notranslate nohighlight">\(H_1\)</span>] as the null hypothesis, the opposite judgement would be delivered! (<span id="id10">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 156, their <span class="math notranslate nohighlight">\(h_1\)</span> and <span class="math notranslate nohighlight">\(h_2\)</span> switched to our <span class="math notranslate nohighlight">\(H_0\)</span> and <span class="math notranslate nohighlight">\(H_1\)</span>, and with the percents changed to e.g. <span class="math notranslate nohighlight">\(p=.4\)</span> and <span class="math notranslate nohighlight">\(p=.6\)</span>).</p>
+</div></blockquote>
+<p>I take them to be saying that if <span class="math notranslate nohighlight">\(H_1\)</span> was the null hypothesis and we made the same observation, then we would reject <span class="math notranslate nohighlight">\(H_1\)</span>. This is a problem because in this case the two hypotheses are symmetric (“indistinguishable”) and thus the decision to reject or accept comes down to an “arbitrary” decision as to which to designate as the null hypothesis.</p>
+<p>However, it appears that it is not true that we would reject <span class="math notranslate nohighlight">\(p=.6\)</span> were it the null hypothesis and were we to observe 50 heads (or reds). For by glancing down at the diagrams one sees that the probability of both the Type I and Type II error is quite high in these settings.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Binomvisual</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">.6</span><span class="p">,</span><span class="mf">.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/45268b251149aa8b4c58429414327f27e387d619ee5b3a4ca7e4f61dc72a02c6.png" src="_images/45268b251149aa8b4c58429414327f27e387d619ee5b3a4ca7e4f61dc72a02c6.png" />
+</div>
+</div>
+</section>
+<section id="on-sample-size">
+<h3>On sample size<a class="headerlink" href="#on-sample-size" title="Link to this heading">#</a></h3>
+<p>Howson-Urbach draw attention to what happens when <span class="math notranslate nohighlight">\(n\)</span> becomes large.</p>
+<p>Below we display <span class="math notranslate nohighlight">\(n=1000\)</span></p>
+<p>Suppose that for <span class="math notranslate nohighlight">\(n=1000\)</span> we observed <span class="math notranslate nohighlight">\(T_n(\omega)= 427\)</span> and hence <span class="math notranslate nohighlight">\(T_n(\omega)\geq 427\)</span> in the actual world <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<p>According to the classical view, we should proceed in rejecting the null hypothesis <span class="math notranslate nohighlight">\(p=.4\)</span>.</p>
+<p>But Howson-Urbach claim that</p>
+<blockquote>
+<div><p>an unprejudiced consideration would clearly lead to the conclusion that [for such high values of <span class="math notranslate nohighlight">\(n\)</span>], the supposedly critical values [like 427] <em>support</em> [<span class="math notranslate nohighlight">\(H_0\)</span>, the null hypothesis] more and more (<span id="id11">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 154, their <span class="math notranslate nohighlight">\(h_1\)</span> switched to our <span class="math notranslate nohighlight">\(H_0\)</span>).</p>
+</div></blockquote>
+<p>They don’t expand on this, but my sense is that they are referring to the pdf (the diagram to the left), and are pointing out that an observation of <span class="math notranslate nohighlight">\(T_n(\omega)=427\)</span> is so much closer to to the center of the pdf of blue <span class="math notranslate nohighlight">\(p=.4\)</span> than the orange <span class="math notranslate nohighlight">\(p=.6\)</span>. Hence, for this reason</p>
+<blockquote>
+<div><p>The conclusion of significance tests oftenly flatly contradict those than an impartial scientist or ordinary observer would draw (<span id="id12">[<a class="reference internal" href="references.html#id38" title="Colin Howson and Peter Urbach. Scientific Reasoning: The Bayesian Approach. Open Court Publishing, 2006.">Howson and Urbach, 2006</a>]</span> p. 154).</p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Binomvisual</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">.4</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/ab47a964590352bfef116ff623561de2dffc1fe53d9bb7066d56d5b6cbd941c7.png" src="_images/ab47a964590352bfef116ff623561de2dffc1fe53d9bb7066d56d5b6cbd941c7.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chap07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 7</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chap09.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 9</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-the-classical-view">Mayo on the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#severity-and-low-type-i-error">Severity and low Type I error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chief-virtue-of-mayo-s-account">The chief virtue of Mayo’s account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-on-underdetermination">Mayo on underdetermination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mayo-and-frequentism">Mayo and frequentism</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#howson-urbach-s-critique-of-the-classical-view">Howson-Urbach’s critique of the classical view</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-neyman-pearson-view">On the Neyman-Pearson view</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-choice-of-the-null-hypothesis">On the choice of the null hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-sample-size">On sample size</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
