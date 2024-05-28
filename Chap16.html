@@ -401,6 +401,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-lewis-on-causation">Comparison to Lewis on causation</a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +417,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-16">
 <h1>Chapter 16<a class="headerlink" href="#chapter-16" title="Link to this heading">#</a></h1>
-<p>In this chapter we look at one view about casuality through a statistical lens. This view is called the <em>potential outcomes view</em> and is due primarily to Ruben and his coauthors (culminating in <span id="id1">[<a class="reference internal" href="references.html#id6" title="Guido W Imbens and Donald B Rubin. Causal Inference in Statistics, Social, and Biomedical Sciences. Cambridge University Press, April 2015.">Imbens and Rubin, 2015</a>]</span>). This is a dominant approach in statistics but is little discussed by philosophers, despite its being framed in terms of counterfactuals, about which philosophers have written extensively. The best introductions to the literature in statistics are, in my view, Holland <span id="id2">[<a class="reference internal" href="references.html#id7" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> and Morgan-Winship <span id="id3">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span>.</p>
+<p>In this chapter we look at one view about casuality through a statistical lens. This view is called the <em>potential outcomes view</em> and is due primarily to Rubin and his coauthors (culminating in <span id="id1">[<a class="reference internal" href="references.html#id6" title="Guido W Imbens and Donald B Rubin. Causal Inference in Statistics, Social, and Biomedical Sciences. Cambridge University Press, April 2015.">Imbens and Rubin, 2015</a>]</span>). This is a dominant approach in statistics but is little discussed by philosophers, despite its being framed in terms of counterfactuals, about which philosophers have written extensively. The best introductions to the literature in statistics are, in my view, Holland <span id="id2">[<a class="reference internal" href="references.html#id7" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> and <code class="docutils literal notranslate"><span class="pre">Morgan-Winship</span> <span class="pre">{cite}</span></code>Morgan2014-dh`.</p>
 <section id="counterfactuals">
 <h2>Counterfactuals<a class="headerlink" href="#counterfactuals" title="Link to this heading">#</a></h2>
 <section id="paradigmatic-examples">
@@ -445,20 +446,20 @@ document.write(`
 </section>
 <section id="semantics">
 <h3>Semantics<a class="headerlink" href="#semantics" title="Link to this heading">#</a></h3>
-<p>The received view due to Lewis and Stalnaker is (<span id="id4">[<a class="reference internal" href="references.html#id3" title="David Lewis. Counterfactuals. Wiley, 1973.">Lewis, 1973</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id4" title="Robert C Stalnaker. A theory of conditionals. In Ifs, pages 41–55. Springer, 1968.">Stalnaker, 1968</a>]</span>):</p>
+<p>The received view due to Lewis and Stalnaker is (<span id="id3">[<a class="reference internal" href="references.html#id3" title="David Lewis. Counterfactuals. Wiley, 1973.">Lewis, 1973</a>]</span>, <span id="id4">[<a class="reference internal" href="references.html#id4" title="Robert C Stalnaker. A theory of conditionals. In Ifs, pages 41–55. Springer, 1968.">Stalnaker, 1968</a>]</span>):</p>
 <ul class="simple">
-<li><p>At world <span class="math notranslate nohighlight">\(\omega\)</span> “if <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true” iff in all the closest <span class="math notranslate nohighlight">\(\varphi\)</span>-worlds to <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\psi\)</span> is true.</p></li>
+<li><p>At world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that “if <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true” iff in all the closest <span class="math notranslate nohighlight">\(\varphi\)</span>-worlds to <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\psi\)</span> is true.</p></li>
 </ul>
 <p>This builds in the idea that the world of evaluation <span class="math notranslate nohighlight">\(\omega\)</span> is crucial to the evaluation of the counterfactual, in that it is closeness to <span class="math notranslate nohighlight">\(\omega\)</span> that is operative in the evaluation of counterfactuals. E.g. “if Kangaroos didn’t have tails, they would fall over” is true in our world, but not true in a world in which all animals have wings. Another way of putting this point is: the Lewis-Stalnaker view is highly sensitive details about the world of evaluation which may not be thematized explicitly in the antecedent and consequent of the conditional.</p>
-<p>There is a recent challenge to the received view, by Gillies (<span id="id6">[<a class="reference internal" href="references.html#id2" title="Anthony S Gillies. Counterfactual scorekeeping. Linguist. Philos., 30(3):329–360, June 2007.">Gillies, 2007</a>]</span>), to the effect that the counterfactuals are just strict conditionals, and that the quantifiers over worlds get expanded or restricted depending on what is assumed in the common ground of the conversation.</p>
+<p>There is a recent challenge to the received view, by Gillies (<span id="id5">[<a class="reference internal" href="references.html#id2" title="Anthony S Gillies. Counterfactual scorekeeping. Linguist. Philos., 30(3):329–360, June 2007.">Gillies, 2007</a>]</span>), to the effect that the counterfactuals are just strict conditionals, and that the quantifiers over worlds get expanded or restricted depending on what is assumed in the common ground of the conversation.</p>
 </section>
 <section id="rules-for-counterfactuals">
 <h3>Rules for counterfactuals<a class="headerlink" href="#rules-for-counterfactuals" title="Link to this heading">#</a></h3>
 <p>There are very few general rules for counterfactuals.</p>
 <p>On both the Lewis-Stalnaker and Gillies account, one has</p>
 <p><em>Strong centering</em>: “if <span class="math notranslate nohighlight">\(\varphi\)</span> is true, and if ‘if <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true’, then <span class="math notranslate nohighlight">\(\psi\)</span> is true.” That is, a counterfactual with a true antecedent has a true consequent.</p>
-<p>On the Gillies account, the logic of the counterfactual is just the strict conditional plus whatever rules govern updating of conversations.</p>
 <p>On the Lewis-Stalnaker account, there are very few other rules: for instance on their semantics transitivity and modus tollens fail.</p>
+<p>On the Gillies account, the logic of the counterfactual is just the strict conditional plus whatever rules govern updating of conversations. There are constraints on how conversations proceed, but they rarely have the form of logical validities.</p>
 </section>
 </section>
 <section id="conditional-expectation">
@@ -467,6 +468,7 @@ document.write(`
 <h3>Recall expectation and independence<a class="headerlink" href="#recall-expectation-and-independence" title="Link to this heading">#</a></h3>
 <p>We define <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \sum_x x \cdot P(X=x)\)</span></p>
 <p>Recall that <span class="math notranslate nohighlight">\(X,Y\)</span> are independent if <span class="math notranslate nohighlight">\(P(X=x\wedge Y=y)=P(X=x)\cdot P(Y=y)\)</span> for all values <span class="math notranslate nohighlight">\(x,y\)</span>.</p>
+<p>Note that if <span class="math notranslate nohighlight">\(X,Y\)</span> are independent, then <span class="math notranslate nohighlight">\(P(X=x\mid Y=y)= P(X=x)\)</span>.</p>
 <p>Recall that if <span class="math notranslate nohighlight">\(X,Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\mathbb{E}[X\cdot Y]=\mathbb{E}[X]\cdot \mathbb{E}[Y]\)</span>.</p>
 </section>
 <section id="defining-conditional-expectation">
@@ -499,8 +501,8 @@ document.write(`
 </ul>
 <p>These are understand to be defined by the following biconditionals:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> is is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> is is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were not to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were not to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
 </ul>
 <p>Once we do this, we can study the distribution and expectation of <span class="math notranslate nohighlight">\(Y_{i,t}-Y_{i,c}\)</span>. For instance, if <span class="math notranslate nohighlight">\(\mathbb{E}(Y_{i,t}-Y_{i,c})&gt;0\)</span>, then we could say that person <span class="math notranslate nohighlight">\(i\)</span> should expect health to be better under the treatment than not.</p>
 <p>It is further natural to assume that <span class="math notranslate nohighlight">\(Y_{1,t}, Y_{2,t}, \ldots\)</span> are independent and have the same expectation, and that <span class="math notranslate nohighlight">\(Y_{1,c}, Y_{2,c}, \ldots\)</span> are independent and have the same expectation.</p>
@@ -526,9 +528,9 @@ document.write(`
 <h2>The stable unit treatment value assumption<a class="headerlink" href="#the-stable-unit-treatment-value-assumption" title="Link to this heading">#</a></h2>
 <p>This is due to Rubin:</p>
 <blockquote>
-<div><p>The SUTVA is simply the a priori assumption that the value of [yealth] for unit <span class="math notranslate nohighlight">\(i\)</span> when exposed to treatment <span class="math notranslate nohighlight">\(t\)</span> will be the same no matter what mechanism is used to assign treatment <span class="math notranslate nohighlight">\(t\)</span> to unit <span class="math notranslate nohighlight">\(i\)</span> and no matter what treatments other units receive (quoted in <span id="id7">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 48, notation changed to match our own).</p>
+<div><p>The SUTVA is simply the a priori assumption that the value of [yealth] for unit <span class="math notranslate nohighlight">\(i\)</span> when exposed to treatment <span class="math notranslate nohighlight">\(t\)</span> will be the same no matter what mechanism is used to assign treatment <span class="math notranslate nohighlight">\(t\)</span> to unit <span class="math notranslate nohighlight">\(i\)</span> and no matter what treatments other units receive (quoted in <span id="id6">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 48, notation changed to match our own).</p>
 </div></blockquote>
-<p>This is supposed to rule out the following kind of cases (<span id="id8">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 49):</p>
+<p>This is supposed to rule out the following kind of cases (<span id="id7">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 49):</p>
 <ol class="arabic simple">
 <li><p>An economic treatment is applied to so many individuals that it starts to non-trivially impact the local economy and so distorts how well that treatment applies to other individuals</p></li>
 <li><p>An agricultural treatment is not carefully enough applied and so starts to affect the neighbors of a plant in addition to the plant itself.</p></li>
@@ -541,7 +543,7 @@ document.write(`
 <p>The boldfaced addition is of course built-in to the Lewis-Stalnaker semantics. But the statistics literature is unaware of this semantics, and I would suggest that things like SUTVA are how they implement it in practice.</p>
 <section id="fundamental-problem-the-causal-effect-is-ostensibly-unobservable">
 <h3>Fundamental problem: the causal effect is ostensibly unobservable<a class="headerlink" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable" title="Link to this heading">#</a></h3>
-<p>According to Holland <span id="id9">[<a class="reference internal" href="references.html#id7" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> p. 947:</p>
+<p>According to Holland <span id="id8">[<a class="reference internal" href="references.html#id7" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> p. 947:</p>
 <blockquote>
 <div><p><em>Fundamental Problem of Causal Inference</em>. It is impossible to <em>observe</em> the value <span class="math notranslate nohighlight">\(Y_{i,t}\)</span> and <span class="math notranslate nohighlight">\(Y_{i,c}\)</span> on the same [individual <span class="math notranslate nohighlight">\(i\)</span>] and, therefore, it is impossible to <em>observe</em> the effect of [the treatment] <span class="math notranslate nohighlight">\(t\)</span> on [<span class="math notranslate nohighlight">\(i\)</span>] (notation changed to match preceding text)</p>
 </div></blockquote>
@@ -568,6 +570,18 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\hspace{5mm}= \mathbb{E}[Y_{i}\mid D_i=1]-\mathbb{E}[Y_{i}\mid D_i=0]\)</span> by <span class="math notranslate nohighlight">\(Y_i=Y_{i,t}\)</span> when <span class="math notranslate nohighlight">\(D_i=1\)</span>, and by <span class="math notranslate nohighlight">\(Y_i=Y_{i,c}\)</span> when <span class="math notranslate nohighlight">\(D_i=0\)</span>.</p>
 <p>Hence, in this case, the causal effect is given by conditional expectations of observable random variables.</p>
 <p>By design, we have independence in the case of randomized trials. The whole idea is to make the selection of which patients get the treatment independent of the possible outcomes.</p>
+<p>Much of the details of the potential outcomes approach comes in how to modify this approach to handle non-independence. They do things like compare objects at one time with the same object at another time, and they do things like match objects undergoing the treatment with similar objects undergoing the control. See e.g. <span id="id9">[<a class="reference internal" href="references.html#id6" title="Guido W Imbens and Donald B Rubin. Causal Inference in Statistics, Social, and Biomedical Sciences. Cambridge University Press, April 2015.">Imbens and Rubin, 2015</a>]</span> and Morgan-Winship <span id="id10">[<a class="reference internal" href="references.html#id5" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> for more details.</p>
+</section>
+<section id="comparison-to-lewis-on-causation">
+<h3>Comparison to Lewis on causation<a class="headerlink" href="#comparison-to-lewis-on-causation" title="Link to this heading">#</a></h3>
+<p>Lewis suggests that cases of direct causation of an effect <span class="math notranslate nohighlight">\(e\)</span> by its cause <span class="math notranslate nohighlight">\(c\)</span> can be analyzed in terms of the truth of the following counterfactual: if <span class="math notranslate nohighlight">\(e\)</span> were not to happen, then <span class="math notranslate nohighlight">\(c\)</span> would not happen. For the general case, which may not be direct, he uses the transitive closure of the direct case (<span id="id11">[]</span>)</p>
+<p>This does not fit the potential outcome view perfectly since the only causal quantity they identify is <span class="math notranslate nohighlight">\(Y_{i,t}-Y_{i,c}\)</span>, and the tools they have speak more to the distribution of this random variable then to its values at any particular world (again, per the fundamental problem, it is not directly observable),</p>
+<p>However, the potential outcome view does define <span class="math notranslate nohighlight">\(Y_{i,t}\)</span> and <span class="math notranslate nohighlight">\(Y_{i,c}\)</span> in terms of counterfactuals. In that spirit, one could consider the following random variables:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span>’s yealth value were not <span class="math notranslate nohighlight">\(y\)</span> <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span> would not have received the treatment (and hence presumably would have received the control).</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span>’s yealth value were not <span class="math notranslate nohighlight">\(y\)</span> <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span> would not have received the control (and hence presumably would have received the treatment).</p></li>
+</ul>
+<p>But it is not obvious that <span class="math notranslate nohighlight">\(Z_{i,t}\)</span> is a well-defined function, since there might be many values <span class="math notranslate nohighlight">\(y\)</span> which would make the right-hand sides true. This is not to say that the potential outcome view cannot make sense of Lewis’ counterfactuals, but just to say that they won’t result in random variables.</p>
 </section>
 </section>
 </section>
@@ -658,6 +672,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-lewis-on-causation">Comparison to Lewis on causation</a></li>
 </ul>
 </li>
 </ul>
