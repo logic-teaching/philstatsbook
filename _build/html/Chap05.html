@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -198,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Chap12.html">Chapter 12</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Chap15.html">Chapter 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap16.html">Chapter 16</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -471,7 +472,7 @@ document.write(`
 <p>Our job is to look at the data and to try to figure out the true parameter.</p>
 <p>Wasserman writes:</p>
 <blockquote>
-<div><p>Many inferential problems can be identified as being one of three types: estimation, confidence sets, and hypothesis testing (<span id="id2">[<a class="reference internal" href="references.html#id27" title="Larry Wasserman. All of Statistics: A Concise Course in Statistical Inference. Springer Science &amp; Business Media, December 2013.">Wasserman, 2013</a>]</span> p. 90)</p>
+<div><p>Many inferential problems can be identified as being one of three types: estimation, confidence sets, and hypothesis testing (<span id="id2">[<a class="reference internal" href="references.html#id33" title="Larry Wasserman. All of Statistics: A Concise Course in Statistical Inference. Springer Science &amp; Business Media, December 2013.">Wasserman, 2013</a>]</span> p. 90)</p>
 </div></blockquote>
 <p>Most philosophical discussion concerns hypothesis testing.</p>
 <p>In this chapter and the next we say a little about estimation.</p>
@@ -483,9 +484,9 @@ document.write(`
 \[\overline{X}_n(\omega) = \frac{1}{n} \sum_{i=1}^n X_i(\omega) = \frac{X_1(\omega)+\cdots +X_n(\omega)}{n}\]</div>
 <p>If <span class="math notranslate nohighlight">\(n\)</span> is clear from context, we may write <span class="math notranslate nohighlight">\(\overline{X}\)</span> instead of <span class="math notranslate nohighlight">\(\overline{X}_n\)</span>.</p>
 <p>Hence, note the notational convention: an overline usually denotes an average.</p>
-<p>Stigler <span id="id3">[<a class="reference internal" href="references.html#id26" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> notes that the naturalness of this is a little puzzling, for two reasons:</p>
+<p>Stigler <span id="id3">[<a class="reference internal" href="references.html#id32" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> notes that the naturalness of this is a little puzzling, for two reasons:</p>
 <ul class="simple">
-<li><p>On first principles: it is apriori not obvious how “you can actually gain information by throwing information away” and indeed this was a “truly revolutionary” idea (<span id="id4">[<a class="reference internal" href="references.html#id26" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> pp. 3-4).</p></li>
+<li><p>On first principles: it is apriori not obvious how “you can actually gain information by throwing information away” and indeed this was a “truly revolutionary” idea (<span id="id4">[<a class="reference internal" href="references.html#id32" title="Stephen M Stigler. The Seven Pillars of Statistical Wisdom. Harvard University Press, March 2016.">Stigler, 2016</a>]</span> pp. 3-4).</p></li>
 <li><p>On the basis of the historical record: “In antiquity, and in the Middle Ages, when reaching for a summary of diverse data, people chose an individual example” and not an average (pp. 32-33).</p></li>
 </ul>
 <p>Let us use some simple ideas developed last time to try to dispel these puzzles.</p>
