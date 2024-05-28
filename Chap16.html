@@ -395,9 +395,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples-and-the-initial-thought-about-random-variables">Paradigmatic examples and the initial thought about random variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-the-initial-thought-and-its-solution">The problem with the initial thought and its solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-form-of-the-solution">Generalized form of the solution</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
@@ -523,9 +521,8 @@ document.write(`
 <p>It is further natural to assume that <span class="math notranslate nohighlight">\(Y_{1,t}, Y_{2,t}, \ldots\)</span> are independent and have the same expectation, and that <span class="math notranslate nohighlight">\(Y_{1,c}, Y_{2,c}, \ldots\)</span> are independent and have the same expectation.</p>
 <p><strong>Note</strong>: again, on this way of thinking about it, there is no random variable associated to yealth full stop. We only represent or consider yealth under the supposition of receiving or not receiving the treatment.</p>
 </section>
-</section>
 <section id="the-stable-unit-treatment-value-assumption">
-<h2>The stable unit treatment value assumption<a class="headerlink" href="#the-stable-unit-treatment-value-assumption" title="Link to this heading">#</a></h2>
+<h3>The stable unit treatment value assumption<a class="headerlink" href="#the-stable-unit-treatment-value-assumption" title="Link to this heading">#</a></h3>
 <p>This is due to Rubin:</p>
 <blockquote>
 <div><p>The SUTVA is simply the a priori assumption that the value of [yealth] for unit <span class="math notranslate nohighlight">\(i\)</span> when exposed to treatment <span class="math notranslate nohighlight">\(t\)</span> will be the same no matter what mechanism is used to assign treatment <span class="math notranslate nohighlight">\(t\)</span> to unit <span class="math notranslate nohighlight">\(i\)</span> and no matter what treatments other units receive (quoted in <span id="id7">[<a class="reference internal" href="references.html#id6" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 48, notation changed to match our own).</p>
@@ -541,6 +538,7 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span> were not to receive the treatment <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span>’s yealth value would be <span class="math notranslate nohighlight">\(y\)</span></p></li>
 </ul>
 <p>The boldfaced addition is of course built-in to the Lewis-Stalnaker semantics. But the statistics literature is unaware of this semantics, and I would suggest that things like SUTVA are how they implement it in practice.</p>
+</section>
 <section id="fundamental-problem-the-causal-effect-is-ostensibly-unobservable">
 <h3>Fundamental problem: the causal effect is ostensibly unobservable<a class="headerlink" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable" title="Link to this heading">#</a></h3>
 <p>According to Holland <span id="id9">[<a class="reference internal" href="references.html#id8" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> p. 947:</p>
@@ -666,9 +664,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples-and-the-initial-thought-about-random-variables">Paradigmatic examples and the initial thought about random variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-the-initial-thought-and-its-solution">The problem with the initial thought and its solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-form-of-the-solution">Generalized form of the solution</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
