@@ -34,9 +34,9 @@ Binombothtypes(100000,.4,.6)
 ------------------
 
 ----- stderr -----
-/var/folders/cc/nw93jf_j06v7dwn9zws32zdw0000gn/T/ipykernel_73429/325915012.py:54: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+/var/folders/cc/nw93jf_j06v7dwn9zws32zdw0000gn/T/ipykernel_8329/325915012.py:54: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   axs[1].axvline(x=cvX, color='c', linestyle='--', label = '%1.2f' % cvX)
-/var/folders/cc/nw93jf_j06v7dwn9zws32zdw0000gn/T/ipykernel_73429/325915012.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+/var/folders/cc/nw93jf_j06v7dwn9zws32zdw0000gn/T/ipykernel_8329/325915012.py:65: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   axs[2].axvline(x=cvY, color='c', linestyle='--', label = '%1.2f' % cvY)
 ------------------
 
