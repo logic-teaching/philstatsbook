@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 16 &#8212; Philstats</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chap16';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Chapter 15" href="Chap15.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/philstats.png" class="logo__image only-light" alt="Philstats - Home"/>
+    <script>document.write(`<img src="_static/philstats.png" class="logo__image only-dark" alt="Philstats - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Philstats
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chap01.html">Chapter 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap02.html">Chapter 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap03.html">Chapter 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap04.html">Chapter 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Homework01.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap05.html">Chapter 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap06.html">Chapter 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap07.html">Chapter 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap08.html">Chapter 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap09.html">Chapter 9</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Homework02.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap10.html">Chapter 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap11.html">Chapter 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chap12.html">Chapter 12</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Chap15.html">Chapter 15</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/logic-teaching/philstatsbook/main?urlpath=lab/tree/Chap16.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chap16.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 16</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfactuals">Counterfactuals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples">Paradigmatic examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form">General form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">Semantics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-counterfactuals">Rules for counterfactuals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expectation">Conditional expectation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-expectation-and-independence">Recall expectation and independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-conditional-expectation">Defining conditional expectation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-potential-outcomes-approach">The potential outcomes approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples-and-the-initial-thought-about-random-variables">Paradigmatic examples and the initial thought about random variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-the-initial-thought-and-its-solution">The problem with the initial thought and its solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-form-of-the-solution">Generalized form of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-lewis-on-causation">Comparison to Lewis on causation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-16">
+<h1>Chapter 16<a class="headerlink" href="#chapter-16" title="Link to this heading">#</a></h1>
+<p>In this chapter we look at one view about casuality through a statistical lens. This view is called the <em>potential outcomes view</em> and is due primarily to Rubin and his coauthors (culminating in <span id="id1">[<a class="reference internal" href="references.html#id7" title="Guido W Imbens and Donald B Rubin. Causal Inference in Statistics, Social, and Biomedical Sciences. Cambridge University Press, April 2015.">Imbens and Rubin, 2015</a>]</span>). This is a dominant approach in statistics but is little discussed by philosophers, despite its being framed in terms of counterfactuals, about which philosophers have written extensively. The best introductions to the literature in statistics are, in my view, Holland <span id="id2">[<a class="reference internal" href="references.html#id8" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> and Morgan-Winship <span id="id3">[<a class="reference internal" href="references.html#id6" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span>.</p>
+<section id="counterfactuals">
+<h2>Counterfactuals<a class="headerlink" href="#counterfactuals" title="Link to this heading">#</a></h2>
+<section id="paradigmatic-examples">
+<h3>Paradigmatic examples<a class="headerlink" href="#paradigmatic-examples" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>If my memory were better, then I would remember more birthdays.</p></li>
+<li><p>If I were to drop the ball, it would fall directly to the ground.</p></li>
+<li><p>If I were there, I would have done it differently.</p></li>
+<li><p>If I was not there, it wouldn’t have gotten done right.</p></li>
+</ol>
+</section>
+<section id="general-form">
+<h3>General form<a class="headerlink" href="#general-form" title="Link to this heading">#</a></h3>
+<p>In general, they have the form:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true.</p></li>
+</ul>
+<p>A couple of points about these:</p>
+<p>Usually they have false antecedents. This is strongly implicated in the examples. But this is not necessary. E.g.: as an inference to the best explanation, I can say: if I were heading west, then the sun would be in my eyes.</p>
+<p>Morphologically, they have a “double past” character:</p>
+<ul class="simple">
+<li><p>In the antecedent, there is a simple past or a subjunctive (one of the few times it appears in English)</p></li>
+<li><p>In the consequent, there is “would”, which is the past tense of “will”</p></li>
+</ul>
+<p>However, note that while past is used, it is the current moment which is being described. E.g. when complaining about the present traffic, we say: if traffic was just a little better, then we would get there on time</p>
+</section>
+<section id="semantics">
+<h3>Semantics<a class="headerlink" href="#semantics" title="Link to this heading">#</a></h3>
+<p>The received view due to Lewis and Stalnaker is (<span id="id4">[<a class="reference internal" href="references.html#id4" title="David Lewis. Counterfactuals. Wiley, 1973.">Lewis, 1973</a>]</span>, <span id="id5">[<a class="reference internal" href="references.html#id5" title="Robert C Stalnaker. A theory of conditionals. In Ifs, pages 41–55. Springer, 1968.">Stalnaker, 1968</a>]</span>):</p>
+<ul class="simple">
+<li><p>At world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that “if <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true” iff in all the closest <span class="math notranslate nohighlight">\(\varphi\)</span>-worlds to <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\psi\)</span> is true.</p></li>
+</ul>
+<p>This builds in the idea that the world of evaluation <span class="math notranslate nohighlight">\(\omega\)</span> is crucial to the evaluation of the counterfactual, in that it is closeness to <span class="math notranslate nohighlight">\(\omega\)</span> that is operative in the evaluation of counterfactuals. E.g. “if Kangaroos didn’t have tails, they would fall over” is true in our world, but not true in a world in which all animals have wings. Another way of putting this point is: the Lewis-Stalnaker view is highly sensitive details about the world of evaluation which may not be thematized explicitly in the antecedent and consequent of the conditional.</p>
+<p>There is a recent challenge to the received view, by Gillies (<span id="id6">[<a class="reference internal" href="references.html#id3" title="Anthony S Gillies. Counterfactual scorekeeping. Linguist. Philos., 30(3):329–360, June 2007.">Gillies, 2007</a>]</span>), to the effect that the counterfactuals are just strict conditionals, and that the quantifiers over worlds get expanded or restricted depending on what is assumed in the common ground of the conversation.</p>
+</section>
+<section id="rules-for-counterfactuals">
+<h3>Rules for counterfactuals<a class="headerlink" href="#rules-for-counterfactuals" title="Link to this heading">#</a></h3>
+<p>There are very few general rules for counterfactuals.</p>
+<p>On both the Lewis-Stalnaker and Gillies account, one has</p>
+<p><em>Strong centering</em>: “if <span class="math notranslate nohighlight">\(\varphi\)</span> is true, and if ‘if <span class="math notranslate nohighlight">\(\varphi\)</span> were true, then <span class="math notranslate nohighlight">\(\psi\)</span> would be true’, then <span class="math notranslate nohighlight">\(\psi\)</span> is true.” That is, a counterfactual with a true antecedent has a true consequent.</p>
+<p>On the Lewis-Stalnaker account, there are very few other rules: for instance on their semantics transitivity and modus tollens fail.</p>
+<p>On the Gillies account, the logic of the counterfactual is just the strict conditional plus whatever rules govern updating of conversations. There are constraints on how conversations proceed, but they rarely have the form of logical validities.</p>
+</section>
+</section>
+<section id="conditional-expectation">
+<h2>Conditional expectation<a class="headerlink" href="#conditional-expectation" title="Link to this heading">#</a></h2>
+<section id="recall-expectation-and-independence">
+<h3>Recall expectation and independence<a class="headerlink" href="#recall-expectation-and-independence" title="Link to this heading">#</a></h3>
+<p>We define <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \sum_x x \cdot P(X=x)\)</span></p>
+<p>Recall that <span class="math notranslate nohighlight">\(X,Y\)</span> are independent if <span class="math notranslate nohighlight">\(P(X=x\wedge Y=y)=P(X=x)\cdot P(Y=y)\)</span> for all values <span class="math notranslate nohighlight">\(x,y\)</span>.</p>
+<p>Note that if <span class="math notranslate nohighlight">\(X,Y\)</span> are independent, then <span class="math notranslate nohighlight">\(P(X=x\mid Y=y)= P(X=x)\)</span>.</p>
+<p>Recall that if <span class="math notranslate nohighlight">\(X,Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\mathbb{E}[X\cdot Y]=\mathbb{E}[X]\cdot \mathbb{E}[Y]\)</span>.</p>
+</section>
+<section id="defining-conditional-expectation">
+<h3>Defining conditional expectation<a class="headerlink" href="#defining-conditional-expectation" title="Link to this heading">#</a></h3>
+<p>We define <span class="math notranslate nohighlight">\(\mathbb{E}[X\mid Y=y] = \sum_x x\cdot P(X=x\mid Y=y)\)</span>.</p>
+<p>Hence, if <span class="math notranslate nohighlight">\(X,Y\)</span> independent, then we have <span class="math notranslate nohighlight">\(\mathbb{E}[X\mid Y=y]=\mathbb{E}[X]\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[X\mid Y=y] = \sum_x x\cdot P(X=x\mid Y=y) = \sum_x x\cdot P(X=x)=\mathbb{E}[X]\)</span>.</p>
+</section>
+</section>
+<section id="the-potential-outcomes-approach">
+<h2>The potential outcomes approach<a class="headerlink" href="#the-potential-outcomes-approach" title="Link to this heading">#</a></h2>
+<section id="paradigmatic-examples-and-the-initial-thought-about-random-variables">
+<h3>Paradigmatic examples and the initial thought about random variables<a class="headerlink" href="#paradigmatic-examples-and-the-initial-thought-about-random-variables" title="Link to this heading">#</a></h3>
+<p>We are interested in understanding:</p>
+<ol class="arabic simple">
+<li><p>what happens to a person’s <em>health</em> if they receive a certain kind of <em>medical treatment</em></p></li>
+<li><p>what happens to a school’s <em>test scores</em> if they adopt a certain kind of <em>curriculum</em></p></li>
+<li><p>what happens to a plant’s <em>yield</em> if it receives a certain kind of <em>nutrition</em></p></li>
+</ol>
+<p>If we are interested in a broadly statistical approach, the first thought is to work with a single random variable which respectively records health, test scores, and plant yield.</p>
+</section>
+<section id="the-problem-with-the-initial-thought-and-its-solution">
+<h3>The problem with the initial thought and its solution<a class="headerlink" href="#the-problem-with-the-initial-thought-and-its-solution" title="Link to this heading">#</a></h3>
+<p>However, a single random variable for health won’t help one discern the difference between health with the medical intervention and health without the medical intervention.</p>
+<p>On the potential outcomes approach, for each person <span class="math notranslate nohighlight">\(i\)</span>, one works with two random variables for health:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_{i,t}\)</span>: person <span class="math notranslate nohighlight">\(i\)</span>’s health were they to receive the medical treatment (the ‘<span class="math notranslate nohighlight">\(t\)</span>’ stands for <em>treatment</em>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,c}\)</span>: person <span class="math notranslate nohighlight">\(i\)</span>’s health were they to not receive the medical treatment (the ‘<span class="math notranslate nohighlight">\(c\)</span>’ stands for <em>control</em>)</p></li>
+</ul>
+<p>These are understand to be defined by the following biconditionals:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if person <span class="math notranslate nohighlight">\(i\)</span> were not to receive the medical treatment, then their health would be <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+</ul>
+<p>Once we do this, we can study the distribution and expectation of <span class="math notranslate nohighlight">\(Y_{i,t}-Y_{i,c}\)</span>. For instance, if <span class="math notranslate nohighlight">\(\mathbb{E}(Y_{i,t}-Y_{i,c})&gt;0\)</span>, then we could say that person <span class="math notranslate nohighlight">\(i\)</span> should expect health to be better under the treatment than not.</p>
+<p>It is further natural to assume that <span class="math notranslate nohighlight">\(Y_{1,t}, Y_{2,t}, \ldots\)</span> are independent and have the same expectation, and that <span class="math notranslate nohighlight">\(Y_{1,c}, Y_{2,c}, \ldots\)</span> are independent and have the same expectation.</p>
+<p><strong>Note</strong>: on this way of thinking about it, there is no random variable associated to health full stop. We only represent or consider health under the supposition of receiving or not receiving the treatment.</p>
+</section>
+<section id="generalized-form-of-the-solution">
+<h3>Generalized form of the solution<a class="headerlink" href="#generalized-form-of-the-solution" title="Link to this heading">#</a></h3>
+<p>Suppose we are interested in the how an intuitive random variable, call it <em>yealth</em>, is affected by some treatment.</p>
+<p>Then we formalize this with two random variables <span class="math notranslate nohighlight">\(Y_{i,t}, Y_{i,c}\)</span> defined as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span> were to receive the treatment, then <span class="math notranslate nohighlight">\(i\)</span>’s yealth value would be <span class="math notranslate nohighlight">\(y\)</span> (the ‘<span class="math notranslate nohighlight">\(t\)</span>’ stands for <em>treatment</em>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span> were not to receive the treatment, then <span class="math notranslate nohighlight">\(i\)</span>’s yealth value would be <span class="math notranslate nohighlight">\(y\)</span> (the ‘<span class="math notranslate nohighlight">\(c\)</span>’ stands for <em>control</em>)</p></li>
+</ul>
+<p>Further, the <em>casual effect</em> is the random variable</p>
+<div class="math notranslate nohighlight">
+\[Y_{i,t}-Y_{i,c}\]</div>
+<p>whose distribution and expectation we can study and seek to understand.</p>
+<p>It is further natural to assume that <span class="math notranslate nohighlight">\(Y_{1,t}, Y_{2,t}, \ldots\)</span> are independent and have the same expectation, and that <span class="math notranslate nohighlight">\(Y_{1,c}, Y_{2,c}, \ldots\)</span> are independent and have the same expectation.</p>
+<p><strong>Note</strong>: again, on this way of thinking about it, there is no random variable associated to yealth full stop. We only represent or consider yealth under the supposition of receiving or not receiving the treatment.</p>
+</section>
+<section id="the-stable-unit-treatment-value-assumption">
+<h3>The stable unit treatment value assumption<a class="headerlink" href="#the-stable-unit-treatment-value-assumption" title="Link to this heading">#</a></h3>
+<p>This is due to Rubin:</p>
+<blockquote>
+<div><p>The SUTVA is simply the a priori assumption that the value of [yealth] for unit <span class="math notranslate nohighlight">\(i\)</span> when exposed to treatment <span class="math notranslate nohighlight">\(t\)</span> will be the same no matter what mechanism is used to assign treatment <span class="math notranslate nohighlight">\(t\)</span> to unit <span class="math notranslate nohighlight">\(i\)</span> and no matter what treatments other units receive (quoted in <span id="id7">[<a class="reference internal" href="references.html#id6" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 48, notation changed to match our own).</p>
+</div></blockquote>
+<p>This is supposed to rule out the following kind of cases (<span id="id8">[<a class="reference internal" href="references.html#id6" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> p. 49):</p>
+<ol class="arabic simple">
+<li><p>An economic treatment is applied to so many individuals that it starts to non-trivially impact the local economy and so distorts how well that treatment applies to other individuals</p></li>
+<li><p>An agricultural treatment is not carefully enough applied and so starts to affect the neighbors of a plant in addition to the plant itself.</p></li>
+</ol>
+<p>This serves to underscore the nature of the counterfactuals that one uses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span> were to receive the treatment <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span>’s yealth value would be <span class="math notranslate nohighlight">\(y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span> were not to receive the treatment <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span>’s yealth value would be <span class="math notranslate nohighlight">\(y\)</span></p></li>
+</ul>
+<p>The boldfaced addition is of course built-in to the Lewis-Stalnaker semantics. But the statistics literature is unaware of this semantics, and I would suggest that things like SUTVA are how they implement it in practice.</p>
+</section>
+<section id="fundamental-problem-the-causal-effect-is-ostensibly-unobservable">
+<h3>Fundamental problem: the causal effect is ostensibly unobservable<a class="headerlink" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable" title="Link to this heading">#</a></h3>
+<p>According to Holland <span id="id9">[<a class="reference internal" href="references.html#id8" title="Paul W Holland. Statistics and causal inference. J. Am. Stat. Assoc., 81(396):945–960, December 1986.">Holland, 1986</a>]</span> p. 947:</p>
+<blockquote>
+<div><p><em>Fundamental Problem of Causal Inference</em>. It is impossible to <em>observe</em> the value <span class="math notranslate nohighlight">\(Y_{i,t}\)</span> and <span class="math notranslate nohighlight">\(Y_{i,c}\)</span> on the same [individual <span class="math notranslate nohighlight">\(i\)</span>] and, therefore, it is impossible to <em>observe</em> the effect of [the treatment] <span class="math notranslate nohighlight">\(t\)</span> on [<span class="math notranslate nohighlight">\(i\)</span>] (notation changed to match preceding text)</p>
+</div></blockquote>
+<p>The whole idea of statistics is to infer from observed value of a random variable <span class="math notranslate nohighlight">\(X\)</span> to claims about its distribution. However, a presupposition of that approach is that if <span class="math notranslate nohighlight">\(\omega\)</span> is the actual world, then <span class="math notranslate nohighlight">\(X(\omega)\)</span> is some real number which we could obtain via something like measurement or observation in the world.</p>
+<p>But <span class="math notranslate nohighlight">\(Y_{i,t}(\omega)=y\)</span> and <span class="math notranslate nohighlight">\(Y_{i,c}(\omega)=y\)</span> are two counterfactuals, and at least one of them has to have a false antecedent in <span class="math notranslate nohighlight">\(\omega\)</span>. Hence, at least one of them is a genuine counterfactual. And it is not obvious that one can measure or otherwise observe genuine counterfactuals, since they speak not of what is true at the world <span class="math notranslate nohighlight">\(\omega\)</span> of evaluation, but what would hold under other circumstances.</p>
+<p>Hence, the causal effect is ostensibly unobservable.</p>
+</section>
+<section id="the-preliminary-solution-to-the-fundamental-problem">
+<h3>The preliminary solution to the fundamental problem<a class="headerlink" href="#the-preliminary-solution-to-the-fundamental-problem" title="Link to this heading">#</a></h3>
+<p>The solution to the fundamental problem is to postulate</p>
+<ul class="simple">
+<li><p>another observable random variable <span class="math notranslate nohighlight">\(D_i\)</span>, which says at which worlds person <span class="math notranslate nohighlight">\(i\)</span> received the treatment or not: <span class="math notranslate nohighlight">\(D_i(\omega)=1\)</span> if <span class="math notranslate nohighlight">\(i\)</span> received treatment in <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(D_i(\omega)=0\)</span> if <span class="math notranslate nohighlight">\(i\)</span> did not receive the treatment in <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
+<li><p>define the observable random variable <span class="math notranslate nohighlight">\(Y_i(\omega) = D_i(\omega)\cdot Y_{i,t}(\omega)+(1-D_i(\omega))\cdot Y_{i,c}(\omega)\)</span>.</p></li>
+</ul>
+<p>Note that <span class="math notranslate nohighlight">\(Y_i(\omega)=Y_{i,t}(\omega)\)</span> if <span class="math notranslate nohighlight">\(D_i(\omega)=1\)</span>, and <span class="math notranslate nohighlight">\(Y_i(\omega)=Y_{i,c}(\omega)\)</span> if <span class="math notranslate nohighlight">\(D_i(\omega)=0\)</span>.</p>
+<p>Hence, if <span class="math notranslate nohighlight">\(D_i(\omega)=1\)</span> then by strong centering it is true that <span class="math notranslate nohighlight">\(i\)</span>’s yealth level at <span class="math notranslate nohighlight">\(\omega\)</span> is <span class="math notranslate nohighlight">\(Y_i(\omega)=Y_{i,t}(\omega)\)</span>, and this is something that we can measure.</p>
+<p>And, if <span class="math notranslate nohighlight">\(D_i(\omega)=0\)</span> then by strong centering it is true that <span class="math notranslate nohighlight">\(i\)</span>’s yealth level at <span class="math notranslate nohighlight">\(\omega\)</span> is <span class="math notranslate nohighlight">\(Y_i(\omega)=Y_{i,c}(\omega)\)</span>, and this is something that we can measure.</p>
+</section>
+<section id="a-solution-via-independence">
+<h3>A solution via independence<a class="headerlink" href="#a-solution-via-independence" title="Link to this heading">#</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(D_i,Y_{i,t}\)</span> are independent and <span class="math notranslate nohighlight">\(D_i,Y_{i,c}\)</span> are independent. Then one has</p>
+<p><span class="math notranslate nohighlight">\(\mathbb{E}[Y_{i,t}-Y_{i,c}] = \mathbb{E}[Y_{i,t}]-\mathbb{E}[Y_{i,c}]\)</span>    by linearity of expectation</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm}= \mathbb{E}[Y_{i,t}\mid D_i=1]-\mathbb{E}[Y_{i,c}\mid D_i=0]\)</span> by indepedence and definition of conditional expectation</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm}= \mathbb{E}[Y_{i}\mid D_i=1]-\mathbb{E}[Y_{i}\mid D_i=0]\)</span> by <span class="math notranslate nohighlight">\(Y_i=Y_{i,t}\)</span> when <span class="math notranslate nohighlight">\(D_i=1\)</span>, and by <span class="math notranslate nohighlight">\(Y_i=Y_{i,c}\)</span> when <span class="math notranslate nohighlight">\(D_i=0\)</span>.</p>
+<p>Hence, in this case, the causal effect is given by conditional expectations of observable random variables.</p>
+<p>By design, we have independence in the case of randomized trials. The whole idea is to make the selection of which patients get the treatment independent of the possible outcomes.</p>
+<p>Much of the details of the potential outcomes approach comes in how to modify this approach to handle non-independence. They do things like compare objects at one time with the same object at another time, and they do things like match objects undergoing the treatment with similar objects undergoing the control. See e.g. <span id="id10">[<a class="reference internal" href="references.html#id7" title="Guido W Imbens and Donald B Rubin. Causal Inference in Statistics, Social, and Biomedical Sciences. Cambridge University Press, April 2015.">Imbens and Rubin, 2015</a>]</span> and Morgan-Winship <span id="id11">[<a class="reference internal" href="references.html#id6" title="Stephen L Morgan and Christopher Winship. Counterfactuals and Causal Inference: Methods and Principles for Social Research. Cambridge University Press, November 2014.">Morgan and Winship, 2014</a>]</span> for more details.</p>
+</section>
+<section id="comparison-to-lewis-on-causation">
+<h3>Comparison to Lewis on causation<a class="headerlink" href="#comparison-to-lewis-on-causation" title="Link to this heading">#</a></h3>
+<p>Lewis suggests that cases of direct causation of an effect <span class="math notranslate nohighlight">\(e\)</span> by its cause <span class="math notranslate nohighlight">\(c\)</span> can be analyzed in terms of the truth of the following counterfactual: if <span class="math notranslate nohighlight">\(e\)</span> were not to happen, then <span class="math notranslate nohighlight">\(c\)</span> would not happen. For the general case, which may not be direct, he uses the transitive closure of the direct case (<span id="id12">[<a class="reference internal" href="references.html#id2" title="David Lewis. Causation. J. Philos., 70(17):556–567, 1973.">Lewis, 1973</a>]</span>)</p>
+<p>This does not fit the potential outcome view perfectly since the only causal quantity they identify is <span class="math notranslate nohighlight">\(Y_{i,t}-Y_{i,c}\)</span>, and the tools they have speak more to the distribution of this random variable then to its values at any particular world (again, per the fundamental problem, it is not directly observable),</p>
+<p>However, the potential outcome view does define <span class="math notranslate nohighlight">\(Y_{i,t}\)</span> and <span class="math notranslate nohighlight">\(Y_{i,c}\)</span> in terms of counterfactuals. In that spirit, one could consider the following random variables:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z_{i,t}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span>’s yealth value were not <span class="math notranslate nohighlight">\(y\)</span> <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span> would not have received the treatment (and hence presumably would have received the control).</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{i,c}(\omega)=y\)</span> iff at world <span class="math notranslate nohighlight">\(\omega\)</span> it is true that: if <span class="math notranslate nohighlight">\(i\)</span>’s yealth value were not <span class="math notranslate nohighlight">\(y\)</span> <strong>and everything else remains the same</strong>, then <span class="math notranslate nohighlight">\(i\)</span> would not have received the control (and hence presumably would have received the treatment).</p></li>
+</ul>
+<p>But it is not obvious that <span class="math notranslate nohighlight">\(Z_{i,t}\)</span> is a well-defined function, since there might be many values <span class="math notranslate nohighlight">\(y\)</span> which would make the right-hand sides true. This is not to say that the potential outcome view cannot make sense of Lewis’ counterfactuals, but just to say that they won’t result in random variables.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chap15.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 15</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#counterfactuals">Counterfactuals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples">Paradigmatic examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-form">General form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">Semantics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-for-counterfactuals">Rules for counterfactuals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-expectation">Conditional expectation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-expectation-and-independence">Recall expectation and independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-conditional-expectation">Defining conditional expectation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-potential-outcomes-approach">The potential outcomes approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paradigmatic-examples-and-the-initial-thought-about-random-variables">Paradigmatic examples and the initial thought about random variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-the-initial-thought-and-its-solution">The problem with the initial thought and its solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-form-of-the-solution">Generalized form of the solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stable-unit-treatment-value-assumption">The stable unit treatment value assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-problem-the-causal-effect-is-ostensibly-unobservable">Fundamental problem: the causal effect is ostensibly unobservable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-preliminary-solution-to-the-fundamental-problem">The preliminary solution to the fundamental problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-solution-via-independence">A solution via independence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-lewis-on-causation">Comparison to Lewis on causation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sean Walsh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
