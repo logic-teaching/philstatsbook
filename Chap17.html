@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chap17';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -354,7 +356,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -370,6 +374,46 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 17</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-and-a-guiding-idea">A task and a guiding idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#axiomatizing-independence">Axiomatizing independence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-independence-of-events">Recall independence of events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-independence-of-random-variables">Recall independence of random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commas-for-conjunction-or-finite-union">Commas for conjunction or finite union</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumption-that-we-are-in-a-finite-sample-space">Assumption that we are in a finite sample space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-relative-independence-of-events">Definition relative independence of events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-characterization">Equivalent characterization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-relative-independence-of-random-variables">Definition relative independence of random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Equivalent characterization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-and-conventions-for-sets-of-random-variables">Notation and conventions for sets of random variables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-relative-independence">Properties of relative independence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition">Proposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-symmetry">Proof of symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-decomposition">Proof of Decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-weak-union">Proof of weak union</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-contraction">Proof of contraction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-intersection">Proof of intersection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs-and-random-variables">Directed graphs and random variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-as-nodes-in-a-directed-graph">Random variables as nodes in a directed graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-theorem">Factoring Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemma-on-non-trivial-parent-closed-sets">Lemma on non-trivial parent-closed sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-proof-of-factoring-theorem">Finishing proof of factoring theorem</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -381,48 +425,197 @@ document.write(`
                   
   <section id="chapter-17">
 <h1>Chapter 17<a class="headerlink" href="#chapter-17" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyPCAlg.pc_algorithm</span> <span class="kn">import</span> <span class="n">run_pc_algorithm</span><span class="p">,</span> <span class="n">field_pc_cpdag</span><span class="p">,</span> \
-    <span class="n">field_separation_sets</span>
-<span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">generate_data</span>
-<span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">oracle_indep_test</span>
-<span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">oracle_cond_indep_test</span>
-<span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">get_adjacency_matrix</span>
-
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">independence_test_func</span> <span class="o">=</span> <span class="n">oracle_indep_test</span><span class="p">()</span>
-<span class="n">conditional_independence_test_func</span> <span class="o">=</span> <span class="n">oracle_cond_indep_test</span><span class="p">()</span>
-
-<span class="n">dic</span> <span class="o">=</span> <span class="n">run_pc_algorithm</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-    <span class="n">indep_test_func</span><span class="o">=</span><span class="n">independence_test_func</span><span class="p">,</span>
-    <span class="n">cond_indep_test_func</span><span class="o">=</span><span class="n">conditional_independence_test_func</span><span class="p">,</span>
-    <span class="n">level</span><span class="o">=</span><span class="mf">0.05</span>
-<span class="p">)</span>
-<span class="n">cpdag</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="n">field_pc_cpdag</span><span class="p">]</span>
-<span class="n">separation_sets</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="n">field_separation_sets</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The true causal graph is </span><span class="se">\n</span><span class="si">{</span><span class="n">get_adjacency_matrix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The CPDAG retrieved by PC is </span><span class="se">\n</span><span class="si">{</span><span class="n">cpdag</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">PyPCAlg.pc_algorithm</span> <span class="kn">import</span> <span class="n">run_pc_algorithm</span><span class="p">,</span> <span class="n">field_pc_cpdag</span><span class="p">,</span> \
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">field_separation_sets</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">generate_data</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">PyPCAlg.examples.graph_4</span> <span class="kn">import</span> <span class="n">oracle_indep_test</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;PyPCAlg&#39;
-</pre></div>
-</div>
-</div>
-</div>
+<p>We describe some of the rudiments of the probabilistic graphical model approach to causal inference, due largely to Pearl (<span id="id1">[<a class="reference internal" href="references.html#id4" title="Judea Pearl. Causality. Cambridge University Press, September 2009.">Pearl, 2009</a>]</span>). This is a highly influential theory which has prompted a great deal of philosophical (<span id="id2">[<a class="reference internal" href="references.html#id58" title="Christopher Hitchcock. The intransitivity of causation revealed in equations and graphs. J. Philos., 98(6):273–299, 2001.">Hitchcock, 2001</a>]</span>, <span id="id3">[<a class="reference internal" href="references.html#id57" title="Christopher Hitchcock. Causal modelling. In The Oxford Handbook of Causation, pages 299–314. 2009.">Hitchcock, 2009</a>]</span>, <span id="id4">[<a class="reference internal" href="references.html#id2" title="James Woodward. Making Things Happen: A Theory of Causal Explanation. Oxford University Press, October 2005.">Woodward, 2005</a>]</span>) and formal work (<span id="id5">[<a class="reference internal" href="references.html#id3" title="Daphne Koller and Nir Friedman. Probabilistic Graphical Models: Principles and Techniques. MIT Press, July 2009.">Koller and Friedman, 2009</a>]</span>).</p>
+</section>
+<section id="a-task-and-a-guiding-idea">
+<h1>A task and a guiding idea<a class="headerlink" href="#a-task-and-a-guiding-idea" title="Link to this heading">#</a></h1>
+<p>The main task is to infer causal information from data. The plan is to:</p>
+<ol class="arabic simple">
+<li><p>Develop a model of causality which uses random variables but not a probability measure</p></li>
+<li><p>When a probability measure is added, argue that the causal information is reflected in the joint probability distribution of the random variables</p></li>
+<li><p>Given data, learn about the probability distribution using usual statistical methods</p></li>
+</ol>
+<p>Since we have already said a lot about 3 in this course, we focus on 1-2.</p>
+</section>
+<section id="axiomatizing-independence">
+<h1>Axiomatizing independence<a class="headerlink" href="#axiomatizing-independence" title="Link to this heading">#</a></h1>
+<section id="recall-independence-of-events">
+<h2>Recall independence of events<a class="headerlink" href="#recall-independence-of-events" title="Link to this heading">#</a></h2>
+<p>Recall that two events <span class="math notranslate nohighlight">\(A,B\)</span> are <em>independent</em> if <span class="math notranslate nohighlight">\(P(A\cap B)=P(A)\cdot P(B)\)</span>.</p>
+<p>This happens iff <span class="math notranslate nohighlight">\(P(A\mid B)=P(A)\)</span> whenever <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>. For, if <span class="math notranslate nohighlight">\(P(A\cap B) = P(A)\cdot P(B)\)</span> then one has <span class="math notranslate nohighlight">\(P(A\mid B)=\frac{P(A\cap B)}{P(B)} = \frac{P(A)\cdot P(B)}{P(B)} = P(A)\)</span> whenever <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>. Conversely, if <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span> and <span class="math notranslate nohighlight">\(P(A\mid B)=P(A)\)</span> then by expanding the definition of conditional probability, we have that <span class="math notranslate nohighlight">\(\frac{P(A\cap B)}{P(B)} = P(A\mid B)= P(A)\)</span>, and then by multiplying both sides by <span class="math notranslate nohighlight">\(P(B)\)</span> we get <span class="math notranslate nohighlight">\(P(A\cap B)=P(A)\cdot P(B)\)</span>.</p>
+</section>
+<section id="recall-independence-of-random-variables">
+<h2>Recall independence of random variables<a class="headerlink" href="#recall-independence-of-random-variables" title="Link to this heading">#</a></h2>
+<p>Recall that two random variables <span class="math notranslate nohighlight">\(X,Y\)</span> are <em>independent</em> if for all values <span class="math notranslate nohighlight">\(x,y\)</span> one has that the events <span class="math notranslate nohighlight">\(X=x\)</span> and <span class="math notranslate nohighlight">\(Y=y\)</span> are independent.</p>
+<p>That is, <span class="math notranslate nohighlight">\(X,Y\)</span> are independent iff for all values <span class="math notranslate nohighlight">\(x,y\)</span> one has <span class="math notranslate nohighlight">\(P(X=x\wedge Y=y)=P(X=x)\cdot P(Y=y)\)</span>; equivalently, one has <span class="math notranslate nohighlight">\(P(X=x\mid Y=y)=P(X=x)\)</span> whenever <span class="math notranslate nohighlight">\(P(Y=y)\)</span>&gt;0.</p>
+</section>
+<section id="commas-for-conjunction-or-finite-union">
+<h2>Commas for conjunction or finite union<a class="headerlink" href="#commas-for-conjunction-or-finite-union" title="Link to this heading">#</a></h2>
+<p>When dealing with random variables, one often sees conjunctions and finite unions written with commas. Hence one might see the previous line written as: <span class="math notranslate nohighlight">\(X,Y\)</span> are independent iff for all values <span class="math notranslate nohighlight">\(x,y\)</span> one has <span class="math notranslate nohighlight">\(P(X=x, Y=y)=P(X=x)\cdot P(Y=y)\)</span>; equivalently, one has <span class="math notranslate nohighlight">\(P(X=x, Y=y)=P(X=x)\)</span> whenever <span class="math notranslate nohighlight">\(P(Y=y)\)</span>&gt;0.</p>
+</section>
+<section id="assumption-that-we-are-in-a-finite-sample-space">
+<h2>Assumption that we are in a finite sample space<a class="headerlink" href="#assumption-that-we-are-in-a-finite-sample-space" title="Link to this heading">#</a></h2>
+<p>Today we assume that we are in a finite sample space <span class="math notranslate nohighlight">\(\Omega = \{\omega_1,\ldots, \omega_n\}\)</span>.</p>
+<p>This has the consequence that each of our random variables <span class="math notranslate nohighlight">\(X:\Omega\rightarrow \mathbb{R}\)</span> takes only finitely many values <span class="math notranslate nohighlight">\(\{X(\omega_1), \ldots, X(\omega_n)\}\)</span>.</p>
+<p>This is particularly useful since we can e.g. write</p>
+<p><span class="math notranslate nohighlight">\(P(X=x) = \sum_y P(X=x\wedge Y=y)\)</span>, where the summation is over the finitely many values <span class="math notranslate nohighlight">\(\{y_1, \ldots, y_n\} = \{Y(\omega_1), \ldots, Y(\omega_n)\}\)</span> that <span class="math notranslate nohighlight">\(Y\)</span> takes. This identity follows formally from finite additivity of the probability measure and the fact that <span class="math notranslate nohighlight">\(Y:\Omega \rightarrow \mathbb{R}\)</span> is a function.</p>
+</section>
+<section id="definition-relative-independence-of-events">
+<h2>Definition relative independence of events<a class="headerlink" href="#definition-relative-independence-of-events" title="Link to this heading">#</a></h2>
+<p>We say <span class="math notranslate nohighlight">\(A\bot B\mid C\)</span> iff <span class="math notranslate nohighlight">\(P(A\mid B\cap C)=P(A\mid C)\)</span> whenever <span class="math notranslate nohighlight">\(P(B\cap C)&gt;0\)</span>, and prounouce this out loud as “events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent over <span class="math notranslate nohighlight">\(C\)</span>.”</p>
+</section>
+<section id="equivalent-characterization">
+<h2>Equivalent characterization<a class="headerlink" href="#equivalent-characterization" title="Link to this heading">#</a></h2>
+<p><em>Proposition</em> <span class="math notranslate nohighlight">\(A\bot B\mid C\)</span> iff <span class="math notranslate nohighlight">\(P(A\cap B\mid C)=P(A\mid C)\cdot P(B\mid C)\)</span> whenever <span class="math notranslate nohighlight">\(P(B\cap C)&gt;0\)</span>.</p>
+<p><em>Proof</em>:</p>
+<p>First suppose that <span class="math notranslate nohighlight">\(A\bot B\mid C\)</span>. Suppose that <span class="math notranslate nohighlight">\(P(B\cap C)&gt;0\)</span>. Then one has</p>
+<div class="math notranslate nohighlight">
+\[P(A\mid B\cap C)=\frac{P(A\cap B\cap C)}{P(C)}= \frac{P(A\cap B\cap C)}{P(B\cap C)}\cdot \frac{P(B\cap C)}{P(C)}=P(A\mid B\cap C)\cdot P(B\mid C) = P(A\mid C)\cdot P(B\mid C)\]</div>
+<p>Second suppose that <span class="math notranslate nohighlight">\(P(A\cap B\mid C)=P(A\mid C)\cdot P(B\mid C)\)</span> whenever <span class="math notranslate nohighlight">\(P(B\cap C)&gt;0\)</span>. And suppose that <span class="math notranslate nohighlight">\(P(B\cap C)&gt;0\)</span>. Define the constant <span class="math notranslate nohighlight">\(d = \frac{P(C)}{P(B\cap C)}\)</span>, and note that <span class="math notranslate nohighlight">\(P(B\mid C)\cdot d=1\)</span>. Then one has</p>
+<div class="math notranslate nohighlight">
+\[P(A\mid B\cap C) = \frac{P(A\cap B\cap C)}{P(B\cap C)} =  \frac{P(A\cap B\cap C)}{P(C)}\cdot \frac{P(C)}{P(B\cap C)} = P(A\cap B\mid C)\cdot d  = P(A\mid C)\cdot P(B\mid C)\cdot d = P(A\mid C)\]</div>
+</section>
+<section id="definition-relative-independence-of-random-variables">
+<h2>Definition relative independence of random variables<a class="headerlink" href="#definition-relative-independence-of-random-variables" title="Link to this heading">#</a></h2>
+<p>We say <span class="math notranslate nohighlight">\(X\bot Y\mid Z\)</span> iff <span class="math notranslate nohighlight">\(P(X=x\mid Y=y, Z=z)=P(X=x\mid Z=z)\)</span> for all values <span class="math notranslate nohighlight">\(x,y,z\)</span> with <span class="math notranslate nohighlight">\(P(Y=y\wedge Z=z)&gt;0\)</span>, and prounouce this out loud as “random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent over <span class="math notranslate nohighlight">\(Z\)</span>.”</p>
+</section>
+<section id="id6">
+<h2>Equivalent characterization<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p><em>Proposition</em> <span class="math notranslate nohighlight">\(X\bot Y\mid Z\)</span> iff <span class="math notranslate nohighlight">\(P(X=x,Y=y\mid Z=z)=P(X=x\mid Z=z)\cdot P(Y=y\mid Z=z)\)</span> for all values <span class="math notranslate nohighlight">\(x,y,z\)</span> with <span class="math notranslate nohighlight">\(P(Y=y, Z=z)&gt;0\)</span>.</p>
+</section>
+<section id="notation-and-conventions-for-sets-of-random-variables">
+<h2>Notation and conventions for sets of random variables<a class="headerlink" href="#notation-and-conventions-for-sets-of-random-variables" title="Link to this heading">#</a></h2>
+<p>We similarly define <span class="math notranslate nohighlight">\(X_1, \ldots, X_{\ell}\bot Y_1, \ldots, Y_m\mid Z_1, \ldots, Z_m\)</span> iff <span class="math notranslate nohighlight">\(P(X_1=x_1\wedge \cdots X_{\ell}=x_{\ell}\mid Y_1=y_1 \wedge \cdots \wedge Y_m=y_m\wedge Z_1=z_1 \wedge \cdots \wedge Z_n=z_n)=P(X_1=x_1 \wedge \cdots \wedge X_{\ell}=x_{\ell}\mid Z_1=z_1 \wedge \cdots \wedge Z_n=z_n)\)</span> for all values <span class="math notranslate nohighlight">\(x_1,\ldots, x_{\ell}, y_1, \ldots, y_{\ell}, z_1, \ldots, z_n\)</span> with <span class="math notranslate nohighlight">\(P(Y_1=y_1 \wedge \cdots \wedge Y_m=y_m\wedge Z_1=z_1 \wedge \cdots \wedge Z_n=z_n)&gt;0\)</span>.</p>
+<p>That is obviously notationally untenable. Hence one typically uses <span class="math notranslate nohighlight">\({\bf X}={\bf x}\)</span> as an abbreviation for <span class="math notranslate nohighlight">\(X_1=x_1\wedge \cdots X_{\ell}=x_{\ell}\)</span> and similarly for the other variables. Hence, note writes <span class="math notranslate nohighlight">\({\bf X}\bot {\bf Y}\mid {\bf Z}\)</span> as an abbreviation for <span class="math notranslate nohighlight">\(X_1, \ldots, X_{\ell}\bot Y_1, \ldots, Y_m\mid Z_1, \ldots, Z_m\)</span>.</p>
+<p>Given the limited extent to which we are working with these notions, we tend just to use the simpler <span class="math notranslate nohighlight">\(X\bot Y \mid Z\)</span>, and note in the text that whatever are doing with respect to it holds when they are replaced by sets of random variables.</p>
+<p>One bit of notation which we do need is we use commas for small extensions of sets. For instance, <span class="math notranslate nohighlight">\(X\bot Y,W \mid Z\)</span> means that <span class="math notranslate nohighlight">\(X\bot \{Y,W\} \mid Z\)</span>, or equivalent it means <span class="math notranslate nohighlight">\(X\bot {\bf Y} \mid Z\)</span> where <span class="math notranslate nohighlight">\({\bf Y}\)</span> is the set of random variable consisting of <span class="math notranslate nohighlight">\(Y,W\)</span>. That is, we use single commas to do our ‘extensions of sets of random variables by one element.’</p>
+</section>
+</section>
+<section id="properties-of-relative-independence">
+<h1>Properties of relative independence<a class="headerlink" href="#properties-of-relative-independence" title="Link to this heading">#</a></h1>
+<section id="proposition">
+<h2>Proposition<a class="headerlink" href="#proposition" title="Link to this heading">#</a></h2>
+<p><em>Proposition</em> We have the following properties:</p>
+<ul class="simple">
+<li><p><em>Symmetry</em>: <span class="math notranslate nohighlight">\(X\bot Y\mid Z\)</span> implies <span class="math notranslate nohighlight">\(Y\bot X\mid Z\)</span></p></li>
+<li><p><em>Decomposition</em>: <span class="math notranslate nohighlight">\(X\bot Y,W\mid Z\)</span> implies <span class="math notranslate nohighlight">\(X\bot Y \mid Z\)</span></p></li>
+<li><p><em>Weak union</em>: <span class="math notranslate nohighlight">\(X\bot Y,W \mid Z\)</span> implies <span class="math notranslate nohighlight">\(X\bot Y \mid Z,W\)</span></p></li>
+<li><p><em>Contraction</em>: <span class="math notranslate nohighlight">\(X\bot W \mid Z,Y\)</span> implies <span class="math notranslate nohighlight">\(X\bot Y \mid Z\)</span> and <span class="math notranslate nohighlight">\(X\bot Y,W \mid Z\)</span>.</p></li>
+<li><p><em>Intersection</em>: <span class="math notranslate nohighlight">\((X\bot Y\mid Z,W)\)</span> and <span class="math notranslate nohighlight">\((X\bot W\mid Z,Y)\)</span> implies <span class="math notranslate nohighlight">\((X\bot Y, W \mid Z)\)</span>.</p></li>
+</ul>
+<p>These also hold with <span class="math notranslate nohighlight">\(X,Y,Z,W\)</span> replaced by sets of random variables.</p>
+<p>We prove them in what follows (leaving the proof of contraction for an exercise).</p>
+<p>The proof of intersection requires that <span class="math notranslate nohighlight">\(P(X=x,Y=y,Z=z, W=w)&gt;0\)</span> for all <span class="math notranslate nohighlight">\(x,y,z,w\)</span>.</p>
+</section>
+<section id="proof-of-symmetry">
+<h2>Proof of symmetry<a class="headerlink" href="#proof-of-symmetry" title="Link to this heading">#</a></h2>
+<p>This follows from the equivalent characterization.</p>
+</section>
+<section id="proof-of-decomposition">
+<h2>Proof of Decomposition<a class="headerlink" href="#proof-of-decomposition" title="Link to this heading">#</a></h2>
+<p>Suppose that <span class="math notranslate nohighlight">\(X\bot Y, W\mid Z\)</span>. We want to show that <span class="math notranslate nohighlight">\(X\bot Y\mid Z\)</span>.</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(P(Y=y\wedge Z=z)&gt;0\)</span>. Then we have</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} P(X=x, Y=y \mid Z=z)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= \sum_w P(X=x, Y=y, W=w\mid Z=z)\)</span> since <span class="math notranslate nohighlight">\(P(\cdot\mid Z=z)\)</span> is a probability measure</p>
+<p><span class="math notranslate nohighlight">\(= \sum_w P(X=x\mid Z=z)\cdot P(Y=y, W=w\mid Z=z)\)</span> by writing both the conditional probabilities out and cancelling</p>
+<p><span class="math notranslate nohighlight">\(= P(X=x\mid Z=z)\cdot \sum_w P(Y=y, W=w\mid Z=z)\)</span> by factoring out</p>
+<p><span class="math notranslate nohighlight">\(= P(X=x\mid Z=z) \cdot P(Y=y\mid Z=z)\)</span> since since <span class="math notranslate nohighlight">\(P(\cdot\mid Z=z)\)</span> is a probability measure</p>
+</section>
+<section id="proof-of-weak-union">
+<h2>Proof of weak union<a class="headerlink" href="#proof-of-weak-union" title="Link to this heading">#</a></h2>
+<p>Suppose <span class="math notranslate nohighlight">\(X\bot Y,W \mid Z\)</span>. We want to show <span class="math notranslate nohighlight">\(X\bot Y \mid Z,W\)</span>.</p>
+<p>By Decomposition, <span class="math notranslate nohighlight">\(X\bot Y,W \mid Z\)</span> implies <span class="math notranslate nohighlight">\(X\bot W \mid Z\)</span>.</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(P(Y=y, W=w, Z=z)&gt;0\)</span>.</p>
+<p>Then one has</p>
+<p><span class="math notranslate nohighlight">\(\hspace{5mm} P(X=x\mid Y=y, Z=z, W=w)\)</span></p>
+<p><span class="math notranslate nohighlight">\(=P(X=x\mid Y=y, W=w, Z=z)\)</span></p>
+<p><span class="math notranslate nohighlight">\(=P(X=x\mid Z=z)\)</span> by <span class="math notranslate nohighlight">\(X\bot Y, W\mid Z\)</span></p>
+<p><span class="math notranslate nohighlight">\(=P(X=x\mid W=w, Z=z)\)</span> by <span class="math notranslate nohighlight">\(X\bot W \mid Z\)</span></p>
+</section>
+</section>
+<section id="proof-of-contraction">
+<h1>Proof of contraction<a class="headerlink" href="#proof-of-contraction" title="Link to this heading">#</a></h1>
+<p>We leave for exercise.</p>
+<section id="proof-of-intersection">
+<h2>Proof of intersection<a class="headerlink" href="#proof-of-intersection" title="Link to this heading">#</a></h2>
+<p>For this, we assume that <span class="math notranslate nohighlight">\(P(X=x,Y=y,Z=z, W=w)&gt;0\)</span> for all <span class="math notranslate nohighlight">\(x,y,z,w\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(X\bot Y\mid Z, W\)</span> and <span class="math notranslate nohighlight">\(X\bot W\mid Z,Y\)</span>. We want to show <span class="math notranslate nohighlight">\(X\bot Y, W \mid Z\)</span>. It suffices to show <span class="math notranslate nohighlight">\(Y\bot X \mid Z\)</span>, since by symmetry we would then have <span class="math notranslate nohighlight">\(X\bot Y \mid Z\)</span> and by contraction we get <span class="math notranslate nohighlight">\(X\bot W,Y\mid Z\)</span></p>
+<p>Now we show <span class="math notranslate nohighlight">\(Y\bot X \mid Z\)</span>. We want to show <span class="math notranslate nohighlight">\(P(Y=y\mid X=x, Z=z)=P(Y=y\mid Z=z)\)</span>.</p>
+<p>First note that one has the following, where the first identity follows from <span class="math notranslate nohighlight">\(X\bot Y\mid Z, W\)</span>, the second identity follows by rearranging, and the third identity follows from <span class="math notranslate nohighlight">\(X\bot W\mid Z,Y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[P(X=x \mid W=w, Z=z) = P(X=x\mid Y=y, Z=z, W=w)=P(X=x\mid W=w,Y=y, Z=z)= P(X=x\mid Y=y, Z=z)\]</div>
+<p>Let <span class="math notranslate nohighlight">\(P_z(A)=P(A\mid Z=z)\)</span>, which is a probability measure.</p>
+<p>Hence <span class="math notranslate nohighlight">\(P_z(X=x\mid W=w) = P_z(X=x\mid Y=y)\)</span>.</p>
+<p>Applying Bayes’ Theorem to both sides we get <span class="math notranslate nohighlight">\(\frac{P_z(W=w\mid X=x)\cdot P_z(X=x)}{P_z(W=w)}= \frac{P_z(Y=y\mid X=x)\cdot P_z(X=x)}{P_z(Y=y)}\)</span>.</p>
+<p>We cancel the common term and cross multiply to get <span class="math notranslate nohighlight">\(P_z(W=w| X=x)\cdot P_z(Y=y) = P_z(Y=y\mid X=x)\cdot P_z(W=w)\)</span>.</p>
+<p>By summing over all <span class="math notranslate nohighlight">\(w\)</span> on both sides we get:</p>
+<div class="math notranslate nohighlight">
+\[P_z(Y=y) = \sum_w P_z(W=w| X=x)\cdot P_z(Y=y) = \sum_w P_z(Y=y\mid X=x)\cdot P_z(W=w) = P_z(Y=y\mid X=x)\]</div>
+<p>Rewriting this implies <span class="math notranslate nohighlight">\(P(Y=y\mid Z=z)=P(Y=y\mid X=x, Z=z)\)</span>, which is what we wanted to show.</p>
+</section>
+</section>
+<section id="directed-graphs-and-random-variables">
+<h1>Directed graphs and random variables<a class="headerlink" href="#directed-graphs-and-random-variables" title="Link to this heading">#</a></h1>
+<section id="random-variables-as-nodes-in-a-directed-graph">
+<h2>Random variables as nodes in a directed graph<a class="headerlink" href="#random-variables-as-nodes-in-a-directed-graph" title="Link to this heading">#</a></h2>
+<p>Suppose that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n:\Omega\rightarrow \mathbb{R}\)</span> is a family of random variables, each distinct.</p>
+<p>Assume that there is a directed aclyclic graph structure <span class="math notranslate nohighlight">\(G=(V,E)\)</span> with nodes <span class="math notranslate nohighlight">\(V=\{X_1, \ldots, X_n\}\)</span>; usually we draw the edges just as arrows between the nodes.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathrm{Parents}_i\)</span> be the parents of <span class="math notranslate nohighlight">\(X_i\)</span>, i.e. the immediate predessors of <span class="math notranslate nohighlight">\(X_i\)</span> in the graph structure. We suppose that there an injective function <span class="math notranslate nohighlight">\(a_i:\{1, \ldots, n_i\}\rightarrow \{1, \ldots, n\}\)</span> such that <span class="math notranslate nohighlight">\(\mathrm{Parents}_i = \{X_{a_i(1)}, \ldots, X_{a_i(n_i)}\}\)</span>. Note that this function <span class="math notranslate nohighlight">\(a\)</span> depends on the enumeration of <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathrm{Descendents}_i\)</span> be all of the nodes which are below <span class="math notranslate nohighlight">\(X_i\)</span>, including <span class="math notranslate nohighlight">\(X_i\)</span> itself.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathrm{Nondescendents}_i\)</span> be all of the nodes which are not descendents of <span class="math notranslate nohighlight">\(X_i\)</span>, noting that this does not include <span class="math notranslate nohighlight">\(X_i\)</span> itself.</p>
+</section>
+<section id="factoring-theorem">
+<h2>Factoring Theorem<a class="headerlink" href="#factoring-theorem" title="Link to this heading">#</a></h2>
+<p><em>Theorem</em>. The following are equivalent for <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Relative to <span class="math notranslate nohighlight">\(P\)</span>, one has <span class="math notranslate nohighlight">\(X_i \bot \mathrm{Nondescendents}_i \mid \mathrm{Parents}_i\)</span> for all <span class="math notranslate nohighlight">\(1\leq i\leq n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(X_1=x_1, \ldots, X_n=x_n)= \prod_{i=1}^n P(X_i=x_i \mid X_{a_i(1)}= x_{a_i(1)}, \ldots, X_{a_i(n_i)}= x_{a_i(n_i)})\)</span>  for all values <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\)</span> such that <span class="math notranslate nohighlight">\(P(X_1=x_1, \ldots, X_n=x_n)&gt;0\)</span>.</p></li>
+</ol>
+<p><em>Proof</em>:</p>
+<p>First suppose 1; we show 2.</p>
+<p>Without loss of generality, we may assume that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> are ordered so that if <span class="math notranslate nohighlight">\(X_j\)</span> is a descendent of <span class="math notranslate nohighlight">\(X_i\)</span>, then <span class="math notranslate nohighlight">\(j&gt;i\)</span>.</p>
+<p>In general one has <span class="math notranslate nohighlight">\(P(X_1 =x_1, \ldots, X_n=x_n) = \prod_{i=1}^n P(X_i=x_i\mid X_1=x_1, \ldots, X_{i-1}=x_{i-1})\)</span> whenever the left-hand side is non-zero.</p>
+<p>Partition <span class="math notranslate nohighlight">\(\{X_1, \ldots, X_{i-1}\} = \{X_{a_i(1)}, \ldots, X_{a_i(n_i)}\}\sqcup \{X_{b_i(1)}, \ldots X_{b_i(m_i)}\}\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(\{X_{b_i(1)}, \ldots X_{b_i(m_i)}\}\subseteq \mathrm{Nondescendents}_i\)</span>. For, if <span class="math notranslate nohighlight">\(X_{b_i(k)}\)</span> in <span class="math notranslate nohighlight">\(\mathrm{Descendents}_i\)</span>, we have by construction that <span class="math notranslate nohighlight">\(b_i(k)&gt;i\)</span>, which is incompatible with <span class="math notranslate nohighlight">\(X_{b_i(k)}\)</span> being in <span class="math notranslate nohighlight">\(\{X_1, \ldots, X_{i-1}\}\)</span>.</p>
+<p>Then by <span class="math notranslate nohighlight">\(X_i \bot \mathrm{Nondescendents}_i \mid \mathrm{Parents}_i\)</span> and Decomposition we have that <span class="math notranslate nohighlight">\(X_i \bot X_{b_i(1)}, \ldots X_{b_i(n_i)} \mid \mathrm{Parents}_i\)</span>. Then we have <span class="math notranslate nohighlight">\(P(X=x_i \mid X_1=x_1, \ldots, X_{i-1}=x_{i-1}) = P(X_i=x_i \mid X_{a_i(1)}= x_{a_i(1)}, \ldots, X_{a_i(n_i)}= x_{a_i(n_i)})\)</span>.</p>
+<p>Before showing 2 to 1, we introduce a definition and prove a lemma.</p>
+</section>
+<section id="lemma-on-non-trivial-parent-closed-sets">
+<h2>Lemma on non-trivial parent-closed sets<a class="headerlink" href="#lemma-on-non-trivial-parent-closed-sets" title="Link to this heading">#</a></h2>
+<p><em>Definition</em>. The rank of <span class="math notranslate nohighlight">\(X_i\)</span> is zero if <span class="math notranslate nohighlight">\(X_i\)</span> has no descendents. The rank of <span class="math notranslate nohighlight">\(X_i\)</span> is <span class="math notranslate nohighlight">\(k+1\)</span> if <span class="math notranslate nohighlight">\(X_i\)</span> is the parent of a rank <span class="math notranslate nohighlight">\(k\)</span> node.</p>
+<p>Hence, note that if a node has rank <span class="math notranslate nohighlight">\(\geq k\)</span>, then so too do its parents.</p>
+<p><em>Definition</em>: A set of nodes is <em>parent-closed</em> if the parents of any node in the set is also in the set. A parent-closed set of is <em>non-trivial</em> if there are some nodes in the set which are parents of a node (which may or may not be in the set).</p>
+<p><em>Lemma</em>. Suppose 2 above holds. Then for all <span class="math notranslate nohighlight">\(k\geq 0\)</span>, if <span class="math notranslate nohighlight">\(Y_1, \ldots, Y_m\)</span> enumerates a non-trivial parent-closed set of nodes of rank <span class="math notranslate nohighlight">\(\geq k\)</span> without repetition, then <span class="math notranslate nohighlight">\(P(Y_1=y_1, \ldots, Y_m=y_m)= \prod_{i=1}^m P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)})\)</span>  for all values <span class="math notranslate nohighlight">\(y_1, \ldots, y_m\)</span> such that <span class="math notranslate nohighlight">\(P(Y_1=y_1, \ldots, Y_m=y_m)&gt;0\)</span>.</p>
+<p><em>Proof</em>: this is by induction on <span class="math notranslate nohighlight">\(k\)</span>. The base case <span class="math notranslate nohighlight">\(k=0\)</span> holds by the assumption of 2.</p>
+<p>Suppose it holds for <span class="math notranslate nohighlight">\(k\)</span>; we show it holds for <span class="math notranslate nohighlight">\(k+1\)</span>. Suppose that <span class="math notranslate nohighlight">\(Y_1, \ldots, Y_m\)</span> enumerates a non-trivial parent-closed set of nodes of rank <span class="math notranslate nohighlight">\(\geq k+1\)</span>. By non-triviality, suppose that <span class="math notranslate nohighlight">\(Y_{m+1}, \ldots, Y_{\ell}\)</span> are nodes of rank <span class="math notranslate nohighlight">\(k\)</span> whose parents are among <span class="math notranslate nohighlight">\(Y_1, \ldots, Y_m\)</span>.</p>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(m&lt;i\leq \ell\)</span> we have that <span class="math notranslate nohighlight">\(a_i\)</span> maps into <span class="math notranslate nohighlight">\(\{1, \ldots, m\}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_1, \ldots, Y_{m}, Y_{m+1}, \ldots, Y_{\ell}\)</span> is a non-trivial parent-closed set of nodes of rank <span class="math notranslate nohighlight">\(\geq k\)</span>.</p></li>
+</ul>
+<p>Then one has</p>
+<p><span class="math notranslate nohighlight">\(P(Y_1=y_1, \ldots, Y_m=y_m)=\sum_{y_{m+1}, \ldots, y_{\ell}} P(Y_1=y_1, \ldots, Y_{\ell}=y_{\ell})\)</span></p>
+<p><span class="math notranslate nohighlight">\( = \sum_{y_{m+1}, \ldots, y_{\ell}} \prod_{i=1}^{\ell} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)}) \)</span> by induction hypothesis</p>
+<p><span class="math notranslate nohighlight">\( = \sum_{y_{m+1}, \ldots, y_{\ell}} \prod_{i=1}^{m} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)}) \cdot \prod_{i=m+1}^{\ell} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)})\)</span></p>
+<p><span class="math notranslate nohighlight">\( = \prod_{i=1}^{m} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)}) \cdot  \sum_{y_{m+1}, \ldots, y_{\ell}} \prod_{i=m+1}^{\ell} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)})\)</span> by first bullet point</p>
+<p><span class="math notranslate nohighlight">\( = \prod_{i=1}^{m} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)}) \cdot 1\)</span> by a simple induction on <span class="math notranslate nohighlight">\(\ell-(m+1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= \prod_{i=1}^{m} P(Y_i=y_i \mid Y_{a_i(1)}= y_{a_i(1)}, \ldots, Y_{a_i(n_i)}= y_{a_i(n_i)})\)</span></p>
+</section>
+<section id="finishing-proof-of-factoring-theorem">
+<h2>Finishing proof of factoring theorem<a class="headerlink" href="#finishing-proof-of-factoring-theorem" title="Link to this heading">#</a></h2>
+<p>Now we finish the proof from 2 to 1.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\mathrm{Nondescendents}_i\)</span> is a non-trivial parent-closed set nodes of rank <span class="math notranslate nohighlight">\(k\geq 0\)</span>, and <span class="math notranslate nohighlight">\(\{X_i\}\cup \mathrm{Nondescendents}_i\)</span> is a non-trivial parent-closed set nodes of rank <span class="math notranslate nohighlight">\(k+1\)</span>.</p>
+<p>Enumerate without repetition <span class="math notranslate nohighlight">\(\mathrm{Nondescendents}_i\)</span> as <span class="math notranslate nohighlight">\(Y_1, \ldots Y_m\)</span> and set <span class="math notranslate nohighlight">\(Y_{m+1}=X_i\)</span>.</p>
+<p>Further, set <span class="math notranslate nohighlight">\(z_1=y_1, \ldots, z_m=y_m\)</span>, and likewise set <span class="math notranslate nohighlight">\(Z_1=Y_1, \ldots, Z_m=Y_m, Z_{m+1}=Y_{m+1}\)</span>.</p>
+<p>Then one has:</p>
+<p><span class="math notranslate nohighlight">\(P(Y_{m+1}=y_{m+1} \mid Y_1=y_1, \ldots, Y_m=y_m)\)</span></p>
+<p><span class="math notranslate nohighlight">\(=\frac{P(Y_1=y_1, \ldots, Y_m=y_m, Y_{m+1}=y_{m+1})}{P(Y_1=y_1, \ldots, Y_m=y_m,)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(=\frac{P(Y_1=y_1, \ldots, Y_m=y_m, Y_{m+1}=y_{m+1})}{\sum_{z_{m+1}} P(Z_1=z_1, \ldots, Z_m=z_m, Z_{m+1}=z_{m+1})}\)</span></p>
+<p><span class="math notranslate nohighlight">\(=\frac{ \prod_{j=1}^{m+1} P(Y_j=y_j \mid Y_{a_j(1)}= y_{a_j(1)}, \ldots, Y_{a_j(n_j)}= y_{a_j(n_j)})   }{ \sum_{z_{m+1}}  \prod_{j=1}^{m+1} P(Z_j=z_j \mid Z_{a_j(1)}= z_{a_j(1)}, \ldots, Z_{a_j(n_j)}= z_{a_j(n_j)})  }\)</span> by two applications of lemma</p>
+<p><span class="math notranslate nohighlight">\( = \frac{ P(Y_m=y_m \mid Y_{a_m(1)}= y_{a_m(1)}, \ldots, Y_{a_m(n_m)}= y_{a_j(n_j)})\cdot \prod_{j=1}^{m} P(Y_j=y_j \mid Y_{a_j(1)}= y_{a_j(1)}, \ldots, Y_{a_j(n_j)}= y_{a_j(n_j)})   }{ \sum_{z_{m+1}}   P(Z_{m+1}=z_{m+1} \mid Z_{a_{m+1}(1)}= z_{a_{m+1}(1)}, \ldots, Z_{a_{m+1}(n_{m+1})}= z_{a_{m+1}(n_{m+1})}) \cdot \prod_{j=1}^{m} P(Z_j=z_j \mid Z_{a_j(1)}= z_{a_j(1)}, \ldots, Z_{a_j(n_j)}= z_{a_j(n_j)})  }\)</span></p>
+<p><span class="math notranslate nohighlight">\(= \frac{ P(Y_m=y_m \mid Y_{a_m(1)}= y_{a_m(1)}, \ldots, Y_{a_m(n_m)}= y_{a_j(n_j)})\cdot \prod_{j=1}^{m} P(Y_j=y_j \mid Y_{a_j(1)}= y_{a_j(1)}, \ldots, Y_{a_j(n_j)}= y_{a_j(n_j)})   }{  \prod_{j=1}^{m} P(Z_j=z_j \mid Z_{a_j(1)}= z_{a_j(1)}, \ldots, Z_{a_j(n_j)}= z_{a_j(n_j)})  }\)</span></p>
+<p><span class="math notranslate nohighlight">\( = P(Y_m=y_m \mid Y_{a_m(1)}= y_{a_m(1)}, \ldots, Y_{a_m(n_m)}= y_{a_j(n_j)})\)</span>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -462,7 +655,52 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 17</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-task-and-a-guiding-idea">A task and a guiding idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#axiomatizing-independence">Axiomatizing independence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-independence-of-events">Recall independence of events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-independence-of-random-variables">Recall independence of random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commas-for-conjunction-or-finite-union">Commas for conjunction or finite union</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumption-that-we-are-in-a-finite-sample-space">Assumption that we are in a finite sample space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-relative-independence-of-events">Definition relative independence of events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-characterization">Equivalent characterization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-relative-independence-of-random-variables">Definition relative independence of random variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Equivalent characterization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation-and-conventions-for-sets-of-random-variables">Notation and conventions for sets of random variables</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-relative-independence">Properties of relative independence</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposition">Proposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-symmetry">Proof of symmetry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-decomposition">Proof of Decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-weak-union">Proof of weak union</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-contraction">Proof of contraction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-intersection">Proof of intersection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs-and-random-variables">Directed graphs and random variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-as-nodes-in-a-directed-graph">Random variables as nodes in a directed graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-theorem">Factoring Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemma-on-non-trivial-parent-closed-sets">Lemma on non-trivial parent-closed sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finishing-proof-of-factoring-theorem">Finishing proof of factoring theorem</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
